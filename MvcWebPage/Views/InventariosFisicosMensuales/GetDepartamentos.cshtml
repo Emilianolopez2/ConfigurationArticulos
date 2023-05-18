@@ -1,0 +1,109 @@
+﻿@using MvcWebPage.MLAVID
+
+@{
+    var Grid1 = Html.JqxGrid<IT_SELECCIONAR_ARTICULOSResult>("Grid1");
+
+}
+
+<script>
+
+    function GetDepartamentos() {
+
+        $("#bnts").empty();
+
+        
+
+        $('#jqxLoader').jqxLoader('open');
+
+        getData2('@Url.Action("GetDepartamentos", "InventariosFisicosMensuales")',
+
+       
+            { sucursal: sucursal },
+         
+           
+            //{ sucursal: 123, nombre: 'jose' },
+            function (respuesta) {
+
+                respuesta = JSON.parse(respuesta);
+                
+               
+          
+                
+                //console.log(respuesta.rs);
+                $('#jqxLoader').jqxLoader('close');
+                if (respuesta.code == -1) {
+
+                    return;
+                }
+
+              
+                $.each(respuesta.rs,
+                    function (index, value) {
+
+                        //console.log(value);
+
+
+                        var inputToAdd = $("<input/>", { type: "button", id: "btn_" + value.NUMDPTO, value: value.DESCRIPCION });
+
+                        //if (value.MODIFICADO == "0") {
+                            inputToAdd.jqxButton({ width: 183, height: 30, template: "primary" });
+                        //}
+
+                        if (editar2 == true) {
+                            btns.get("btn_" + value.NUMDPTO).jqxButton({ template: "success", theme: "" });
+                        }
+
+                        if (value.MODIFICADO == 1) {
+                            inputToAdd.jqxButton({ width: 183, height: 30, template: "success" });
+                        }
+
+                        if (value.MODIFICADO == 2) {
+                            //inputToAdd.jqxButton({ width: 180, height: 30, template: "secondary" });
+                            inputToAdd.jqxButton({ width: 183, height: 30, theme: "custom1" });
+
+                        }
+
+                        
+
+                        inputToAdd.css('margin-right', '3px');
+                        inputToAdd.css('margin-bottom', '3px');
+
+                        $("#bnts").append(inputToAdd);
+
+                        dta.set("btn_" + value.NUMDPTO, value);
+                        btns.set("btn_" + value.NUMDPTO, inputToAdd);
+
+                        inputToAdd.click(function (e) {
+                            var id = e.currentTarget.id;
+                            
+                            
+                            /*
+                            if (editar==true){
+                                return;
+                            }*/
+
+                            tmp_numdpto=dta.get(id).NUMDPTO;
+
+                            /**************************/
+                            $(".Show3_2").css('display', 'none');
+                            $(".Show4_2").css('display', '');
+                            $("#eSucursal").html(tmp_lbSucursal);
+                            /**************************/
+
+                            $('.Show5').css('display', '');
+                            $('.Show6').css('display', 'none');
+                            
+
+                            GetSeleccionarArticulos();
+                         
+
+                        });
+
+                    });
+
+            });
+
+           
+    }
+
+</script>

@@ -1,0 +1,35 @@
+﻿@using MvcWebPage.MLAVID
+
+@{
+    var Grid1 = Html.JqxGrid<IT_PEDIDOSResult>("Grid1");
+    var cbEstatus = Html.JqxDropDownList("cbEstatus");
+
+    cbEstatus.Width("203")
+        .PromptText("------------------------------------")
+        .DropDownHeight("203")
+        .DisplayMember("ESTATUS")
+        .ValueMember("ID")
+        .Source("[{ID:'', ESTATUS:'Todos'},{ID:'0', ESTATUS:'Por Autorizar'},{ID:'1', ESTATUS:'Rechazado'},{ID:'2', ESTATUS:'Entrega Pendiente'},{ID:'3', ESTATUS:'En Transito'}]")
+        .SelectedIndex("1")
+        .Create();
+
+}
+
+<script>
+
+
+        $("#cbEstatus").bind('select',
+            function (event) {
+                if (event.args && event.args.item) {
+                    
+                    //$("#lbSucursal").html(event.args.item.label.toLowerCase());
+                    
+                    //sucursal = event.args.item.value;
+
+
+                }
+
+            });
+
+
+</script>

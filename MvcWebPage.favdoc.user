@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Favorites xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <folders>
+    <Folder>
+      <name>Pedidos Autorizados</name>
+      <folders />
+      <favorites>
+        <Favorite>
+          <name>PedidosAutorizados.cshtml</name>
+          <path>MvcWebPage\Views\Proveedores\PedidosAutorizados\PedidosAutorizados.cshtml</path>
+          <absolutePath>C:\Users\Lorenzo Cuellar\Desktop\MvcWebPage\MvcWebPage\Views\Proveedores\PedidosAutorizados\PedidosAutorizados.cshtml</absolutePath>
+        </Favorite>
+      </favorites>
+    </Folder>
+    <Folder>
+      <name>Folder</name>
+      <folders />
+      <favorites>
+        <Favorite>
+          <name>AutorizarPedidos.cshtml</name>
+          <path>MvcWebPage\Views\Proveedores\AutorizarPedidos\AutorizarPedidos.cshtml</path>
+          <absolutePath>C:\Users\Lorenzo Cuellar\Desktop\MvcWebPage\MvcWebPage\Views\Proveedores\AutorizarPedidos\AutorizarPedidos.cshtml</absolutePath>
+          <position>
+            <line>24</line>
+            <column>29</column>
+            <lineHash>eUM65k0p8iFxeYqul67ApNJFaCWyHw0lddIUE60v9d8=</lineHash>
+          </position>
+        </Favorite>
+      </favorites>
+    </Folder>
+  </folders>
+  <favorites />
+</Favorites>

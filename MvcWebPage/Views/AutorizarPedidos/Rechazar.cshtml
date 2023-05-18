@@ -1,0 +1,40 @@
+﻿@using MvcWebPage.MLAVID
+
+<input type="button" value="Rechazar" id="btnRechazar" />
+
+<script>
+
+    $("#btnRechazar").jqxButton({ width: 75, height: 30, template: "danger" });
+
+    $("#btnRechazar").click(function (e) {
+
+        MsgBoxOKCancel("Quieres rechazar el pedido?", 4,function(){
+        
+            getData2('@Url.Action("RechazarPedido", "AutorizarPedidos")',
+                { pedido_aut: _Grid1 },
+                function (respuesta) {
+                    respuesta = JSON.parse(respuesta);
+
+
+                    if (respuesta.code == 0) {
+                        // alert("ok");
+
+                        $(".Show1").css('display', '');
+                        $(".Show2").css('display', 'none');
+
+                        GetPedidosAutorizados();
+
+                        MsgBoxOK2("El pedido se rechazo correctamente.", 5);
+
+                    }
+
+                });
+        
+        });
+
+
+    });
+    
+    
+    
+</script>

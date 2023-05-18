@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "Pagina 1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Pagina 1</h2>
+
+
+@if (User.HasClaim("PedLibre","1"))
+{
+    <div>PedLibre OK</div>
+}
+
+
+@if (User.HasClaim("PedModifica", "1"))
+{
+    <div>PedModifica OK</div>
+}
+
+
+@if (User.HasClaim("PedElimina", "1"))
+{
+    <div>PedElimina OK</div>
+}

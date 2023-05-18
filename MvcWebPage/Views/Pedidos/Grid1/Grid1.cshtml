@@ -1,0 +1,320 @@
+﻿@using MvcWebPage.MLAVID
+
+@{
+    var Grid2 = Html.JqxGrid<IT_PEDIDOS_AUT_DETResult>("Grid2");
+
+    var Grid1 = Html.JqxGrid<IT_PEDIDOS_AUTPResult>("Grid1");
+
+    Grid1.Width("100%")
+        //.Editable(true)
+        .EnableBrowserSelection(true)
+        
+        .RowsHeight("36")
+        .Ready("Grid1Ready")
+        .Rendered("Grid1Rendered")
+        //.EditMode("dblclick")
+        //.ColumnsHeight("37")
+        .Sortable(true)
+        .ShowSortMenuItems(false)
+        .Columns(column =>
+        {
+
+            column.Add(p => p.ID)
+                .Visible(true);
+
+            column.Add(p => p.CODPROVEEDOR)
+                .Visible(false);
+
+            column.Add(p => p.IDESTADO)
+                .Visible(false);
+
+            column.Add(p => p.NUMPEDIDO)
+                .Visible(false);
+
+            column.Add(p => p.NUMSERIE)
+                .Visible(false);
+
+            column.Add(p => p.CODALMACEN)
+                .Visible(false);
+
+            column.Add(p => "SUBIR_DOC")
+                .CellsRenderer("subirDoc1")
+                .Text("Subir Doc")
+                //.ButtonClick(@Html.Partial("GenerarPedidos/Grid2/Grid2Editar"))
+                .Width("135");
+
+            column.Add(p => p.NOMBREALMACEN)
+                .Text("Sucursal")
+                .Width("170");
+
+            column.Add(p => p.FECHAPEDIDO)
+                .Type("date")
+                .CellsAlign("center")
+                .CellsFormat("dd/MM/yyyy")
+                .Text("Emisión")
+                .Width("170");
+
+            column.Add(p => p.ENTREGA_ESTIMADA)
+                .Type("date")
+                .CellsAlign("center")
+                .CellsFormat("dd/MM/yyyy")
+                .Text("Entrega")
+                .Width("170");
+
+
+            column.Add(p => p.ORDEN_DE_COMPRA)
+                .CellsAlign("center")
+                .Text("Orden de Compra")
+                .CellClassName("'cellh'")
+                .CellsRenderer("detalle1")
+                .Width("170");
+
+
+            //column.Add(p => "Detalle")
+            //    .CellsRenderer("detalle1")
+            //    .Text("Detalle")
+            //    .Width("70");
+
+            column.Add(p => p.ESTATUS)
+                .CellsAlign("center")
+                .Text("Estatus")
+                .Width("170");
+
+            column.Add(p => p.TOTBRUTO)
+                .CellsAlign("center")
+                .CellsFormat("C2")
+                .Text("Importe")
+                .Width("170");
+
+            column.Add(p => p.TOTIMPUESTOS)
+                .CellsAlign("center")
+                .CellsFormat("C2")
+                .Text("Impuestos")
+                .Width("170");
+
+
+            column.Add(p => p.TOTNETO)
+                .CellsAlign("center")
+                .CellsFormat("C2")
+                .Text("Total")
+                .Width("170");
+
+            column.Add(p => p.NO_FACTURA)
+                .CellsAlign("center")
+                .Text("No. Factura")
+                .Width("170");
+
+            column.Add(p => p.RES_VALIDACION)
+                .CellsAlign("center")
+                .Text("Resultado Validacion")
+                .Width("170");
+
+        }).Create();
+
+}
+<div align="center"></div>
+
+<script>
+
+
+    var subirDoc1 = function (row, column, value) {
+        var data = $("#Grid1").jqxGrid('getrowdata', row);
+
+        //if (data.ESTATUS == 1) {
+        return '<div  style="padding-bottom:3px;padding-top:2px; padding-left:3px; padding-right:3px;"><input value="Subir Factura" type="button" class="btnGrid_1" onclick="subirDocClick1(' + row + ')" /></div>';
+        //}
+
+        return "";
+    }
+    
+    function subirDocClick1(row) {
+        var data = $("#Grid1").jqxGrid('getrowdata', row);
+        
+        console.log(data);
+    }
+
+
+    var detalle1 = function (row, column, value) {
+        //var data = $("#Grid1").jqxGrid('getrowdata', row);
+        //<input value="--" type="button" class="btnGrid_2" onclick="enviarClick2(' + row + ')" />
+        return '<div  style="padding-bottom:3px;padding-top:0px; padding-left:3px; padding-right:3px;" align="center"><a class="grid1Link" href="#" onclick="actDetalle1(' + row + ')">' + value + '</a></div>';
+    }
+    
+    
+    function actDetalle1(row){
+        var data = $("#Grid1").jqxGrid('getrowdata', row);
+        
+        $(".Show1").css('display', 'none');
+        $(".Show2").css('display', '');
+        //alert(data.ID + " " + data.NUMPEDIDO + " " + data.NUMSERIE);
+        $('#Filtro1').jqxWindow('close');
+        
+        var fecha1 = $.jqx.dataFormat.formatdate(data.FECHAPEDIDO, 'dd/MM/yyyy');
+        $("#eFecha").html(fecha1);
+        $("#ordCompra").html(data.ID);
+
+        $("#tSubTotal").html(numeral(data.TOTBRUTO).format('$0,0.00'));
+        $("#tTotal").html(numeral(data.TOTNETO).format('$0,0.00'));
+
+        $('#jqxLoader').jqxLoader('open');
+
+        getData2('@Url.Action("GetPedidosAutorizadosDet", "Pedidos")',
+            { id: data.ID, numpedido: data.NUMPEDIDO, numserie: data.NUMSERIE, sucursal: data.CODALMACEN, codproveedor: data.CODPROVEEDOR },
+            function (respuesta) {
+
+                respuesta = JSON.parse(respuesta);
+                
+                //console.table(respuesta.rs);
+
+                $('#jqxLoader').jqxLoader('close');
+                if (respuesta.code == -1) {
+
+                    return;
+                }
+                
+                $("#lEmpresa").html('');
+                $("#lDireccion").html('');
+                $("#lRfc").html('');
+                $("#lMoneda").html('');
+
+                $("#pNombre").html('');
+                $("#pDireccion").html('');
+                $("#pPais").html('');
+                $("#pTelefonos").html('');
+                
+                if (!isEmpty(respuesta.rs2)) {
+                    var dta = respuesta.rs2;
+
+                    var lArrDireccion = new Array();
+
+                    if (dta.DIRECCION != "") {
+                        lArrDireccion.push(dta.DIRECCION)
+                    }
+
+                    if (dta.DIRECCION2 != "") {
+                        lArrDireccion.push(dta.DIRECCION2)
+                    }
+
+                    if (dta.PROVINCIA != "") {
+                        lArrDireccion.push(dta.PROVINCIA + " C.P. " + dta.CODPOSTAL)
+                    }else{
+                        lArrDireccion.push("C.P. " + dta.CODPOSTAL)
+                    }
+
+                    var arr2 = lArrDireccion.join("<br>");
+
+                    $("#lEmpresa").html(dta.NOMBRE);
+                    $("#lDireccion").html(arr2);
+                    $("#lRfc").html(dta.CIF);
+                }
+
+
+                if (!isEmpty(respuesta.rs3)) {
+                    var dta = respuesta.rs3;
+                    
+                    
+                    var pArrDireccion = new Array();
+                    
+                    if (dta.DIRECCION1 != ""){
+                        pArrDireccion.push(dta.DIRECCION1)
+                    }
+
+                    if (dta.DIRECCION2 != "") {
+                        pArrDireccion.push(dta.DIRECCION2)
+                    }
+
+                    if (dta.PROVINCIA != "") {
+                        pArrDireccion.push(dta.PROVINCIA)
+                    }
+                  
+
+                    var arr3 = pArrDireccion.join("<br>");
+
+
+                    $("#pNombre").html(dta.NOMPROVEEDOR);
+                    $("#pDireccion").html(arr3);
+                    $("#pPais").html(dta.PAIS + " C.P. " + dta.CODPOSTAL);
+                    $("#pTelefonos").html(dta.TELEFONO1 + " " + dta.TELEFONO2);
+                }
+                
+
+
+                @(Grid2.SetSource("respuesta.rs"))
+
+                var iva = 0;
+                var ieps = 0;
+
+                    for (const value of respuesta.rs) {
+                        iva += value.TOTIVA;
+                        ieps += value.TOTREQ;
+                    }
+
+                $("#tIEPS").html(numeral(ieps).format('$0,0.00'));
+                $("#tIVA").html(numeral(iva).format('$0,0.00'));
+                
+                if (respuesta.monedaDesc!=""){
+                    $("#lMoneda").html(respuesta.monedaDesc);
+
+                    if (respuesta.monedaCot != "") {
+                        $("#lMoneda").html($("#lMoneda").html() + " (" + respuesta.monedaCot + ")");
+                    }
+                }
+        });
+
+    }
+
+    var cellclass1 = function (row, columnfield, value, data) {
+        
+        
+
+        if (data.COLOR == 1) {
+            return 'cellYellow';
+        }
+
+        if (data.COLOR == 2) {
+            return 'cellRed';
+        }
+
+
+        return '';
+
+    };
+    
+
+    //********************************************************************/
+    
+
+    
+    var Grid1Ready=function(){
+        
+    }
+
+    var Grid1Rendered=function(){
+        
+        //$('#Grid1').jqxGrid({ autorowheight: true });
+        $("#Grid1").jqxGrid("autoresizecolumns");
+        $("#Grid1").jqxGrid('setcolumnproperty', 'NOMPROVEEDOR', 'width', 250);
+        $("#Grid1").jqxGrid('setcolumnproperty', 'Detalle', 'width', 70);
+        $("#Grid1").jqxGrid('setcolumnproperty', 'SUBIR_DOC', 'width', 135);
+
+        //$("#Grid1").jqxGrid('setcolumnproperty', 'EXISTENCIA_ACTUAL', 'width', 90);
+        //$("#Grid1").jqxGrid('setcolumnproperty', 'MULTIPLOPEDIR', 'width', 90);
+        //$("#Grid1").jqxGrid('setcolumnproperty', 'CANTIDAD_PEDIDA', 'width', 90);
+        
+        //$(".GridMP").parent().parent().addClass('GridMP');
+
+        $(".grid1Link").off('click');
+        $(".grid1Link").click(function (event) {
+            event.preventDefault();
+            
+        });
+        
+        
+        
+    }
+    
+
+
+
+
+</script>

@@ -1,0 +1,61 @@
+﻿@using MvcWebPage.MLAVID
+
+<input type="button" value="Guardar" id="GuardarInventarios" />
+
+<script>
+
+    $("#GuardarInventarios").jqxButton({ width: 100, height: 30, template: "success" });
+
+    $("#GuardarInventarios").click(function (e) {
+
+        $('.Show5').css('display', 'none');
+        $('.Show6').css('display', '');
+        
+
+        reqParam.data2 = s_Grid10.localdata;
+        reqParam.sucursal = sucursal;
+        reqParam.numdpto = tmp_numdpto;
+        reqParam.GridCab = _Grid11;
+
+
+
+        $(".Show3_2").css('display', '');
+        $(".Show4_2").css('display', 'none');
+
+
+        //********************************* */
+        for (const value of btns.values()) {
+
+            value.jqxButton({ template: "primary", theme: "", disabled: false });
+        }
+
+        $("#eFecha").html(tmp_fecha);
+        tmp_fecha = "";
+
+        //GetDepartamentoColor();
+
+        //********************************* */
+
+
+        getData2('@Url.Action("EnviarDatos", "InventariosFisicosMensuales")',
+            //{ data: s_Grid10.localdata, sucursal: sucursal, numdpto: numdpto },
+            //function (respuesta) {
+            //    respuesta = JSON.parse(respuesta);
+            //                    });
+
+            reqParam,
+            function (respuesta) {
+                respuesta = JSON.parse(respuesta);
+
+                _Grid11 = null;
+
+
+                GetInventarios();
+                
+                MsgBoxOK2("<h4><strong>Registros guardados correctamente.</strong></h4>", 5);
+
+            });
+
+    });
+
+</script>

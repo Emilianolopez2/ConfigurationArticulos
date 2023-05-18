@@ -1,0 +1,165 @@
+﻿{
+   "CodeGenerationMode": 3,
+   "ContextClassName": "MLAVIDContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "MLAVID",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "MvcWebPage",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[ALMACEN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ARTICULOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DEPARTAMENTO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IMPUESTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_ARTICULOS_PROVEEDOR]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_INV_MENSUALES_CAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_INV_MENSUALES_LIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_PEDIDOS_CAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_PEDIDOS_LIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_PEDIDOS_NUMPEDIDOS_CAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_PEDIDOS_NUMPEDIDOS_LIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_PERFILES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MONEDAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MOVIMENTS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PEDCOMPRACAB]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PEDCOMPRALIN]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PEDCOMPRATOT]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROVEEDORES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REM_FRONTS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SUCURSALES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VENDEDORES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_DEPARTAMENTO]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[IT_DETALLESINV]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[IT_LOGIN]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[IT_PEDIDOS_AUT_DET]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[IT_PEDIDOS_AUT]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[IT_PEDIDOS_AUTP]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[IT_PEDIDOS_CAB2]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[IT_PEDIDOS]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[IT_SELECCIONAR_ARTICULOS]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[IT_SELECT_MOD]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[IT_USUARIOS]",
+         "ObjectType": 1
+      }
+   ],
+   "UiHint": "DESKTOP-909HMSI\\SQLEXPRESS.MLAVID",
+   "UncountableWords": null,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": true,
+   "UseDateOnlyTimeOnly": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false,
+   "UseT4": false
+}

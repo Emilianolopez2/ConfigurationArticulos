@@ -1,0 +1,160 @@
+﻿@using MvcWebPage.MLAVID
+
+@{
+    ViewData["Title"] = "CuentasUsuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Cuentas De Usuario</h4>
+
+
+<div style="border-bottom: 1px solid silver; margin-top: 5px; margin-bottom: 10px;"></div>
+
+<table style="width: 100%;">
+    <tr>
+        <td style="padding-right: 5px; width: 0px;">
+            PERFILES:
+        </td>
+        <td style="width: 0px;">
+            
+            @{
+                var cbRoles1 = Html.JqxDropDownList("cbRoles1");
+
+                cbRoles1.Width("203")
+
+                    .PromptText("------------------------------------")
+                    .DropDownHeight("203")
+                    .DisplayMember("descripcion")
+                .ValueMember("tipoUsuario")
+                    .Create();
+            }
+
+        </td>
+        <td style="padding-left: 15px; padding-right: 5px; width: 0px;">
+            USUARIO:
+        </td>
+        <td style="width: 0px;">
+            <input type="text" id="txUsuario" style="text-align: center;" />
+        </td>
+        <td align="" style="padding-left: 15px;">
+            <input type="button" value="Buscar" id='btnBuscar' />
+        </td>
+    </tr>
+</table>
+
+
+<div style="border-bottom: 1px solid silver; margin-top: 5px; margin-bottom: 10px;"></div>
+
+@{
+    var Grid1 = Html.JqxGrid<IT_USUARIOSResult>("Grid1");
+
+    Grid1.Width("100%")
+        //.Editable(true)
+        .EnableBrowserSelection(true)
+        .EditMode("dblclick")
+        .Sortable(true)
+        .Columns(column =>
+        {
+            column.Add(p => p.NOMVENDEDOR)
+                .Text("Usuario")
+                //.Editable(false)
+                .Width("170");
+
+            column.Add(p => p.TIPOUSUARIO)
+                .Text("TipoUsuario")
+                .Width("170");
+
+            column.Add(p => p.PerfilDescripcion)
+                .Text("Perfil Descripcion")
+                //.Editable(false)
+                .Width("170");
+
+
+            column.Add(p => p.PedLibre)
+                .Text("PedLibre")
+                //.Editable(false)
+                .ColumnType("checkbox")
+                .Width("170");
+
+            column.Add(p => p.PedElimina)
+                .Text("PedElimina")
+                //.Editable(false)
+                .ColumnType("checkbox")
+                .Width("170");
+
+
+            column.Add(p => p.PedModifica)
+                .Text("PedModifica")
+                //.Editable(false)
+                .ColumnType("checkbox")
+                .Width("170");
+
+            /*
+            column.Add(p => "Edit")
+                .ColumnType("button")
+                .CellsRenderer("function() {return \"--\";}")
+                .Text("Edit")
+                //.ButtonClick("g1")
+                .Width("70");*/
+        }).Create();
+
+}
+
+<!---------------------------------------------------------------------------------------------------------------->
+@section ScriptFooter{
+    <script>
+
+        $("#txUsuario").jqxInput({ height: 30, width: 250, });
+        $("#btnBuscar").jqxButton({ width: 100, height: 30, template: "primary" });
+
+        //***************************************************************************************+**/
+
+        getData2('@Url.Action("GetPerfiles", "Acceso")',
+            {  },
+            function (respuesta) {
+                respuesta = JSON.parse(respuesta);
+                
+
+                if (respuesta.code == 0) {
+                    // alert("ok");
+                    
+                            @(cbRoles1.SelectedIndex("0")
+                                .Source("respuesta.rs")
+                                .GetScript())
+                }
+
+            });
+
+        //***************************************************************************************+**/
+        $("#btnBuscar").click(function (e) {
+
+            var data = {};
+            var index = @(cbRoles1.SelectedIndex());
+            var tipoUsuario = @(cbRoles1.GetItem("index"));
+
+            data.tipoUsuario = tipoUsuario.value;
+            data.usuario = $("#txUsuario").val();
+
+
+        
+            getData2('@Url.Action("GetUsuarios", "Acceso")',
+                data,
+                function (respuesta) {
+                    respuesta = JSON.parse(respuesta);
+
+
+                    if (respuesta.code == 0) {
+                        // alert("ok");
+
+                        
+                            @(Grid1.SetSource("respuesta.rs"))
+
+                     }
+
+                });
+        
+        });
+    
+    </script>
+}
+

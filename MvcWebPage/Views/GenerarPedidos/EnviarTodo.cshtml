@@ -1,0 +1,43 @@
+﻿@using MvcWebPage.MLAVID
+
+<input type="button" value="Enviar Todo" id="EnviarTodo" />
+
+<script>
+
+    $("#EnviarTodo").jqxButton({ width: 100, height: 30, template: "success" });
+
+    $("#EnviarTodo").click(function (e) {
+
+
+        $("#vSucursal").html('');
+
+        s_Grid4.localdata=[];
+        a_Grid4.dataBind();
+        
+        s_Grid3.localdata = [];
+        a_Grid3.dataBind();
+
+        $.each(s_Grid2.localdata,
+            function (index, value) {
+                if (value.ESTATUS==1){
+                    s_Grid3.localdata.push(value);
+                }
+
+            });
+
+        if (!isEmpty(s_Grid3.localdata)){
+            a_Grid3.dataBind();
+            //$('#Grid3').jqxGrid('clearselection');
+            $("#Grid3").jqxGrid('selectrow', 0)
+            
+            VistaPrevia1();
+        }else{
+            
+            MsgBoxOK("No hay pedidos para enviar.", 3);
+        }
+        
+        
+        
+    });
+
+</script>

@@ -1,0 +1,56 @@
+﻿@using MvcWebPage.MLAVID
+
+@{
+
+}
+
+<script>
+    function GetDepartamentoColor() {
+
+
+        $('#jqxLoader').jqxLoader('open');
+        getData2('@Url.Action("GetDepartamentos", "InventariosFisicosMensuales")',
+            { sucursal: sucursal },
+            function (respuesta) {
+
+                respuesta = JSON.parse(respuesta);
+
+                //console.log(respuesta.rs);
+                $('#jqxLoader').jqxLoader('close');
+                if (respuesta.code == -1) {
+
+                    return;
+                }
+
+
+                $.each(respuesta.rs,
+                    function (index, value) {
+
+                        //console.log(value);
+
+                        /*
+                        if (value.MODIFICADO == "0") {
+                            btns.get("btn_" + value.NUMDPTO).jqxButton({ template: "primary", theme: "" });
+                        }
+
+                        if (value.MODIFICADO == 1) {
+                            btns.get("btn_" + value.NUMDPTO).jqxButton({ template: "success", theme: "" });
+                        }
+
+                        if (value.MODIFICADO == 2) {
+                            //inputToAdd.jqxButton({ width: 180, height: 30, template: "secondary" });
+                            btns.get("btn_" + value.NUMDPTO).jqxButton({ template: "", theme: "custom1" });
+
+                        }
+                        */
+
+                        $('#jqxLoader').jqxLoader('close');
+                        //$(window).scrollTop(scrollTop);
+                    });
+
+            });
+
+
+    }
+
+</script>

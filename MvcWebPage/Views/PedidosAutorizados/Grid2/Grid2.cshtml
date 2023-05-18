@@ -1,0 +1,147 @@
+﻿@using MvcWebPage.MLAVID
+
+@{
+    var Grid2 = Html.JqxGrid<IT_PEDIDOS_AUT_DETResult>("Grid2");
+
+    Grid2.Width("100%")
+        //.Editable(true)
+        .EnableBrowserSelection(true)
+        
+        .RowsHeight("36")
+        .Ready("Grid2Ready")
+        .Rendered("Grid2Rendered")
+        //.EditMode("dblclick")
+        .ColumnsHeight("37")
+        .Sortable(true)
+        .ShowSortMenuItems(false)
+        .Columns(column =>
+        {
+
+            column.Add(p => p.UNIDADESTOTAL)
+                .CellsAlign("center")
+                .Text("Cantidad")
+                .Width("170");
+
+            column.Add(p => p.UNIDADESPEN)
+                .CellsAlign("center")
+                .Text("<span class=\"GridMP\">Cantidad Pendiente</span>")
+                .Width("170");
+
+
+            column.Add(p => p.UNIDADMD)
+                .CellsAlign("center")
+                .Text("Unidad")
+                .Width("170");
+
+            column.Add(p => p.REFERENCIA2)
+                .CellsAlign("center")
+                .Text("Articulo")
+                .Width("170");
+
+            column.Add(p => p.CODIGO)
+                .CellsAlign("center")
+                .CellsRenderer("cellsrenderer2")
+                .Text("<span class=\"GridMP\">Codigo Proveedor</span>")
+                .Width("170");
+
+            column.Add(p => p.DESCRIPCION2)
+                //.CellsAlign("center")
+                .Text("Descripcion")
+                .Width("170");
+
+            column.Add(p => p.PRECIO)
+                .CellsAlign("center")
+                .CellsFormat("C2")
+                .Text("Precio")
+                .Width("170");
+
+            column.Add(p => p.DTO)
+                .CellsAlign("center")
+                .CellsFormat("C2")
+                .Text("Descuento")
+                .Width("170");
+                
+            column.Add(p => p.TOTALLINEA)
+                .CellsAlign("center")
+                .CellsFormat("C2")
+                .Text("<span class=\"GridMP\">Importe sin Impuestos</span>")
+                .Width("170");
+
+
+            column.Add(p => p.TOTIVA)
+                .CellsAlign("center")
+                .CellsFormat("C2")
+                .Text("IVA")
+                .Width("170");
+
+            column.Add(p => p.TOTREQ)
+                .CellsAlign("center")
+                .CellsFormat("C2")
+                .Text("IEPS")
+                .Width("170");
+
+            column.Add(p => p.TOTAL)
+                .CellsAlign("center")
+                .CellsFormat("C2")
+                .Text("Total")
+                .Width("170");
+
+        }).Create();
+
+}
+<div align="center"></div>
+
+<script>
+
+    var cellsrenderer2 = function (row, columnfield, value, defaulthtml, columnproperties, rowdata) {
+
+        return '<div style="margin-top:4px;text-align: center;font-size: 12px;">' +
+            value +
+            '</span>';
+    }
+   
+    
+    var cellclass2 = function (row, columnfield, value, data) {
+        
+        
+
+        if (data.COLOR == 1) {
+            return 'cellYellow';
+        }
+
+        if (data.COLOR == 2) {
+            return 'cellRed';
+        }
+
+
+        return '';
+
+    };
+    
+
+    //********************************************************************/
+    
+
+    
+    var Grid2Ready=function(){
+        
+    }
+
+    var Grid2Rendered=function(){
+        
+        //$('#Grid2').jqxGrid({ autorowheight: true });
+        $("#Grid2").jqxGrid("autoresizecolumns");
+        $("#Grid2").jqxGrid('setcolumnproperty', 'UNIDADESPEN', 'width', 90);
+        $("#Grid2").jqxGrid('setcolumnproperty', 'TOTALLINEA', 'width', 100);
+        $("#Grid2").jqxGrid('setcolumnproperty', 'CODIGO', 'width', 120);
+
+        
+        $(".GridMP").parent().parent().addClass('GridMP');
+        
+        
+    }
+    
+
+
+
+</script>

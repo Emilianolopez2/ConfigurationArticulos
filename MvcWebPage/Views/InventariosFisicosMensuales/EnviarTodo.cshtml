@@ -1,0 +1,91 @@
+﻿@using MvcWebPage.MLAVID
+
+<input type="button" class="Show6 " value="Enviar Todo" id="EnviarTodo" disabled="disabled" />
+
+<script>
+    /////////////////////////
+
+
+
+    ///////////////////////
+
+    $("#EnviarTodo").jqxButton({ width: 100, height: 30, template: "success" });
+
+
+
+    $("#EnviarTodo").click(function (e) {
+
+        //alert(" Function click ");
+
+
+        (async () => {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swal.fire({
+               title: '¿Está seguro?',
+                    text: "No podrá revertir la operación",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    allowOutsideClick: false,
+                    confirmButtonText: 'Confirmar',
+                confirmButtonColor: '#5cb85c',
+                cancelButtonColor: '#d6504c',
+                    cancelButtonText: 'Cancelar',
+                    reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    //swalWithBootstrapButtons.fire(
+
+                    //    'Hecho',
+                    //                'Enviado correctamente',
+                    //                'success'
+                     
+                    //)
+
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Enviado',
+                        showConfirmButton: false,
+                        timer: 1000
+                        //      customClass: {
+                        //    container: 'my-swal'
+                        //}
+                    })
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: 'Cancelado',
+                        showConfirmButton: false,
+                        timer: 1000
+                        //      customClass: {
+                        //    container: 'my-swal'
+                        //}
+                    })
+                    //swalWithBootstrapButtons.fire(
+                    //    'Cancelado',
+                    //                'Registro cancelado',
+                    //                'error'
+                    //)
+                }
+            })
+
+
+
+        })()
+              
+        
+        
+    });
+
+</script>

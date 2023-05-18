@@ -1,0 +1,36 @@
+﻿@using MvcWebPage.MLAVID
+
+@{
+    var Grid10 = Html.JqxGrid<IT_SELECCIONAR_ARTICULOSResult>("Grid10");
+}
+
+<script>
+    function GetSeleccionarArticulos() {
+
+        getData2('@Url.Action("GetSeleccionarArticulos", "InventariosFisicosMensuales")',
+            { numdpto: tmp_numdpto, sucursal: sucursal },
+
+
+
+            function (respuesta) {
+                $('#jqxLoader').jqxLoader('close');
+
+                respuesta = JSON.parse(respuesta);
+
+
+
+                if (respuesta.code == -1) {
+
+                    return;
+                }
+                //console.log(respuesta.rs);
+
+
+
+                 @(Grid10.SetSource("respuesta.rs"))
+
+            });
+            
+    }
+
+</script>

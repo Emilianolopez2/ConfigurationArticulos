@@ -1,0 +1,249 @@
+﻿@using MvcWebPage.MLAVID
+
+@{
+    var Grid11 = Html.JqxGrid<IT_INV_MENSUALES_CAB>("Grid11");
+    var Grid10 = Html.JqxGrid<IT_SELECT_MODResult>("Grid10");
+
+    Grid11.Width("100%")
+        .Editable(true)
+        .EnableBrowserSelection(true)
+        .Ready("Grid11Ready")
+        .Rendered("Grid11Rendered")
+        //.EditMode("click")
+        .EditMode("click")
+        .Sortable(true)
+        .ShowSortMenuItems(false)
+        .Columns(column =>
+        {
+            //  column.Add(p => p.DateFormat)
+            //.Text("Artículo")
+            //.Editable(false)
+            //.Width("170");
+
+
+            column.Add(p => p.ID)
+                .Visible(false);
+
+            column.Add(p => p.NUMDPTO)
+                .Visible(false);
+
+            column.Add(p => p.ESTATUS)
+                .Visible(false);
+
+            column.Add(p => p._DEPARTAMENTO)
+                .Visible(false);
+
+            column.Add(p => p.CODALMACEN)
+                .Visible(false);
+
+            column.Add(p => p._ALMACEN)
+                .Visible(false);
+
+
+            column.Add(p => p.FECHA)
+                .Text("Emisión")
+                .Editable(false)
+                .Type("date")
+                .CellsFormat("dd/MM/yyyy")
+                .Width("170");
+
+            column.Add(p => p._DETALLE)
+                .Text("Detalle")
+                .Editable(false)
+                .Width("170");
+
+
+            column.Add(p => p._ESTATUS)
+                .Text("Estatus")
+                .Editable(false)
+                .Width("10");
+
+            column.Add(p => p._REFERENCIA)
+                .Text("Referencia")
+                .Editable(false)
+                .Width("170");
+
+
+            column.Add(p => p.HORA)
+                .Visible(false);
+
+
+            /*
+            column.Add(p => "Editar")
+            .CellsRenderer("editar2")
+            .CellClassName("visible1")
+            .Text("Editar")
+
+            .Width("60");
+            */
+
+            column.Add(p => "Editar")
+                .CellsRenderer("editar11")
+                //.CellClassName("visible1")
+                .Editable(false)
+                //.Text("Editar")
+                .Width("70");
+
+            column.Add(p => "Anular")
+                .CellsRenderer("anular11")
+                //.CellClassName("visible1")
+                .Editable(false)
+                //.Text("Anular")
+                .Width("70");
+        }).Create();
+
+}
+
+
+<script>
+
+
+
+    var anular11 = function (row, column, value) {
+        var data = $("#Grid11").jqxGrid('getrowdata', row);
+
+        //if (data.ESTATUS == 1) {
+        return '<div  style="padding-bottom:3px;padding-top:2px; padding-left:3px; padding-right:3px;"><input value="anular" type="button" class="btnGrid_3" onclick="anularClick11(' + row + ')" /></div>';
+        //}
+
+        //return "";
+
+    }
+
+    var editar11 = function (row, column, value) {
+        var data = $("#Grid11").jqxGrid('getrowdata', row);
+
+
+
+        //if (data.ESTATUS == 1) {
+        return '<div  style="padding-bottom:3px;padding-top:2px; padding-left:3px; padding-right:3px;"><input value="editar" type="button" class="btnGrid_1" onclick="editarClick11(' + row + ')" /></div>';
+        //}
+
+        //return "";
+    }
+
+
+    var editarClick11 = function (row) {
+
+        var data = $("#Grid11").jqxGrid('getrowdata', row);
+
+        var id = data.ID;
+        _Grid11 = data;
+        tmp_numdpto = data.NUMDPTO;
+
+        /**************************/
+        $(".Show3_2").css('display', 'none');
+        $(".Show4_2").css('display', '');
+        $("#eSucursal").html(data._ALMACEN);
+        /**************************/
+
+        tmp_fecha = $("#eFecha").html();
+        var fecha1 = $.jqx.dataFormat.formatdate(data.FECHA, 'dd/MM/yyyy');
+        $("#eFecha").html(fecha1);
+
+        for (const value of btns.values()) {
+            value.jqxButton({ template: "primary", theme: "", disabled: true });
+        }
+
+        btns.get("btn_" + data.NUMDPTO).jqxButton({ template: "success", theme: "" });
+
+
+
+        $('#jqxLoader').jqxLoader('open');
+
+        getData2('@Url.Action("GetSeleccionarArticulos", "InventariosFisicosMensuales")',
+
+            { GridCab: data },
+
+            //{ sucursal: 123, nombre: 'jose' },
+            function (respuesta) {
+
+
+                respuesta = JSON.parse(respuesta);
+
+                $('.Show5').css('display', '');
+
+                $('.Show6').css('display', 'none');
+
+                @(Grid10.SetSource("respuesta.rs"))
+
+
+                /*
+
+    .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------.
+    | .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
+    | |    _______   | || |     ____     | || | _____  _____ | || |  _______     | || |     ______   | || |  _________   | |
+    | |   /  ___  |  | || |   .'    `.   | || ||_   _||_   _|| || | |_   __ \    | || |   .' ___  |  | || | |_   ___  |  | |
+    | |  |  (__ \_|  | || |  /  .--.  \  | || |  | |    | |  | || |   | |__) |   | || |  / .'   \_|  | || |   | |_  \_|  | |
+    | |   '.___`-.   | || |  | |    | |  | || |  | '    ' |  | || |   |  __ /    | || |  | |         | || |   |  _|  _   | |
+    | |  |`\____) |  | || |  \  `--'  /  | || |   \ `--' /   | || |  _| |  \ \_  | || |  \ `.___.'\  | || |  _| |___/ |  | |
+    | |  |_______.'  | || |   `.____.'   | || |    `.__.'    | || | |____| |___| | || |   `._____.'  | || | |_________|  | |
+    | |              | || |              | || |              | || |              | || |              | || |              | |
+    | '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |
+    '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'
+
+                */
+
+
+
+                //console.log(respuesta.rs);
+                $('#jqxLoader').jqxLoader('close');
+            });
+
+    }
+
+
+
+
+
+    var anularClick11 = function (row) {
+        var data = $("#Grid11").jqxGrid('getrowdata', row);
+
+
+        var id = data.ID;
+        var detalle = data._DETALLE;
+
+
+        MsgBoxOKCancel("<h4>Quieres anular el registro: <br><span style='color:red;'>" + detalle + "</span>?</h4>", 4, function () {
+
+            $('#jqxLoader').jqxLoader('open');
+
+            getData2('@Url.Action("DELETE", "InventariosFisicosMensuales")',
+
+                { id: data.ID },
+
+                //{ sucursal: 123, nombre: 'jose' },
+                function (respuesta) {
+
+
+                    respuesta = JSON.parse(respuesta);
+
+                    GetInventarios();
+
+                    $('#jqxLoader').jqxLoader('close');
+
+                    MsgBoxOK2("<h4><strong>Registro eliminado correctamente.</strong></h4>", 5);
+                });
+        });
+
+
+
+        //MsgBoxOK("Quieres anular el registro: <br><span style='color:red;'>" + detalle + "</span> ?", 4, null, function () {
+
+        //});
+    }
+
+
+    var Grid11Ready = function () {
+
+    }
+
+    var Grid11Rendered = function () {
+        $("#Grid11").jqxGrid("autoresizecolumns");
+
+        //$("#Grid11").jqxGrid('setcolumnproperty', 'Editar', 'width', 60);
+
+        $("#Grid11").jqxGrid('setcolumnproperty', 'Anular', 'width', 60);
+        $("#Grid11").jqxGrid('setcolumnproperty', 'Editar', 'width', 60);
+    }
+</script>

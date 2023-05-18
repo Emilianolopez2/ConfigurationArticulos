@@ -1,0 +1,229 @@
+﻿@using MvcWebPage.MLAVID
+
+<script>
+
+
+    function MsgBoxOK(msg, icon, fnc1) {
+
+        if (icon == 1) {
+            icon = "warning";
+        }
+
+        if (icon == 2) {
+            icon = "error";
+        }
+
+        if (icon == 3) {
+            icon = "info";
+        }
+
+        if (icon == 4) {
+            icon = "question";
+        }
+
+        if (icon == 5) {
+            icon = "success";
+        }
+
+        Swal.fire({
+            //title: 'Are you sure?',
+            //text:"",
+            html: msg,
+            icon: icon,
+            //showCancelButton: true,
+            showConfirmButton: true,
+            showDenyButton: false,
+            confirmButtonText: 'OK',
+            //cancelButtonText: 'No, cancel!',
+            denyButtonText: 'Cancelar',
+            reverseButtons: true,
+            cancelButtonColor: "#d6504c",
+            denyButtonColor: "#d6504c",
+            confirmButtonColor: "#5cb85c",
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            allowEnterKey: false,
+            preConfirm: () => {
+
+                if (fnc1) {
+                    fnc1();
+                }
+
+                //Swal.close();
+
+
+                //return false; // Prevent confirmed
+            },
+
+            preDeny: () => {
+
+
+                //return false; // Prevent denied
+            },
+
+        }).then((result) => {
+            if (result.isConfirmed) {
+                //alert(0);
+
+
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                //alert(1);
+            }
+
+        });
+
+
+    }
+
+    function MsgBoxOK2(msg, icon, fnc1) {
+
+        if (icon == 1) {
+            icon = "warning";
+        }
+
+        if (icon == 2) {
+            icon = "error";
+        }
+
+        if (icon == 3) {
+            icon = "info";
+        }
+
+        if (icon == 4) {
+            icon = "question";
+        }
+
+        if (icon == 5) {
+            icon = "success";
+        }
+
+        Swal.fire({
+            //title: 'Are you sure?',
+            //text:"",
+            html: msg,
+            icon: icon,
+            //showCancelButton: true,
+            showConfirmButton: false,
+            showDenyButton: false,
+            confirmButtonText: 'OK',
+            //cancelButtonText: 'No, cancel!',
+            denyButtonText: 'Cancelar',
+            timer: 1300,
+            reverseButtons: true,
+            cancelButtonColor: "#d6504c",
+            denyButtonColor: "#d6504c",
+            confirmButtonColor: "#5cb85c",
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            allowEnterKey: false,
+            preConfirm: () => {
+
+                if (fnc1) {
+                    fnc1();
+                }
+
+                //Swal.close();
+
+
+                //return false; // Prevent confirmed
+            },
+
+            preDeny: () => {
+
+
+                //return false; // Prevent denied
+            },
+
+        }).then((result) => {
+            if (result.isConfirmed) {
+                //alert(0);
+
+
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                //alert(1);
+            }
+
+        });
+
+
+    }
+
+
+    function MsgBoxOKCancel(msg, icon, fnc1, fnc2) {
+
+        if(icon==1){
+            icon = "warning";
+        }
+
+        if (icon == 2) {
+            icon = "error";
+        }
+
+        if (icon == 3) {
+            icon = "info";
+        }
+
+        if(icon==4){
+            icon = "question";
+        }
+
+        if (icon == 5) {
+            icon = "success";
+        }
+
+        Swal.fire({
+            //title: 'Are you sure?',
+            //text:"",
+            html: msg,
+            icon: icon,
+            //showCancelButton: true,
+            showDenyButton: true,
+            confirmButtonText: 'OK',
+            //cancelButtonText: 'No, cancel!',
+            denyButtonText: 'Cancelar',
+
+            reverseButtons: true,
+            cancelButtonColor: "#d6504c",
+            denyButtonColor: "#d6504c",
+            confirmButtonColor: "#5cb85c",
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            allowEnterKey: false,
+            preConfirm: () => {
+
+                if (fnc1) {
+                    fnc1();
+                }
+
+                //Swal.close();
+
+
+                //return false; // Prevent confirmed
+            },
+
+            preDeny: () => {
+
+                if (fnc2) {
+                    fnc2();
+                }
+
+                //return false; // Prevent denied
+            },
+
+        }).then((result) => {
+            if (result.isConfirmed) {
+                //alert(0);
+
+
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                //alert(1);
+            }
+
+        });
+
+
+
+    }
+
+    
+</script>

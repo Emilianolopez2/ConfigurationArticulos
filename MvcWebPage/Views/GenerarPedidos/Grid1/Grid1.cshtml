@@ -1,0 +1,410 @@
+﻿@using MvcWebPage.MLAVID
+
+@{
+    var Grid1 = Html.JqxGrid<IT_PEDIDOSResult>("Grid1");
+
+    Grid1.Width("100%")
+        .Editable(true)
+        .EnableBrowserSelection(true)
+        .Ready("Grid1Ready")
+        .Rendered("Grid1Rendered")
+        .EditMode("dblclick")
+        .ColumnsHeight("37")
+        .Sortable(true)
+        .ShowSortMenuItems(false)
+        //.ShowFilterRow(true)
+        //.Filterable(true)
+        .Columns(column =>
+        {
+
+            column.Add(p => p.COLOR)
+                .Visible(false);
+
+            column.Add(p => p.COLOR_TMP)
+                .Visible(false);
+
+            column.Add(p => p.CODARTICULO)
+                .Visible(false);
+
+            column.Add(p => p.CODFORMATO)
+                .Visible(false);
+
+            column.Add(p => p.REFERENCIA)
+                .CellClassName("cellclass1")
+                .Text("Articulo")
+                .Editable(false)
+                .Width("170");
+
+
+            column.Add(p => p.DESCRIPCION)
+                .CellClassName("cellclass1")
+                .Text("Descripción")
+                .Editable(false)
+                .Width("140");
+
+            column.Add(p => p.UNIDADCOMPRA)
+                .CellClassName("cellclass1")
+                .CellsAlign("center")
+                .Editable(false)
+                .Text("<span class=\"GridMP\">Unidad Compra</span>")
+                .Width("140");
+
+            column.Add(p => p.EXISTENCIA_ACTUAL)
+                .CellClassName("cellclass1")
+                .CellsAlign("center")
+                .Editable(false)
+                .Text("<span class=\"GridMP\">Existencia Actual</span>")
+                .Width("140");
+
+            column.Add(p => p.SUGERIDO3)
+                .CellClassName("cellclass1")
+                .CellsAlign("center")
+                .Editable(false)
+                .Text("<span class=\"GridMP\">Sugerido Real</span>")
+                .Width("140");
+
+            column.Add(p => p.SUGERIDO)
+                .CellClassName("cellclass1")
+                .CellsAlign("center")
+                .Editable(false)
+                .Text("<span class=\"GridMP\">Sugerido Ajustado</span>")
+                .Width("140");
+
+            /*
+            column.Add(p => p.SUGERIDO_COPIA)
+                .CellClassName("cellclass1")
+                .CellsAlign("center")
+                .Editable(false)
+                .Text("Sugerido Copia")
+                .Width("140");*/
+
+            column.Add(p => p.SUGERIDO2)
+                .Visible(false);
+
+            column.Add(p => p.CANTIDAD_PEDIDA)
+                .CellClassName("cellclass1")
+                .CellsAlign("center")
+                .Editable(false)
+                .Text("<span class=\"GridMP\">Cantidad Pedida</span>")
+                .Width("140");
+
+            column.Add(p => p.MULTIPLOPEDIR)
+                .CellClassName("cellclass1")
+                .CellsAlign("center")
+                .Editable(false)
+                .Text("<span class=\"GridMP\">Múltiplo Pedir</span>")
+                .Width("140");
+
+
+            column.Add(p => p.CANTIDAD)
+                .CellsAlign("center")
+                .CellClassName("cellclass1")
+                .Validation("valida1")
+                .Text("Cantidad")
+                .Width("140");
+
+
+            /*
+            column.Add(p => "Edit")
+                .ColumnType("button")
+                .CellsRenderer("function() {return \"--\";}")
+                .Text("Edit")
+                //.ButtonClick("g1")
+                .Width("70");*/
+        }).Create();
+
+}
+
+
+<script>
+
+
+    var cellclass1 = function (row, columnfield, value, data) {
+        
+        if (columnfield=='CANTIDAD'){
+
+            if (data.COLOR == 1) {
+                return 'cellYellow cellC';
+            }
+
+            if (data.COLOR == 2) {
+                return 'cellRed cellC';
+            }
+
+
+            return 'cellC';
+        }
+
+        if (data.COLOR == 1) {
+            return 'cellYellow';
+        }
+
+        if (data.COLOR == 2) {
+            return 'cellRed';
+        }
+
+
+        return '';
+
+    };
+
+
+    var valida1 = function (cell, value) {
+        //console.log(cell);
+
+        //console.log(value);
+        //s_Grid1.localdata = JSON.parse(s_Grid1.localdata);
+        //s_Grid1.localdata = JSON.stringify(s_Grid1.localdata);
+
+        //a_Grid1.dataBind();
+
+        value = numeral(value).value(); //.format('0.0');
+        
+        
+        if(value<0){
+
+            validacionErr = true;
+
+            s_Grid1.localdata[cell.row].CANTIDAD = null;
+            a_Grid1.dataBind();
+
+            MsgBoxOK("La cantidad no puede ser menor a 0.", 2, function(){
+                validacionErr = false;
+
+                $("#Grid1").jqxGrid('begincelledit', cell.row, "CANTIDAD");
+            
+            });
+            
+
+            return true;
+        }
+
+
+        var multiplo = s_Grid1.localdata[cell.row].MULTIPLOPEDIR;
+
+        
+        if (value % multiplo) {
+            validacionErr = true;
+
+            s_Grid1.localdata[cell.row].CANTIDAD = null;
+            a_Grid1.dataBind();
+            //$("#Grid1").jqxGrid("autoresizecolumns");
+
+
+            //WinIcon(1);
+            //$('#txWin1').html("La cantidad debe ser multiplo de " + multiplo);
+            //$('#Win1').jqxWindow({ position: 'center' });
+            //$('#Win1').jqxWindow('open');
+            MsgBoxOK("La cantidad debe ser multiplo de " + multiplo, 1, function () {
+                validacionErr = false;
+                
+                $("#Grid1").jqxGrid('begincelledit', cell.row, "CANTIDAD");
+            });
+
+            
+            /*
+            setTimeout(function(){
+                $('#ok1').focus();
+            }, 500);
+            */
+
+            //return { result: false, message: "La cantidad no puede ser mayor o igual a 50" };
+            
+            return true;
+        } 
+
+     
+
+
+        var sugerido1 = numeral(s_Grid1.localdata[cell.row].SUGERIDO).value();
+        var sugerido2 = numeral(s_Grid1.localdata[cell.row].SUGERIDO2).value();
+
+        //var cantidadPedida = numeral(s_Grid1.localdata[cell.row].CANTIDAD_PEDIDA).value();
+        
+        /*
+        s_Grid1.localdata[cell.row].CANTIDAD_PEDIDA_TMP = s_Grid1.localdata[cell.row].SUGERIDO - s_Grid1.localdata[cell.row].CANTIDAD_PEDIDA;
+        if (s_Grid1.localdata[cell.row].CANTIDAD_PEDIDA_TMP < 0) {
+            s_Grid1.localdata[cell.row].CANTIDAD_PEDIDA_TMP = 0;
+        }*/
+        
+        s_Grid1.localdata[cell.row].COLOR = s_Grid1.localdata[cell.row].COLOR_TMP;
+        
+        /******************************************************************************************/
+        if (s_Grid1.localdata[cell.row].CANTIDAD_PEDIDA == 0 && sugerido2 == value){
+            s_Grid1.localdata[cell.row].COLOR =0;
+            s_Grid1.localdata[cell.row].CANTIDAD = value;
+            a_Grid1.dataBind();
+
+            return true;
+        }
+        
+        
+
+        if (s_Grid1.localdata[cell.row].CANTIDAD_PEDIDA == 0 && value == 0 ) {
+            
+            //s_Grid1.localdata[cell.row].COLOR = s_Grid1.localdata[cell.row].COLOR_TMP;
+            
+            s_Grid1.localdata[cell.row].COLOR = 0;
+            s_Grid1.localdata[cell.row].CANTIDAD = value;
+            a_Grid1.dataBind();
+
+            return true;
+        }
+        
+        if (value != 0 && sugerido1 != 0 && sugerido2 < value) {
+            validacionErr = true;
+
+
+            MsgBoxOKCancel("La cantidad supera el sugerido a pedir.<br>Quieres continuar?", 1, function () {
+                validacionErr = false;
+
+                //$("#Grid1").jqxGrid('begincelledit', cell.row, "CANTIDAD");
+
+                
+                //s_Grid1.localdata[cell.row].CANTIDAD_PEDIDA_TMP = value;
+                
+                s_Grid1.localdata[cell.row].COLOR = 2;
+
+                s_Grid1.localdata[cell.row].CANTIDAD = value;
+                a_Grid1.dataBind();
+
+            }, function () {
+                validacionErr = false;
+                
+                /*
+                s_Grid1.localdata[cell.row].CANTIDAD_PEDIDA_TMP = s_Grid1.localdata[cell.row].SUGERIDO - s_Grid1.localdata[cell.row].CANTIDAD_PEDIDA;
+                if (s_Grid1.localdata[cell.row].CANTIDAD_PEDIDA_TMP < 0) {
+                    s_Grid1.localdata[cell.row].CANTIDAD_PEDIDA_TMP = 0;
+                }*/
+
+                s_Grid1.localdata[cell.row].CANTIDAD = null;
+                a_Grid1.dataBind();
+            });
+            
+            return true;
+        }
+        
+        /******************************************************************************************/
+        if ( sugerido1 != 0 && sugerido2 > value) {
+            validacionErr = true;
+
+            MsgBoxOKCancel("La cantidad es inferior al sugerido a pedir.<br>Quieres continuar?", 1, function () {
+                validacionErr = false;
+
+                //$("#Grid1").jqxGrid('begincelledit', cell.row, "CANTIDAD");
+                
+               // s_Grid1.localdata[cell.row].CANTIDAD_PEDIDA_TMP = value;
+
+                s_Grid1.localdata[cell.row].COLOR=1;
+                s_Grid1.localdata[cell.row].CANTIDAD = value;
+                a_Grid1.dataBind();
+                
+
+                //setTimeout(function(){
+
+                //    var colDefs = $("#Grid1").jqxGrid('columns').records;
+
+
+                //    $.each(colDefs,
+                //        function (index, value) {
+
+                //            $('#Grid1').jqxGrid('setcolumnproperty', value.datafield, 'cellclassname', function (row, columnfield, value, data) {
+
+                //                if (data.CANTIDAD != 0 && data.CANTIDAD < data.SUGERIDO) {
+                //                    return 'cellYellow';
+                //                }
+
+                //                return '';
+                //            });
+
+                //        });
+                
+                //}, 50);
+
+
+                
+
+               // $('#Grid1').jqxGrid('render');
+                
+
+
+
+
+
+            }, function () {
+                validacionErr = false;
+                
+                
+                /*s_Grid1.localdata[cell.row].CANTIDAD_PEDIDA_TMP = s_Grid1.localdata[cell.row].SUGERIDO - s_Grid1.localdata[cell.row].CANTIDAD_PEDIDA;
+                if (s_Grid1.localdata[cell.row].CANTIDAD_PEDIDA_TMP<0){
+                    s_Grid1.localdata[cell.row].CANTIDAD_PEDIDA_TMP = 0;
+                }*/
+
+                s_Grid1.localdata[cell.row].CANTIDAD = s_Grid1.localdata[cell.row].SUGERIDO;
+                a_Grid1.dataBind();
+            });
+
+            return true;
+        }
+        /******************************************************************************************/
+        
+
+        s_Grid1.localdata[cell.row].CANTIDAD = value;
+        a_Grid1.dataBind();
+
+        
+        return true;
+    }
+
+    //********************************************************************/
+
+
+    $('#Grid1').on('cellvaluechanged', event => {
+        var args = event.args;
+        //var datafield = args.datafield;
+        var rowindex = args.rowindex;
+        //var newvalue = args.newvalue;
+        //var oldvalue = args.oldvalue;
+
+        if (isEmpty(args.newvalue)) {
+
+            s_Grid1.localdata[rowindex].CANTIDAD = null;
+            //a_Grid1.dataBind();
+            //$("#Grid1").jqxGrid("autoresizecolumns");
+        }
+
+        /*
+        console.log(`Event Type: cellchanged -
+                    Row:  ${rowindex}
+                    Column: ${datafield}
+                    NewValue: ${newvalue}
+                    OldValue: ${oldvalue}`
+        )
+
+        if (oldvalue != newvalue) {
+            console.log(`CELL VALUE IS DIFFERENT!`);
+        }*/
+    })
+
+    
+    var Grid1Ready=function(){
+        
+    }
+
+    var Grid1Rendered=function(){
+        $("#Grid1").jqxGrid("autoresizecolumns");
+        
+        //$("#Grid1").jqxGrid('setcolumnproperty', 'MAXIMO_PEDIR', 'width', 90);
+        $("#Grid1").jqxGrid('setcolumnproperty', 'EXISTENCIA_ACTUAL', 'width', 90);
+        $("#Grid1").jqxGrid('setcolumnproperty', 'UNIDADCOMPRA', 'width', 90);
+        $("#Grid1").jqxGrid('setcolumnproperty', 'MULTIPLOPEDIR', 'width', 90);
+        $("#Grid1").jqxGrid('setcolumnproperty', 'CANTIDAD_PEDIDA', 'width', 90);
+        $("#Grid1").jqxGrid('setcolumnproperty', 'SUGERIDO', 'width', 90);
+        $("#Grid1").jqxGrid('setcolumnproperty', 'SUGERIDO3', 'width', 90);
+        
+        $(".GridMP").parent().parent().addClass('GridMP');
+    }
+    
+
+
+</script>

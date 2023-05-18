@@ -1,0 +1,235 @@
+﻿@using MvcWebPage.MLAVID
+
+@{
+    var Grid2 = Html.JqxGrid<IT_PEDIDOS_AUT_DETResult>("Grid2");
+
+    var Grid1 = Html.JqxGrid<IT_PEDIDOS_AUTResult>("Grid1");
+
+    Grid1.Width("100%")
+        //.Editable(true)
+        .EnableBrowserSelection(true)
+        
+        .RowsHeight("36")
+        .Ready("Grid1Ready")
+        .Rendered("Grid1Rendered")
+        //.SelectionMode("checkbox")
+        //.EditMode("dblclick")
+        //.ColumnsHeight("37")
+        .Sortable(true)
+        .ShowSortMenuItems(false)
+        .Columns(column =>
+        {
+
+            column.Add(p => p.ID)
+                .Visible(false);
+
+            column.Add(p => p.CODPROVEEDOR)
+                .Visible(false);
+
+            column.Add(p => p.IDESTADO)
+                .Visible(false);
+
+            column.Add(p => p.NUMPEDIDO)
+                .Visible(false);
+
+            column.Add(p => p.NUMSERIE)
+                .Visible(false);
+
+            column.Add(p => p.CODALMACEN)
+                .Visible(false);
+
+            column.Add(p => p.TOTBRUTO)
+                .Visible(false);
+
+            column.Add(p => p.TOTNETO)
+                .Visible(false);
+
+            column.Add(p => p.NOMBREALMACEN)
+                .Text("Sucursal Solicitante")
+                .Width("190");
+
+            column.Add(p => p.NOMPROVEEDOR)
+                .CellClassName("'cellh'")
+                .Text("Proveedor Asignado")
+                .Width("190");
+
+            column.Add(p => p.FECHAPEDIDO)
+                .Type("date")
+                .CellsAlign("center")
+                .CellsFormat("dd/MM/yyyy")
+                .Text("Emisión")
+                .Width("170");
+
+
+            column.Add(p => "Detalle")
+                .CellsRenderer("detalle1")
+                .Text("Detalle")
+                .Width("70");
+
+            column.Add(p => p.DESCRIPCION)
+                .CellsAlign("center")
+                .Text("Orden de Compra")
+                .Width("170");
+
+            column.Add(p => p.ESTATUS)
+                .CellsAlign("center")
+                .Text("Estatus")
+                .Width("170");
+
+        }).Create();
+
+}
+<div align="center"></div>
+
+<script>
+
+
+    var detalle1 = function (row, column, value) {
+        //var data = $("#Grid1").jqxGrid('getrowdata', row);
+        //<input value="--" type="button" class="btnGrid_2" onclick="enviarClick2(' + row + ')" />
+        return '<div  style="padding-bottom:3px;padding-top:10px; padding-left:3px; padding-right:3px;" align="center"><a class="grid1Link" href="#" onclick="actDetalle1(' + row + ')">VER</a></div>';
+
+        
+    }
+    
+    
+    function actDetalle1(row){
+        var data = $("#Grid1").jqxGrid('getrowdata', row);
+        _Grid1 =data;
+        
+        //alert(data.ID + " " + data.NUMPEDIDO + " " + data.NUMSERIE);
+        $('#Filtro1').jqxWindow('close');
+        
+        var fecha1 = $.jqx.dataFormat.formatdate(data.FECHAPEDIDO, 'dd/MM/yyyy');
+        $("#eFecha").html(fecha1);
+        $("#ordCompra").html(data.ID);
+
+        $("#tSubTotal").html(numeral(data.TOTBRUTO).format('$0,0.00'));
+        $("#tTotal").html(numeral(data.TOTNETO).format('$0,0.00'));
+        
+        $("#sucursalSolicitante").html(data.NOMBREALMACEN);
+        $("#proveedorAsignado").html(data.NOMPROVEEDOR);
+        $("#fechaEmision").html(fecha1);
+        $("#ordenCompra").html(data.DESCRIPCION);
+
+        $('#jqxLoader').jqxLoader('open');
+        
+        getData2('@Url.Action("GetPedidosAutorizadosDet", "AutorizarPedidos")',
+            { id: data.ID, numpedido: data.NUMPEDIDO, numserie: data.NUMSERIE, sucursal: data.CODALMACEN, codproveedor: data.CODPROVEEDOR },
+            function (respuesta) {
+
+                respuesta = JSON.parse(respuesta);
+
+                $(".Show1").css('display', 'none');
+                $(".Show2").css('display', '');
+
+                $('#jqxLoader').jqxLoader('close');
+                if (respuesta.code == -1) {
+
+                    return;
+                }
+
+
+                var iva = 0;
+                var ieps = 0;
+                var setSemaforo=false;
+
+                for (const value of respuesta.rs) {
+                    iva += value.TOTIVA;
+                    ieps += value.TOTREQ;
+                    
+                    if (value.COLOR == 1 || value.COLOR == 2) {
+                        setSemaforo = true;
+                    }
+                }
+
+                $("#tIEPS").html(numeral(ieps).format('$0,0.00'));
+                $("#tIVA").html(numeral(iva).format('$0,0.00'));
+
+                $("#chkSemaforo").jqxCheckBox({ checked: setSemaforo });
+
+                //var checked = $("#chkSemaforo").jqxCheckBox('checked');
+                
+
+
+                $("#Grid2").jqxGrid('removefilter', 'COLOR');
+
+                @(Grid2.SetSource("respuesta.rs"))
+
+                if ( data.IDESTADO == 0){
+                    $("#Grid2").jqxGrid('setcolumnproperty', 'CANTIDAD','editable',true);
+                    $("#Grid2").jqxGrid('setcolumnproperty', 'PRECIO', 'editable', true);
+                    $(".Show3").css('display', '');
+                    
+                    
+                    $("#Grid2").jqxGrid('showcolumn', 'Eliminar');
+
+                }else{
+                    $(".Show3").css('display', 'none');
+                    $("#Grid2").jqxGrid('setcolumnproperty', 'CANTIDAD', 'editable', false);
+                    
+                    $("#Grid2").jqxGrid('hidecolumn', 'Eliminar');
+                }
+
+                if (setSemaforo) {
+                    $("#Grid2").jqxGrid('addfilter', 'COLOR', filtergroup1);
+                    $("#Grid2").jqxGrid('applyfilters');
+                }
+                
+                
+        });
+
+    }
+
+    var cellclass1 = function (row, columnfield, value, data) {
+        
+        
+
+        if (data.COLOR == 1) {
+            return 'cellYellow';
+        }
+
+        if (data.COLOR == 2) {
+            return 'cellRed';
+        }
+
+
+        return '';
+
+    };
+    
+
+    //********************************************************************/
+    
+
+    
+    var Grid1Ready=function(){
+        
+    }
+
+    var Grid1Rendered=function(){
+        
+        //$('#Grid1').jqxGrid({ autorowheight: true });
+        $("#Grid1").jqxGrid("autoresizecolumns");
+        $("#Grid1").jqxGrid('setcolumnproperty', 'NOMPROVEEDOR', 'width', 250);
+        $("#Grid1").jqxGrid('setcolumnproperty', 'Detalle', 'width', 70);
+
+        //$("#Grid1").jqxGrid('setcolumnproperty', 'EXISTENCIA_ACTUAL', 'width', 90);
+        //$("#Grid1").jqxGrid('setcolumnproperty', 'MULTIPLOPEDIR', 'width', 90);
+        //$("#Grid1").jqxGrid('setcolumnproperty', 'CANTIDAD_PEDIDA', 'width', 90);
+        
+        //$(".GridMP").parent().parent().addClass('GridMP');
+
+        $(".grid1Link").off('click');
+        $(".grid1Link").click(function (event) {
+            event.preventDefault();
+            
+        });
+        
+       
+    }
+    
+
+
+
+</script>

@@ -1,0 +1,128 @@
+﻿@using MvcWebPage.MLAVID
+
+<div id="Filtro1">
+    <div style="" id="title2">
+        Filtro
+    </div>
+    <div style="padding: 10px; padding-right: 0px; padding-left: 13px;">
+        <table cellpadding="0" cellspacing="0" style="width: 100%; height: 100%;">
+            <tr>
+                <td style="" valign="top">
+
+                    <!-----------------------------------margin-bottom: 20px;--------------------------------->
+                    <table style="margin: auto; ">
+                        <tr>
+                            <td style="padding-right: 5px; font-weight: bold; width: 70px; height: 32px; white-space: nowrap;" align="right">
+                                Fecha Inicial:
+                            </td>
+                            <td style="width: 10px;">
+                                @{ Html.JqxDateTimeInput("Fecha1")
+                                       .TextAlign("center")
+                                       .Culture("es-ES")
+                                       .Width("200")
+                                       .Create()
+                                       .SetDate(@Html.GetFecha()); }
+                            </td>
+                            <td style="width: 70px; padding-right: 5px; padding-left: 50px; font-weight: bold; white-space: nowrap;" align="right">
+                                Fecha Final:
+                            </td>
+                            <td style="width: 10px;">
+                                @{ Html.JqxDateTimeInput("Fecha2")
+                                       .TextAlign("center")
+                                       .Culture("es-ES")
+                                       .Width("200")
+                                       .Create(); }
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td style="padding-right: 5px; font-weight: bold; padding-top: 5px;" align="right">
+                                Proveedor:
+                            </td>
+                            <td colspan="3" style="padding-top: 5px;">
+                                <input id="txProveedor" style="padding-left: 5px; padding-right: 23px;" />
+            
+                            </td>
+                            <td>
+                                <a href="#" class="Clear1" id="Clear1">Clear</a>
+                            </td>
+                        </tr>
+                    </table>
+                    <!-------------------------------------------------------------------->
+
+                </td>
+
+            </tr>
+            <tr>
+                <td align="right" style="height: 30px;">
+                    <input type="button" id="Buscar1" value="Buscar" style="margin-right: 1px" />
+                    <input type="button" id="Cerrar1" value="Cerrar" style="margin-right: 10px" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script>
+
+    $('#Filtro1').jqxWindow({
+        //position: { x: offset.left + 50, y: offset.top + 50 },
+        minHeight: 160,
+        minWidth: 689,
+        autoOpen: false,
+        resizable: false,
+        //isModal: true,
+        modalOpacity: 0.5,
+        //okButton: $('#ok1'),
+        //cancelButton: $('#cancel1'),
+        initContent: function () {
+            //$('#tab').jqxTabs({ height: '100%', width: '100%' });
+
+            //$('#ok1').jqxButton({ width: '100px', template: "primary" });
+            //$('#cancel1').jqxButton({ width: '80px', template: "primary" });
+
+            //$('#cancel').jqxButton({ width: '65px' });
+            //$('#ok1').focus();
+
+            //$('#eventWindow').jqxWindow('focus');
+        }
+    });
+
+
+    $("#Buscar1").jqxButton({ width: '70px', template: "primary" });
+    $("#Buscar1").click(function (e) {
+
+        //********************************************************************/
+
+        GetPedidosAutorizados();
+
+        //********************************************************************/
+    });
+    
+
+
+
+    $("#Cerrar1").jqxButton({ width: '70px', template: "primary" });
+    $("#Cerrar1").click(function (e) {
+
+        //********************************************************************/
+
+        $('#Filtro1').jqxWindow('close');
+
+        //********************************************************************/
+    });
+
+    function Filtro1() {
+        var w1 = $(window).width();
+        var h1 = $(window).height() - 100;
+
+        //$('#Filtro1').jqxWindow({ width: w1 });
+        //$('#title2').css('padding-left', (w1 / 2) - 110 + 'px');
+        //$('#title2').css('font-weight', 'bold');
+
+        $('#Filtro1').jqxWindow('open');
+        $('#Filtro1').jqxWindow({ position: 'center' });
+    }
+
+
+</script>

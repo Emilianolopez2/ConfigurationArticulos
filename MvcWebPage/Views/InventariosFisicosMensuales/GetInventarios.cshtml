@@ -1,0 +1,25 @@
+﻿@using MvcWebPage.MLAVID
+
+@{
+    var Grid11 = Html.JqxGrid<IT_INV_MENSUALES_CAB>("Grid11");
+}
+
+<script>
+    function GetInventarios() {
+        
+
+        getData2('@Url.Action("GetInventarios", "InventariosFisicosMensuales")',
+            { /*data: s_Grid10.localdata, sucursal: sucursal, numdpto: numdpto*/ },
+            function (respuesta) {
+
+                respuesta = JSON.parse(respuesta);
+
+                //console.log(respuesta.rs);
+
+                @(Grid11.SetSource("respuesta.rs"))
+
+        });
+            
+    }
+
+</script>

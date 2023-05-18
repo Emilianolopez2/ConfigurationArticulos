@@ -1,0 +1,322 @@
+﻿@using MvcWebPage.MLAVID
+
+@{
+    var Grid2 = Html.JqxGrid<IT_PEDIDOS_AUT_DETResult>("Grid2");
+
+    Grid2.Width("100%")
+        //.Editable(true)
+        .EnableBrowserSelection(true)
+        
+        .RowsHeight("36")
+        .Ready("Grid2Ready")
+        .Rendered("Grid2Rendered")
+        .EditMode("dblclick") //dblclick
+        .Editable(true)
+        .ColumnsHeight("37")
+        .Sortable(true)
+        .ShowSortMenuItems(false)
+        .UpdateRow("updateRow2")
+        .Columns(column =>
+        {
+            column.Add(p => p.COLOR)
+                .Editable(false)
+                .Hidden(true);
+
+
+            column.Add(p => p.PORCENTAJE)
+                .Editable(false)
+                .Hidden(true);
+
+            column.Add(p => p.CODFORMATO)
+                .Editable(false)
+                .Hidden(true);
+
+
+            column.Add(p => p.CODARTICULO)
+                .Editable(false)
+                .Hidden(true);
+
+            column.Add(p => p.NUMLINEA)
+                .Editable(false)
+                .Hidden(true);
+
+            column.Add(p => p.TIPOIMPUESTO)
+                .Editable(false)
+                .Hidden(true);
+
+            column.Add(p => p.IVA)
+                .Editable(false)
+                .Hidden(true);
+
+            column.Add(p => p.REQ)
+                .Editable(false)
+                .Hidden(true);
+
+            column.Add(p => p.SUGERIDO)
+                .Editable(false)
+                .CellsAlign("center")
+                .CellClassName("cellclass2")
+                .Text("Sugerido")
+                .Width("170");
+
+            column.Add(p => p.CANTIDAD)
+                .Editable(false)
+                .Validation("validaCantidad")
+                .CellsAlign("center")
+                .CellClassName("cellclass2")
+                .Text("<span class=\"GridMP\">Cantidad Solicitada</span>")
+                .Width("170");
+
+
+            column.Add(p => p.UNIDADMD)
+                .Editable(false)
+                .CellsAlign("center")
+                .CellClassName("cellclass2")
+                .Text("Unidad")
+                .Width("170");
+
+            column.Add(p => p.REFERENCIA2)
+                .Editable(false)
+                .CellsAlign("center")
+                .CellClassName("cellclass2")
+                .Text("Articulo")
+                .Width("170");
+
+            column.Add(p => p.CODIGO)
+                .Editable(false)
+                .CellsAlign("center")
+                .CellsRenderer("cellsrenderer2")
+                .CellClassName("cellclass2")
+                .Text("<span class=\"GridMP\">Codigo Proveedor</span>")
+                .Width("170");
+
+            column.Add(p => p.DESCRIPCION2)
+                .Editable(false)
+                //.CellsAlign("center")
+                .Text("Descripcion")
+                .CellClassName("cellclass2")
+                .Width("170");
+
+            column.Add(p => p.PRECIO)
+                .Editable(false)
+                .Validation("validaPrecio")
+                .CellsAlign("center")
+                .CellClassName("cellclass2")
+                .CellsFormat("C2")
+                .Text("<span class=\"GridMP\">Costo Unitario</span>")
+                .Width("170");
+
+            column.Add(p => p.DTO)
+                .Editable(false)
+                .CellsAlign("center")
+                .CellClassName("cellclass2")
+                .CellsFormat("C2")
+                .Text("Descuento")
+                .Width("170");
+                
+            column.Add(p => p.TOTALLINEA)
+                .Editable(false)
+                .CellsAlign("center")
+                .CellClassName("cellclass2")
+                .CellsFormat("C2")
+                .Text("<span class=\"GridMP\">Importe sin Impuestos</span>")
+                .Width("170");
+
+
+            column.Add(p => p.TOTIVA)
+                .Editable(false)
+                .CellsAlign("center")
+                .CellClassName("cellclass2")
+                .CellsFormat("C2")
+                .Text("IVA")
+                .Width("170");
+
+            column.Add(p => p.TOTREQ)
+                .Editable(false)
+                .CellsAlign("center")
+                .CellClassName("cellclass2")
+                .CellsFormat("C2")
+                .Text("IEPS")
+                .Width("170");
+
+            column.Add(p => p.TOTAL)
+                .Editable(false)
+                .CellsAlign("center")
+                .CellClassName("cellclass2")
+                .CellsFormat("C2")
+                .Text("Total")
+                .Width("170");
+
+
+            column.Add(p => "Eliminar")
+                //.ColumnType("button")
+                .CellsRenderer("eliminar2")
+                .Text("Eliminar")
+                .Width("70");
+
+        }).Create();
+
+}
+<div align="center"></div>
+
+<script>
+
+    var updateRow2 = function (rowid, rowdata, commit) {
+
+        
+        //s_Grid2.localdata[rowid] = rowdata;
+
+        //commit(true);
+        
+        //console.log(s_Grid2.localdata);
+        
+
+    }
+
+
+    var cellsrenderer2 = function (row, columnfield, value, defaulthtml, columnproperties, rowdata) {
+
+        return '<div style="margin-top:4px;text-align: center;font-size: 12px;">' +
+            value +
+            '</span>';
+    }
+
+
+    var eliminar2 = function (row, column, value) {
+        var data = $("#Grid2").jqxGrid('getrowdata', row);
+        
+        if (_Grid1.IDESTADO == 0) {
+            return '<div  style="padding-bottom:3px;padding-top:2px; padding-left:3px; padding-right:3px;"><input value="--" type="button" style="height: 32px;" class="btnGrid_3" onclick="eliminarClick2(' + row + ')" /></div>';
+        }
+        return "";
+
+    }
+    
+    /***********************************************************************/
+    var eliminarClick2 = function (row) {
+        var data = $("#Grid2").jqxGrid('getrowdata', row);
+        //alert(data.ID);
+        //var checked = $("#chkSemaforo").jqxCheckBox('checked');
+
+        MsgBoxOKCancel("Quieres eliminar el registro: <br><span style='color:red'>" + data.DESCRIPCION2 + "</span> ?", 4, function () {
+            
+
+            //$("#Grid2").jqxGrid('removefilter', 'COLOR');
+
+            s_Grid2.localdata.splice(row, 1);
+            a_Grid2.dataBind();
+
+        });
+    }
+    /***********************************************************************/
+
+
+    var validaCantidad = function (cell, value) {
+        var checked = $("#chkSemaforo").jqxCheckBox('checked');
+
+        $("#Grid2").jqxGrid('removefilter', 'COLOR');
+
+        
+        if( isEmpty(numeral(value).value()) ) {
+            a_Grid2.dataBind();
+        }else{
+            
+                s_Grid2.localdata[cell.row].CANTIDAD = numeral(value).value();
+                a_Grid2.dataBind();
+        }
+        
+
+        if(checked){
+            $("#Grid2").jqxGrid('addfilter', 'COLOR', filtergroup1);
+            $("#Grid2").jqxGrid('applyfilters');
+        }
+
+        //console.log(s_Grid2.localdata);
+        return true;
+    }
+
+
+    var validaPrecio = function (cell, value) {
+        var checked = $("#chkSemaforo").jqxCheckBox('checked');
+
+        $("#Grid2").jqxGrid('removefilter', 'COLOR');
+
+
+        if (isEmpty(numeral(value).value())) {
+            a_Grid2.dataBind();
+        } else {
+                s_Grid2.localdata[cell.row].PRECIO = numeral(value).value();
+                a_Grid2.dataBind();
+        }
+
+
+        if (checked) {
+            $("#Grid2").jqxGrid('addfilter', 'COLOR', filtergroup1);
+            $("#Grid2").jqxGrid('applyfilters');
+        }
+
+        //console.log(s_Grid2.localdata);
+        return true;
+    }
+
+
+    var cellclass2 = function (row, columnfield, value, data) {
+
+        if (columnfield == 'CANTIDAD' || columnfield == 'PRECIO') {
+
+            if (data.COLOR == 1) {
+                return 'cellYellow cellC';
+            }
+
+            if (data.COLOR == 2) {
+                return 'cellRed cellC';
+            }
+
+
+            return 'cellC';
+        }
+
+        if (data.COLOR == 1) {
+            return 'cellYellow';
+        }
+
+        if (data.COLOR == 2) {
+            return 'cellRed';
+        }
+
+
+        return '';
+
+    };
+   
+    
+
+    //********************************************************************/
+    
+
+    
+    var Grid2Ready=function(){
+        
+    }
+
+    var Grid2Rendered=function(){
+        
+        //$('#Grid2').jqxGrid({ autorowheight: true });
+        $("#Grid2").jqxGrid("autoresizecolumns");
+        $("#Grid2").jqxGrid('setcolumnproperty', 'CANTIDAD', 'width', 90);
+        $("#Grid2").jqxGrid('setcolumnproperty', 'TOTALLINEA', 'width', 100);
+        $("#Grid2").jqxGrid('setcolumnproperty', 'CODIGO', 'width', 120);
+        $("#Grid2").jqxGrid('setcolumnproperty', 'PRECIO', 'width', 100);
+        $("#Grid2").jqxGrid('setcolumnproperty', 'Eliminar', 'width', 70);
+        
+        $(".GridMP").parent().parent().addClass('GridMP');
+        
+        
+    }
+    
+
+
+
+
+
+</script>

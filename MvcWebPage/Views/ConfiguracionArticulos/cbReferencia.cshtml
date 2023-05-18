@@ -1,0 +1,44 @@
+﻿@using MvcWebPage.MLAVID
+
+@{
+    
+    var cbReferencia = Html.JqxDropDownList("cbReferencia");
+
+    cbReferencia.Width("100%")
+        .PromptText("Referencia---------")
+        .DropDownHeight("203")
+        .Height("27")
+        .DisplayMember("DESCRIPCION")
+        .ValueMember("REFERENCIA")
+        .Create();
+
+}
+
+<script>
+
+
+        $("#cbReferencia").bind('select',
+            function (event) {
+                if (event.args && event.args.item) {
+                    
+                    //$("#lbSucursal").html(event.args.item.label.toLowerCase());
+
+                 referencia = event.args.item.value;
+                    //tmp_lbSucursal = event.args.item.label;
+
+
+                        //GetDepartamentos();
+                        //GetDepartamentoColor();
+                $('.tDatos input').val('');
+                $('.tDatos2 input').val('');
+                $('#cPORCENTAJE_A').val('');
+                
+                GetDatosGenerales();
+                
+
+                }
+
+            });
+
+
+</script>

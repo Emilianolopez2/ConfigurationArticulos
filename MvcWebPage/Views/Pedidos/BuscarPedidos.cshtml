@@ -1,0 +1,25 @@
+﻿@using MvcWebPage.MLAVID
+@{
+    var Grid1 = Html.JqxGrid<IT_PEDIDOS_AUTResult>("Grid1");
+}
+
+<input type="button" value="Buscar" id="BuscarPedidos" />
+
+<script>
+
+    $("#BuscarPedidos").jqxButton({ width: 70, height: 30, template: "primary" });
+
+    $("#BuscarPedidos").click(function (e) {
+
+        //codProv
+        //nomProv
+        
+        GetPedidosAutorizados();
+
+
+
+    });
+
+
+
+</script>

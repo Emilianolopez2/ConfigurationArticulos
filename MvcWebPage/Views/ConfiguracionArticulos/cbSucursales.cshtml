@@ -1,0 +1,95 @@
+﻿@using MvcWebPage.MLAVID
+
+@{
+    //var Grid1 = Html.JqxGrid<IT_PEDIDOSResult>("Grid1");
+    var cbSucursales = Html.JqxDropDownList("cbSucursales");
+    var cbReferencia = Html.JqxDropDownList("cbReferencia");
+
+    cbSucursales.Width("203")
+        .PromptText("------------------------------------")
+        .DropDownHeight("203")
+        .DisplayMember("NOMBREALMACEN")
+        .ValueMember("CODALMACEN")
+        .Create();
+
+}
+
+<script>
+
+    if (sucursal == "") {
+
+        $("#cbSucursales").bind('select',
+            function (event) {
+                if (event.args && event.args.item) {
+                    
+                    //$("#lbSucursal").html(event.args.item.label.toLowerCase());
+                    
+                    sucursal = event.args.item.value;
+                    tmp_lbSucursal = event.args.item.label;
+
+                    
+                    $("#txArticulos").val('');
+                    $("#txReferencia").val('');
+                    $("#lArticulo").html('');
+
+                    referencia = "";
+                    $('.tDatos input').val('');
+                    $('.tDatos2 input').val('');
+                    $('#cPORCENTAJE_A').val('');
+                    
+                    
+                    @(cbReferencia.SelectedIndex("0")
+                        .Source("[]")
+                        .GetScript())
+
+                        //(Grid1.Clear())
+                        
+                        
+                        //GetDepartamentos();
+                        //GetDepartamentoColor();
+
+                    //********************************************************** */
+                    getData2('@Url.Action("GetReferencia2", "ConfiguracionArticulos")',
+                        { sucursal: sucursal },
+                        function (respuesta) {
+
+                            respuesta = JSON.parse(respuesta);
+
+
+                            if (respuesta.code == -1) {
+
+                                return;
+                            }
+
+                            $("#txReferencia").jqxInput({ source: respuesta.rs });
+
+                        });
+                    //********************************************************** */
+
+
+                }
+
+            });
+
+
+        getData2('@Url.Action("GetSucursales", "ConfiguracionArticulos")',
+            { todos : false},
+            function (respuesta) {
+                respuesta = JSON.parse(respuesta);
+
+
+                if (respuesta.code == 0) {
+                    // alert("ok");
+
+
+                    @(cbSucursales.SelectedIndex("0")
+                        .Source("respuesta.rs")
+                        .GetScript())
+                }
+
+            });
+    } else {
+        //GetDepartamentos();
+    }
+
+</script>

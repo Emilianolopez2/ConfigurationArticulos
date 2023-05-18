@@ -1,0 +1,103 @@
+﻿@using MvcWebPage.MLAVID
+
+<input type="button" value="Guardar" id="GuardarPedidos" />
+
+<script>
+
+    $("#GuardarPedidos").jqxButton({ width: 100, height: 30, template: "success" });
+
+    $("#GuardarPedidos").click(function (e) {
+        
+        if (validacionErr){
+            return;
+        }
+        
+        //$("#Show1").css("display", "");
+
+        //var arr=new Array();
+
+        //arr.push({ REFPROVEEDOR :"a1"});
+
+
+        //s_Grid1.localdata = JSON.parse(s_Grid1.localdata);
+        //s_Grid1.localdata.splice(0,1)
+        //a_Grid1.dataBind();
+        //s_Grid1.localdata = JSON.stringify(s_Grid1.localdata);
+        //$("#Grid1").jqxGrid("autoresizecolumns");
+
+
+        /*
+        s_Grid1.localdata = JSON.parse(s_Grid1.localdata);
+        s_Grid1.localdata[1].CANTIDAD = 66;
+        a_Grid1.dataBind();
+        s_Grid1.localdata = JSON.stringify(s_Grid1.localdata);
+        */
+
+        //console.log(s_Grid1.localdata);
+
+        //console.log(s_Grid1.localdata);
+
+        /*
+        $.each(s_Grid1.localdata,
+            function (index, value) {
+                $("#Grid1").jqxGrid('endcelledit', index, 'CANTIDAD', true);
+
+            });
+        */
+
+
+        MsgBoxOKCancel("Quieres guardar los registros?", 4, function () {
+
+            $(".Show3_2").css('display', '');
+            $(".Show4_2").css('display', 'none');
+
+            getData2('@Url.Action("SavePedidos", "GenerarPedidos")',
+                { pedidos: s_Grid1.localdata, sucursal: sucursal, numdpto: numdpto, fecha: fechaPedido },
+                function (respuesta) {
+                    respuesta = JSON.parse(respuesta);
+
+
+                    if (editar == true) {
+                        editar = false;
+
+                        sucursal = tmp_sucursal;
+                        numdpto = tmp_numdpto;
+
+                        $(".Show2").css('display', '');
+                        $(".Show1").css('display', 'none');
+
+
+                        $(".Show3").css('display', '');
+                        $(".Show4").css('display', 'none');
+
+
+                        for (const value of btns.values()) {
+                            value.jqxButton({ template: "primary", theme: "", disabled: false });
+                        }
+                        
+                        $("#eFecha").html(tmp_fecha);
+                        tmp_fecha ="";
+                        fechaPedido =null;
+                    }
+
+                    if (respuesta.code == 0) {
+                        // alert("ok");
+                        GetDepartamentoColor();
+                        GetPedidos();
+
+                        $(".Show2").css('display', '');
+                        $(".Show1").css('display', 'none');
+
+                        MsgBoxOK2("Registros guardados correctamente.", 5);
+                    }
+
+                });
+        
+        });
+
+
+
+
+    });
+
+</script>

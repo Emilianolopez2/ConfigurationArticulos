@@ -1,0 +1,57 @@
+﻿{
+   "CodeGenerationMode": 2,
+   "ContextClassName": "MLAVIDContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "MLAVID",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "MvcWebPage",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[DEPARTAMENTO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_PEDIDOS_TMP]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VENDEDORES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[IT_PEDIDOS]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[IT_VENDEDORES]",
+         "ObjectType": 1
+      }
+   ],
+   "UiHint": "DESKTOP-MT6EOOK\\SQLEXPRESS.MLAVID",
+   "UncountableWords": null,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": true,
+   "UseDateOnlyTimeOnly": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false,
+   "UseT4": false
+}

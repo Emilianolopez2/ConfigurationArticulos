@@ -1,0 +1,36 @@
+﻿@using MvcWebPage.MLAVID
+@{
+    var Grid1 = Html.JqxGrid<IT_PEDIDOS_AUTResult>("Grid1");
+}
+
+<script>
+
+    function GetPedidosAutorizados() {
+
+        $('#jqxLoader').jqxLoader('open');
+
+        var fecha1 = $('#Fecha1').jqxDateTimeInput('getDate');
+        var fecha2 = $('#Fecha2').jqxDateTimeInput('getDate');
+        var proveedor = $("#txProveedor").val();
+
+        getData2('@Url.Action("GetPedidosAutorizados", "Pedidos")',
+            { sucursal: sucursal, fecha1: fecha1, fecha2: fecha2 },
+            function (respuesta) {
+
+                respuesta = JSON.parse(respuesta);
+
+                $('#jqxLoader').jqxLoader('close');
+                if (respuesta.code == -1) {
+
+                    return;
+                }
+
+    @(Grid1.SetSource("respuesta.rs"))
+
+
+                    });
+    }
+    
+    
+    
+</script>

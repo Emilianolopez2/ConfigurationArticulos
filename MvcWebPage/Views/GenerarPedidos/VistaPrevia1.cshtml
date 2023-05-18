@@ -1,0 +1,132 @@
+﻿@using MvcWebPage.MLAVID
+
+<div id="VistaPrevia1">
+    <div style="" id="title2">
+        Vista Previa
+    </div>
+    <div style="padding: 10px;">
+        <table cellpadding="0" cellspacing="0" style="width: 100%; height: 100%;">
+            <tr>
+                <td style="" valign="top">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width: 300px; padding-bottom: 5px; font-weight: bold;" align="center">
+                                Pedidos
+                            </td>
+                            <td style="padding-bottom: 5px;">
+                                <table>
+                                    <tr>
+                                        <td style="width: 60px; padding-right: 5px; font-weight: bold;" align="right">
+                                            Sucursal:
+                                        </td>
+                                        <td id="vSucursal" style="width: 70px;" align="left">
+            
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-right: 5px;" valign="top">
+                                @Html.Partial("Grid3/Grid3")
+                            </td>
+                            <td style="" valign="top">
+                                @Html.Partial("Grid4/Grid4")
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+
+            </tr>
+            <tr>
+                <td align="right" style="height: 30px;">
+                    <input type="button" id="cancel2" value="Regresar" style="margin-right: 1px" />
+                    <input type="button" id="ok2" value="Enviar Todo" style="margin-right: 1px"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script>
+
+    $('#VistaPrevia1').jqxWindow({
+        //position: { x: offset.left + 50, y: offset.top + 50 },
+        minHeight: 470,
+        minWidth: 400,
+        autoOpen: false,
+        resizable: false,
+        isModal: true,
+        modalOpacity: 0.5,
+        //okButton: $('#ok2'),
+        //cancelButton: $('#cancel2'),
+        initContent: function () {
+            //$('#tab').jqxTabs({ height: '100%', width: '100%' });
+
+            $('#ok2').jqxButton({ width: '100px', template: "success" });
+          //  $('#cancel2').jqxButton({ width: '80px', template: "primary" });
+
+            //$('#cancel').jqxButton({ width: '65px' });
+            //$('#ok1').focus();
+
+            //$('#eventWindow').jqxWindow('focus');
+        }
+    });
+
+    $("#ok2").click(function (e) {
+
+        //********************************************************************/
+
+        if (isEmpty(s_Grid4.localdata)) {
+
+            MsgBoxOK("No hay articulos para enviar.", 3);
+            return;
+        }
+
+        //********************************************************************/
+        MsgBoxOKCancel("Quieres enviar los pedidos?", 4, function () {
+
+            //$('#VistaPrevia1').jqxWindow('close');
+            
+            $('#jqxLoader').jqxLoader('open');
+
+            getData2('@Url.Action("ProcesarPedidos", "GenerarPedidos")',
+                { cab_pedidos: s_Grid3.localdata },
+                function (respuesta) {
+                    $('#jqxLoader').jqxLoader('close');
+
+                    respuesta = JSON.parse(respuesta);
+                    
+                    if(respuesta.code==0){
+                        MsgBoxOK2("Los pedidos fueron enviados correctamente.", 5);
+                        
+                        $('#VistaPrevia1').jqxWindow('close');
+                        GetPedidos();
+                        GetDepartamentoColor();
+                    }else{
+                        MsgBoxOK(respuesta.msg, 2);
+                    }
+                    
+                });
+
+        });
+
+        //********************************************************************/
+    });
+
+
+    function VistaPrevia1(){
+        var w1 = $(window).width();
+        var h1 = $(window).height() - 100;
+
+        $('#VistaPrevia1').jqxWindow({ width: w1 });
+        $('#title2').css('padding-left', (w1 / 2) - 110 + 'px');
+        $('#title2').css('font-weight', 'bold');
+
+        $('#VistaPrevia1').jqxWindow('open');
+        $('#VistaPrevia1').jqxWindow({ position: 'center' });
+    
+    }
+
+
+</script>

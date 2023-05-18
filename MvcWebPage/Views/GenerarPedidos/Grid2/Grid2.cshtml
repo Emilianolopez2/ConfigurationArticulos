@@ -1,0 +1,260 @@
+﻿@using MvcWebPage.MLAVID
+
+@{
+    var Grid1 = Html.JqxGrid<IT_PEDIDOSResult>("Grid1");
+    var Grid2 = Html.JqxGrid<IT_PEDIDOS_CAB2Result>("Grid2");
+
+    Grid2.Width("100%")
+        .EnableBrowserSelection(true)
+        .Sortable(true)
+        .Ready("Grid2Ready")
+        .Rendered("Grid2Rendered")
+        .ShowSortMenuItems(false)
+        .Columns(column =>
+        {
+            column.Add(p => p.ESTATUS)
+                .Visible(false);
+
+            column.Add(p => p.ID)
+                .Visible(false);
+
+            column.Add(p => p.CODALMACEN)
+                .Visible(false);
+
+            column.Add(p => p.SUCURSAL)
+                .Visible(false);
+
+            column.Add(p => p.NUMDPTO)
+                .Visible(false);
+
+            column.Add(p => p.DEPARTAMENTO)
+                .Visible(false);
+
+            column.Add(p => p.FECHA)
+                .Type("date")
+                .CellsAlign("center")
+                .CellsFormat("dd/MM/yyyy")
+                .Text("Emisión")
+                .Width("170");
+
+
+            column.Add(p => p.DETALLE)
+                .Text("Detalle")
+                .Width("140");
+
+            column.Add(p => p.ESTATUS2)
+                .Text("Estatus")
+                .Width("140");
+
+            column.Add(p => p.REFERENCIA)
+                .Text("Referencia")
+                .Width("140");
+
+
+
+            column.Add(p => "Editar")
+                .CellsRenderer("editar2")
+                .CellClassName("visible1")
+                .Text("Editar")
+                //.ButtonClick(@Html.Partial("GenerarPedidos/Grid2/Grid2Editar"))
+                .Width("60");
+
+            column.Add(p => "Enviar")
+                .CellsRenderer("enviar2")
+                .CellClassName("visible1")
+                .Text("Enviar")
+                .Width("60");
+
+            column.Add(p => "Anular")
+                //.ColumnType("button")
+                .CellsRenderer("anular2")
+                .CellClassName("visible1")
+                .Text("Anular")
+                .Width("60");
+        }).Create();
+
+}
+
+
+<script>
+
+
+    //********************************************************************/
+    
+    var Grid2Ready = function(){
+        
+   
+    }
+
+    var Grid2Rendered = function(){
+        $("#Grid2").jqxGrid("autoresizecolumns");
+
+        $("#Grid2").jqxGrid('setcolumnproperty', 'Editar', 'width', 60);
+        $("#Grid2").jqxGrid('setcolumnproperty', 'Enviar', 'width', 60);
+        $("#Grid2").jqxGrid('setcolumnproperty', 'Anular', 'width', 60);
+
+    }
+    
+
+
+    var editar2 = function (row, column, value) {
+        var data = $("#Grid2").jqxGrid('getrowdata', row);
+
+        if (data.ESTATUS == 1) {
+            return '<div  style="padding-bottom:3px;padding-top:2px; padding-left:3px; padding-right:3px;"><input value="--" type="button" class="btnGrid_1" onclick="editarClick2(' + row + ')" /></div>';
+        }
+
+        return "";
+    }
+
+
+    var enviar2 = function (row, column, value) {
+        var data = $("#Grid2").jqxGrid('getrowdata', row);
+
+        if (data.ESTATUS == 1) {
+            return '<div  style="padding-bottom:3px;padding-top:2px; padding-left:3px; padding-right:3px;"><input value="--" type="button" class="btnGrid_2" onclick="enviarClick2(' + row + ')" /></div>';
+        }
+
+        return "";
+    }
+    
+
+    var anular2 = function (row, column, value) {
+        var data = $("#Grid2").jqxGrid('getrowdata', row);
+
+        if (data.ESTATUS == 1) {
+            return '<div  style="padding-bottom:3px;padding-top:2px; padding-left:3px; padding-right:3px;"><input value="--" type="button" class="btnGrid_3" onclick="anularClick2(' + row + ')" /></div>';
+        }
+
+        return "";
+    }
+    
+    //***************************************************************************************/
+
+    var editarClick2 = function (row) {
+        var data = $("#Grid2").jqxGrid('getrowdata', row);
+        //alert(data.ID);
+        
+        
+        
+        if (!btns.has("btn_" + data.NUMDPTO)){
+            MsgBox('El departamento "' + data.DEPARTAMENTO + '" no está habilitado.', 1);
+            return;
+        }
+        
+
+
+        editar = true;
+
+        tmp_sucursal = sucursal;
+        tmp_numdpto = numdpto;
+
+        sucursal = data.CODALMACEN;
+        numdpto = data.NUMDPTO;
+
+
+       // alert(btns.size);
+
+        $(".Show3").css('display', 'none');
+        $(".Show4").css('display', '');
+        $("#eSucursal").html(data.SUCURSAL);
+        
+        tmp_fecha = $("#eFecha").html();
+        fechaPedido = data.FECHA;
+        
+        var fecha1 = $.jqx.dataFormat.formatdate(data.FECHA, 'dd/MM/yyyy');
+        $("#eFecha").html(fecha1);
+
+        for (const value of btns.values()) {
+            value.jqxButton({ template: "primary", theme: "", disabled: true });
+        }
+
+        btns.get("btn_" + data.NUMDPTO).jqxButton({ template: "success", theme: "" });
+
+
+
+        $('#jqxLoader').jqxLoader('open');
+        getData2('@Url.Action("GetDptoData", "GenerarPedidos")',
+            { numdpto: data.NUMDPTO, sucursal: data.CODALMACEN, fecha: data.FECHA, id: data.ID, act:1},
+            function (respuesta) {
+
+                respuesta = JSON.parse(respuesta);
+
+                $(".Show1").css('display', '');
+                $(".Show2").css('display', 'none');
+
+                @(Grid1.SetSource("respuesta.rs"))
+
+                    //GetDepartamentoColor();
+                    
+                    //$('#Grid1').focus();
+
+                $('#jqxLoader').jqxLoader('close');
+            });
+
+
+    }
+
+    var enviarClick2 = function (row) {
+        var data = $("#Grid2").jqxGrid('getrowdata', row);
+        //alert(data.ID);
+        
+        /*************************************************************/
+
+        
+
+        $("#vSucursal").html('');
+
+        s_Grid4.localdata = [];
+        a_Grid4.dataBind();
+        
+        s_Grid3.localdata = [];
+        s_Grid3.localdata.push(s_Grid2.localdata[row]);
+
+
+        if (!isEmpty(s_Grid3.localdata)) {
+            a_Grid3.dataBind();
+            //$("#Grid3").jqxGrid('clearselection');
+            
+            $("#Grid3").jqxGrid('selectrow', 0)
+        }
+        
+        VistaPrevia1();
+        /*************************************************************/
+
+    }
+
+    var anularClick2 = function (row) {
+        var data = $("#Grid2").jqxGrid('getrowdata', row);
+        //alert(data.ID);
+
+
+        MsgBoxOKCancel("Quieres anular el pedido: " + data.ID + "?", 4, function () {
+
+            $('#jqxLoader').jqxLoader('open');
+            getData2('@Url.Action("AnularPedido", "GenerarPedidos")',
+                { id: data.ID },
+                function (respuesta) {
+                    $('#jqxLoader').jqxLoader('close');
+
+                    respuesta = JSON.parse(respuesta);
+
+                    //(Grid2.SetSource("respuesta.rs"))
+                    GetPedidos();
+                    GetDepartamentoColor();
+                });
+        });
+    }
+    
+    //***************************************************************************************/
+
+    var visible1 = function (row, columnfield, value, data) {
+
+        if (data.ESTATUS == 2) {
+            return 'cVisible';
+        }
+
+        return "";
+    }
+
+</script>

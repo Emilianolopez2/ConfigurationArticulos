@@ -1,0 +1,138 @@
+﻿@model Usuario
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
+    
+    <style>
+
+    </style>
+</head>
+<body style="padding: 10px;" class="pe-5 ps-5">
+    
+
+@*
+<!-- Section: Design Block -->
+    <section class="text-center">
+        <!-- Background image -->
+        <div class="p-4 bg-image" style=" background-color: rgb(243, 243, 243); height: 300px; ">
+            <img src="images/logo.png" height="110">
+        </div>
+        <!-- Background image -->
+
+        <div class="card mx-4 mx-md-5 shadow-5-strong" style="
+                                                              margin-top: -150px;
+                                                              background: hsla(0, 0%, 100%, 0.8);
+                                                              backdrop-filter: blur(30px);
+                                                          ">
+            <div class="card-body py-5 px-md-5">
+
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-4">
+                        <h2 class="fw-bold mb-3">Login</h2>
+                        <form class="" asp-controller="Acceso" asp-action="Index" method="post">
+                            
+                            <div class="" style="color: red; padding-top: 0px; padding-bottom: 5px; text-align: center;height: 27px;">
+                                @Model?.MsgErr
+                                
+                            </div>
+
+                            <!-- Usuario input -->
+                            <div class="form-outline mb-3">
+                                <input type="text" id="" class="form-control text-center" asp-for="User" />
+                                <label class="form-label" for="">Usuario</label>
+                            </div>
+
+                            <!-- Password input -->
+                            <div class="form-outline mb-3">
+                                <input type="password" id="" class="form-control text-center" asp-for="Password"/>
+                                <label class="form-label" for="">Password</label>
+                            </div>
+
+                            <!-- Submit button -->
+                            <button type="submit" class=" btn btn-primary btn-block" style="width: 150px;">
+                                Entrar
+                            </button>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section: Design Block -->
+    *@
+
+
+    <section class="" style="">
+        <div class="container py-4 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col col-xl-10">
+                    <div class="card" style="border-radius: 1rem;">
+                        <div class="row g-0">
+                            <div class="col-md-6 col-lg-5 d-none d-md-block">
+                                <img src="~/images/restaurant-pos-software.png"
+                                     alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                            </div>
+                            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                                <div class="card-body p-4 p-lg-4 text-black">
+
+                                    <form asp-controller="Acceso" asp-action="Index" method="post">
+
+
+
+                                        <div class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;"></div>
+
+                                        <div class="form-outline mb-4">
+                                            
+                                            <div class="mb-3 pb-1" align="center">
+                                            
+                                                <img src="~/images/logo.png" height="100"/>
+                                            </div>
+                                            
+                                            <div class="" style="color: red; padding-top: 0px; padding-bottom: 5px; text-align: center;height: 30px;">
+                                                @Model?.MsgErr
+                                
+                                            </div>
+
+                                            <input type="text" id="" class="form-control form-control-lg text-center" asp-for="User" />
+                                            <label class="form-label" for="" >Usuario</label>
+                                        </div>
+
+                                        <div class="form-outline mb-4">
+                                            <input type="password" id="" class="form-control form-control-lg text-center " asp-for="Password" />
+                                            <label class="form-label" for="" >Password</label>
+                                        </div>
+
+                                        <div class="pt-1 mb-4" align="center">
+                                            <button class="btn btn-dark btn-lg btn-block" style="width: 100%" type="submit">Login</button>
+                                        </div>
+
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+@*<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/js/bootstrap.js"></script>
+</body>
+</html>

@@ -1,0 +1,806 @@
+﻿@using MvcWebPage.MLAVID;
+@model ALMACEN;
+
+@{
+    ViewData["Title"] = "Informacionde de Articulos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var usuario = (string)ViewData["usuario"];
+    var fecha = (string)ViewData["fecha"];
+    var sucursal = (string)ViewData["sucursal"];
+    var lbSucursal = (string)ViewData["lbSucursal"];
+
+    var cbReferencia = Html.JqxDropDownList("cbReferencia");
+    var cbSucursales = Html.JqxDropDownList("cbSucursales");
+
+}
+
+
+<h4>Configuración Articulos@*, Sucursal: <span id="lbSucursal" style="text-transform: capitalize;"></span>*@</h4>
+
+
+
+
+<!---------------------------------------------------------------------------------------------------------------->
+<div class ="card" style="border-bottom:0.5px solid gray; margin-top: 0.5px; margin-bottom: 4px;"> </div>
+<table style="width: 90%;">
+    <tr>
+
+        
+        <td style="padding-right: 5px; font-weight: bold; width: 70px; height: 32px;" align="right">
+            Usuario:
+        </td>
+        <td style="width: 10px; white-space: nowrap;">
+            @usuario
+        </td>
+        <td style="width: 60px; padding-right: 5px; padding-left: 50px; font-weight: bold;" align="right">
+            Fecha:
+        </td>
+        <td id="eFecha" style="width: 70px;" align="left">
+            @fecha
+        </td>
+       
+            <td class="" style="width: 60px; padding-right: 5px; padding-left: 50px; font-weight: bold;" align="right">
+                Sucursal:
+            </td>
+            <td class="" style="width: 70px;" align="left">
+                @Html.Partial("cbSucursales")
+            </td>
+        
+        <td></td>
+        <td style="width: 50px; padding-left: 0px; font-weight: bold;" align="right">
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        <div id='optArt'>Por Artículo</div>
+                    </td>
+                    <td>
+                        <div  id='optRef'>Por Referencia</div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<div style="border-bottom: 1px solid gray ; margin-top: 1px; margin-bottom: 20px;"></div>
+<!---------------------------------------------------------------------------------------------------------------->
+
+
+
+<table class="Show1" style="margin: auto; margin-top: 10px;">
+    <tr>
+        <td style="font-weight: bold; width: 400px;">
+            Artículo
+        </td>
+        <td style="width: 10px;"></td>
+        <td style="font-weight: bold; width: 500px;">
+            Referencia
+        </td>
+        <td></td>
+    </tr>
+    
+    <tr>
+        <td>
+          <input type="text" autocomplete="off" id="txArticulos" @*onclick="mostrarAlertaSweetAlert1()*@" style="padding-left: 10px !important;" />
+        </td>
+        <td></td>
+        <td>
+            @Html.Partial("cbReferencia")
+        </td>
+        <td style="padding-left: 100px;">
+           
+            @*<input type="button" class="" value="Cargar Datos" id="cargarDatos" />*@
+
+        </td>
+    </tr>
+</table>
+
+<!---------------------------------------------------------------------------------------->
+<table class="Show2" style="margin: auto; margin-top: 10px;">
+    <tr>
+        <td style="font-weight: bold; width: 500px;">
+            Referencia
+        </td>
+        <td style="width: 10px;"></td>
+        <td style="font-weight: bold; width: 500px;">
+            Artículo
+        </td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>
+         <input type="text" id="txReferencia" autocomplete="off" @*onclick="mostrarAlertaSweetAlert2()*@" style="padding-left: 10px !important;" />
+        </td>
+        <td></td>
+        <td>
+            <div class="dLabel" id="lArticulo" style="text-align: center;"></div>
+        </td>
+        <td style="padding-left: 100px;">
+        </td>
+    </tr>
+</table>
+<p></p>
+<!---------------------------------------------------------------------------------------->
+
+
+        <div class="card" style="margin-top: 5px; background-color:white;border: 1px solid gray">
+    <div class="card-body">
+        <div class="container">
+            <center><label style="font-weight:700;" class="h5">DATOS GENERALES</label></center>
+            <div id="" class="tDatos row" style="display:flex; flex-flow:row wrap; justify-content:flex-start; align-items:center; ">
+                <div class="col-lg-12" style="display:flex; flex-flow:row wrap; justify-content:center; align-items:center; ">
+                   
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <label for="cDOSIS" style="font-weight:700;">Dosis:</label>
+                    <input type="number" id="cDOSIS" class="form-control" />
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <label for="cUNIDADM" style="font-weight:700;">Unidad Medida:</label>
+                    <input type="text" id="cUNIDADM" class="form-control" />
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <label for="cUNIDADMD" style="font-weight:700;">Unidad Medida D:</label>
+                    <input type="text" id="cUNIDADMD" class="form-control" />
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <label for="cLEADTIME" style="font-weight:700;">Leadtime:</label>
+                    <input type="number" id="cLEADTIME" class="form-control" />
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <label for="cFRECUENCIA" style="font-weight:700;">Frecuencia:</label>
+                    <input id="cFRECUENCIA" class="form-control" />
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <label for="cSTOCK_MAXIMO" style="font-weight:700;">Stock Maximo:</label>
+                    <input type="number" id="cSTOCK_MAXIMO" class="form-control" />
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <label for="cSTOCK_SEGURIDAD" style="font-weight:700;">Stock Seguridad:</label>
+                    <input type="number" id="cSTOCK_SEGURIDAD" class="form-control" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!---------------------------------------------------------------------------------->
+<table class="tDatos2" style="width: 100%; margin-top: 1px; ">
+    <tr>
+        <td style="font-weight:500; padding-bottom: 5px;" class="h5" align="center">
+            
+            PROVEEDOR A
+        </td>
+        
+        <td style="font-weight:500; padding-bottom: 5px;" class="h5" align="center">
+            
+            PROVEEDOR B
+        </td>
+    </tr>
+    
+    <tr>
+        <td style="font-weight:700;" valign="top">
+            <table style="margin: auto;">
+                <tr>
+                    <td style="width: 250px; padding-right: 20px; padding-top:5px;">
+                        <label for="cPROVEEDOR_A" style="font-weight: 700;">Rfc:</label>
+                        <input type="text" id="cPROVEEDOR_A" class="form-control" style="width: 100%;" />
+                    </td>
+                    <td style="width: 250px;">
+                        <label for="cPORCENTAJE_A" style="font-weight:700;">Porcentaje:</label>
+                        <input type="number" id="cPORCENTAJE_A" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 250px; padding-right: 20px; padding-top: 5px;">
+                        <label for="cPRECIO_A" style="font-weight:700;">Precio:</label>
+                        <input type="number" id="cPRECIO_A" class="form-control" />
+                    </td>
+                    <td style="width: 250px; padding-top: 5px;">
+                        <label for="cCODIGO_A" style="font-weight:700;">Codigo Articulo:</label>
+                        <input type="text" id="cCODIGO_A" class="form-control" />
+                    </td>
+                </tr>
+            </table>
+        </td>
+        
+        
+        <td style="font-weight:700;" valign="top">
+            <table style="margin: auto;">
+                <tr>
+                    <td style="width: 250px; padding-right: 20px;">
+                        <label for="cPROVEEDOR_B" style="font-weight:700;">Rfc:</label>
+                        <input type="text" id="cPROVEEDOR_B" class="form-control" style="width: 100%;" />
+                    </td>
+                    <td style="width: 250px;">
+                        <label for="cPORCENTAJE_B" style="font-weight:700;">Porcentaje:</label>
+                        <input type="number" id="cPORCENTAJE_B" class="form-control" disabled style="width: 100%;" />
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td style="width: 250px; padding-right: 20px; padding-top: 5px;">
+                        <label for="cPRECIO_B" style="font-weight:700;">Precio:</label>
+                        <input type="number" id="cPRECIO_B" class="form-control" />
+                    </td>
+                    <td style="width: 250px; padding-top: 5px;">
+                        <label for="cCODIGO_B" style="font-weight:700;">Codigo Articulo:</label>
+                        <input type="text" id="cCODIGO_B" class="form-control" />
+                    </td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+<div class="col-12" style="display:flex;justify-content:center;flex-flow:row nowrap;align-items:center;">
+    <button  class="btn btn-outline-success" style="background-color:#58B358;" onclick="editArticle()"> Actualizar datos generales  </button>
+</div>
+
+
+
+<p></p>
+@*<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.USUARIO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PASS)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+<tbody>
+    @foreach (var item in  )
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.REFERENCIA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CODARTICULO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DESCRIPCION)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.CODARTICULO">Editar</a> |
+            </td>
+        </tr>
+    }
+</tbody>
+*@
+<!---------------------------------------------------------------------------------->
+
+<!-- Modal -->
+<div class="modal fade" id="res3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="res3">Articulos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+@*/////////////////////////////////Section Scripts tra///////////////////////////////////////////////*@
+
+<!---------------------------------------------------------------------------------------------------------------->
+@section ScriptHeader
+{
+    <script>
+        //---------------------------------------------
+
+        var sucursal = "";
+        var referencia = "";
+
+
+        var lbSucursal = "@lbSucursal";
+        var fecha = "@fecha";
+        
+        //---------------------------------------------
+
+    </script>
+}
+
+
+
+
+
+@section ScriptFooter{
+     <script>
+            var articulo = "";
+            var descripcion = "";
+            $('.Show2').css('display', 'none');
+
+
+        $("#txArticulos").val('');
+        $("#txReferencia").val('');
+
+        $('#cPORCENTAJE_A').jqxNumberInput({ max: 1, min:0, decimalDigits: 1, digits:1, spinButtons: true, width: 200 });
+
+        $('#cPORCENTAJE_A').on('valueChanged', function (event) {
+            var value = event.args.value;
+
+            var dif = numeral((1 - value)).format('0.0');
+
+            if (value==0 || value == 1){
+                    dif = 0;
+            }
+
+            $('#cPORCENTAJE_B').val(dif);
+
+        });
+
+        //Edit
+        function editArticle(){
+
+            var index = @(cbReferencia.SelectedIndex());
+            var ref = @(cbReferencia.GetItem("index"));
+            //var referencia = ref.value;
+
+            var index2 = @(cbSucursales.SelectedIndex());
+            var suc = @(cbSucursales.GetItem("index2"));
+
+            var elemento = document.getElementById("lArticulo");
+            var contenidoHTML = elemento.innerHTML;
+
+
+            var Rfc1 = $("#cPROVEEDOR_A").val();
+            var Rfc2 = $("#cPROVEEDOR_B").val();
+            var uni =  $("#cUNIDADM").val();
+            var uni2 = $("#cUNIDADMD").val();
+            var lead = $("#cLEADTIME").val();
+            var stock = $("#cSTOCK_MAXIMO").val();
+            var stock2 = $("#cSTOCK_SEGURIDAD").val();
+            var frec = $("#cFRECUENCIA").val();
+            var porc = $("#cPORCENTAJE_A").val();
+            var precio = $("#cPRECIO_A").val();
+            var codi = $("#cCODIGO_A").val();
+            var porc2 = $("#cPORCENTAJE_B").val();
+            var precio2 = $("#cPRECIO_B").val();
+            var codi2 = $("#cCODIGO_B").val();
+
+            let dosis = document.querySelector('#cDOSIS').value
+            let obj = {
+                "REFERENCIA": referencia,
+                "CODALMACEN":sucursal,
+                "DOSIS": parseFloat(dosis),
+             
+                "UNIDADM": uni,
+                "UNIDADMD":uni2,
+                "LEADTIME": lead,
+                "STOCK_MAXIMO":stock,
+                "STOCK_SEGURIDAD":stock2,
+                "FRECUENCIA":frec,
+
+                "PROVEEDOR_A": Rfc1,
+                "PORCENTAJE_A":porc,
+                "PRECIO_A": precio,
+                "CODIGO_A":codi,
+
+                "PROVEEDOR_B": Rfc2,
+                "PORCENTAJE_B":porc2,
+                "PRECIO_B": precio2,
+                "CODIGO_B":codi2,
+            }
+            fetch('@Url.Action("updateArticulo","ConfiguracionArticulos")',{
+                method:'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body:JSON.stringify(obj)
+            })
+            .then(res=>res.json())
+            .then(result=>{
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Articulo Guardado Correctamente',
+                    text: result.message,
+                    allowOutsideClick: true,
+                    showConfirmButton: false,
+                    timer: 1200
+                })
+            })
+            .catch(error=>{
+                console.log(error)
+            })
+        }
+
+      
+        //********************************************************************************* */
+        function GetDatosGenerales(){
+
+            getData2('@Url.Action("GetDatosgenerales", "ConfiguracionArticulos")',
+                { referencia: referencia, sucursal: sucursal },
+                function (respuesta) {
+
+                    respuesta = JSON.parse(respuesta);
+
+                    if (respuesta.code == 0) {
+
+                        $("#cDOSIS").val(respuesta.rs.DOSIS);
+                        $("#cUNIDADM").val(respuesta.rs.UNIDADM);
+                        $("#cUNIDADMD").val(respuesta.rs.UNIDADMD);
+                        $("#cLEADTIME").val(respuesta.rs.LEADTIME);
+                        $("#cSTOCK_SEGURIDAD").val(respuesta.rs.STOCK_SEGURIDAD);
+                        $("#cSTOCK_MAXIMO").val(respuesta.rs.STOCK_MAXIMO);
+                        $("#cFRECUENCIA").val(respuesta.rs.FRECUENCIA);
+
+                        $('#cPORCENTAJE_A').val(respuesta.rs.PORCENTAJE_A);
+                        $('#cPROVEEDOR_A').val(respuesta.rs.PROVEEDOR_A);
+                        $('#cPRECIO_A').val(respuesta.rs.PRECIO_A);
+                        $('#cCODIGO_A').val(respuesta.rs.CODIGO_A);
+
+                        $('#cPORCENTAJE_B').val(respuesta.rs.PORCENTAJE_B);
+                        $('#cPROVEEDOR_B').val(respuesta.rs.PROVEEDOR_B);
+                        $('#cPRECIO_B').val(respuesta.rs.PRECIO_B);
+                        $('#cCODIGO_B').val(respuesta.rs.CODIGO_B);
+                    } else {
+                        $('.tDatos input').val('');
+                        $('.tDatos2 input').val('');
+                        $('#cPORCENTAJE_A').val('');
+                    }
+                });
+        }
+
+
+        //********************************************************************************* */
+
+
+        $("#txArticulos").jqxInput({ placeHolder: " Articulo:", height: 30, width: '100%' });
+
+
+        $("#txArticulos").on('select',function(event){
+            if (event.args) {
+                var item = event.args.item;
+                if (item) {
+                    //alert(item.value);
+                    //********************************************************** */
+                    
+                    
+
+                    getData2('@Url.Action("GetReferencias", "ConfiguracionArticulos")',
+                        { referencia: item.value, sucursal: sucursal },
+                        function (respuesta) {
+
+                            respuesta = JSON.parse(respuesta);
+
+
+                            if (respuesta.code == -1) {
+
+                                return;
+                            }
+
+
+                            @(cbReferencia.SelectedIndex("0")
+                                .Source("respuesta.rs")
+                                .GetScript())
+
+                        });
+                    //********************************************************** */
+                }
+            }
+        
+        });
+
+        //********************************************************** */
+        
+        
+        $("#txArticulos").on('input',function(event){
+            if ($(this).val() === '') {
+                @(cbReferencia.SelectedIndex("0")
+                    .Source("[]")
+                    .GetScript())
+                    
+                referencia="";
+                
+                $('.tDatos input').val('');
+                $('.tDatos2 input').val('');
+                $('#cPORCENTAJE_A').val('');
+            }
+        });
+        
+
+        //********************************************************** */
+        getData2('@Url.Action("GetArticulos", "ConfiguracionArticulos")',
+        {},
+        function (respuesta) {
+
+            respuesta = JSON.parse(respuesta);
+
+
+            if (respuesta.code == -1) {
+
+                return;
+            }
+
+            $("#txArticulos").jqxInput({ source: respuesta.rs });
+
+        });
+        //********************************************************** */
+
+      
+
+
+        //********************************************************** */
+
+        //$("#cargarDatos2").jqxButton({ width: 100, height: 30, template: "primary" });
+        //$("#cargarDatos2").click(function () {
+
+        
+        //});
+
+        //********************************************************** */
+
+        $("#txReferencia").jqxInput({ placeHolder: " Referencia:", height: 30, width: '100%' });
+
+        //********************************************************** */
+        
+
+        $("#txReferencia").on('select', function (event) {
+            if (event.args) {
+                $("#lArticulo").html('');
+                $('.tDatos input').val('');
+                $('.tDatos2 input').val('');
+                $('#cPORCENTAJE_A').val('');
+
+                var item = event.args.item;
+                if (item) {
+                    //********************************************************** */
+
+                    referencia=item.value;
+
+                    getData2('@Url.Action("GetArtDescripcion", "ConfiguracionArticulos")',
+                        { referencia: item.value, sucursal: sucursal },
+                        function (respuesta) {
+
+                            respuesta = JSON.parse(respuesta);
+
+
+                            if (respuesta.code == -1) {
+
+                                return;
+                            }
+
+                            $("#lArticulo").html(respuesta.rs);
+                            
+                        });
+
+                    GetDatosGenerales();
+                    //********************************************************** */
+                }
+            }
+
+        });
+
+        //********************************************************** */
+        $("#txReferencia").on('input', function (event) {
+            if ($(this).val() === '') {
+                
+
+                referencia="";
+                $('#lArticulo').html('');
+                $('.tDatos input').val('');
+                $('.tDatos2 input').val('');
+                $('#cPORCENTAJE_A').val('');
+            }
+        });
+
+        //********************************************************** */
+
+        $("#optArt").jqxRadioButton({ width: 120, height: 25, checked: true });
+        $("#optRef").jqxRadioButton({ width: 140, height: 25 });
+
+
+        $("#optArt").bind('change', function (event) {
+            var checked = event.args.checked;
+
+            if (checked){
+                $('.Show1').css('display', '');
+                $('.Show2').css('display', 'none');
+
+                $("#txArticulos").val('');
+              
+                @(cbReferencia.SelectedIndex("0")
+                    .Source("[]")
+                    .GetScript())
+
+                referencia="";
+                $('.tDatos input').val('');
+                $('.tDatos2 input').val('');
+                $('#cPORCENTAJE_A').val('');
+            }
+            
+        });
+        $("#optRef").bind('change', function (event) {
+            var checked = event.args.checked;
+
+            if (checked) {
+                $('.Show1').css('display', 'none');
+                $('.Show2').css('display', '');
+
+                $("#txReferencia").val('');
+                $("#lArticulo").html('');
+                
+                referencia="";
+                $('.tDatos input').val('');
+                $('.tDatos2 input').val('');
+                $('#cPORCENTAJE_A').val('');
+            }
+        });
+        
+
+        //********************************************************** */
+
+
+                function mostrarAlertaSweetAlert2() {
+                Swal.fire({
+                    title: 'DATOS GENERALES ARTICULOS',
+                    text: '¿Deseas buscar por referencia?',
+                    showDenyButton: true,
+                    allowOutsideClick: false,
+                    //showCancelButton: true,
+                    confirmButtonText: 'Si',
+                        //cancelButtonText: 'No'
+                        onClose: function GetReferencia() {
+                           
+                            console.log('SweetAlert cerrado');
+                        }
+                    //denyButtonText: `Actualizar`,
+                }).then((result) => {
+                     //Read more about isConfirmed, isDenied below 
+                    if (result.isConfirmed) {
+                       
+                        var resultado;
+                    
+                        //var p1 = document.getElementById('').value;
+                        Swal.fire('', '','success')
+
+
+                        //$('.show15').css('display', 'true');
+
+                    } else if (result.isDenied) {
+                        Swal.fire('Tienes que elegir tu tipo de busqueda','*REFERENCIA O *ARTICULO')
+                        
+                    }
+                })
+
+                    //$('.show15').css('display', '');
+
+                    ////referencia = p3;
+
+                    //document.getElementById('GetDatosgenerales').innerHTML = referencia;
+
+                //return v;
+            };
+
+                function mostrarAlertaSweetAlert1() {
+                    Swal.fire({
+                        title: 'DATOS GENERALES ARTICULOS',
+                        text: '¿Deseas buscar por Articulo?',
+                        showDenyButton: true,
+                        allowOutsideClick: false,
+                        //showCancelButton: true,
+                        confirmButtonText: 'Si',
+                        //cancelButtonText: 'No'
+                        onClose: function GetArticulos() {
+
+                            console.log('SweetAlert cerrado');
+                        }
+                        //denyButtonText: `Actualizar`,
+                    }).then((result) => {
+                        /* Read more about isConfirmed, isDenied below */
+                        if (result.isConfirmed) {
+
+                            var resultado;
+
+                            //var p1 = document.getElementById('').value;
+                            Swal.fire('', '', 'success')
+
+
+                            //$('.show15').css('display', 'true');
+
+                        } else if (result.isDenied) {
+                            Swal.fire('Tienes que elegir tu tipo de busqueda', '*REFERENCIA O *ARTICULO')
+
+                        }
+                    })
+
+                    //$('.show15').css('display', '');
+
+                    ////referencia = p3;
+
+                    //document.getElementById('GetDatosgenerales').innerHTML = referencia;
+
+                    //return v;
+                };
+
+        </script>
+}
+@section Style
+{
+    <style>
+
+        .jqx-numberinput input {
+            font-size: 15px !important;
+            text-align: center !important;
+            color: black;
+          /*  text-decoration: underline*/
+        }
+
+        .dLabel {
+            font-size: 16px;
+            border: solid 1px #c7c7c7;
+            border-radius: 3px;
+            height: 27px;
+            background-color:white ;
+            padding-top: 2px;
+            width: 100% !important;
+        }
+
+
+        .tDatos .col-sm-6 label {
+            margin-top: 5px;
+        }
+
+        .tDatos2 .col-sm-6 label {
+            margin-top: 5px;
+        }
+
+
+        .tDatos .form-control {
+            height: 32px;
+            width: 100%;
+            background: white;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            border: 1px solid gray;
+            font-family: Calibri;
+            font-size: 18px;
+            color:black;
+            height: 36px;
+            height: 36px;
+            text-align: center;
+            font-size: 18px;
+            line-height: 40px;
+        }
+
+        .tDatos2 .form-control {
+            height: 36px;
+            height: 40px;
+            text-align: center;
+            font-size: 18px;
+            line-height: 40px;
+            width: 100%;
+            background: white;
+            padding: 8px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            border: 0.5px solid gray;
+            font-family: 'calibri';
+            font-size: 18px;
+            color:black;
+        }
+
+    </style>
+}

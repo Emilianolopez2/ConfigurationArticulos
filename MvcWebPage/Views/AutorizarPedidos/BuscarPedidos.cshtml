@@ -1,0 +1,70 @@
+﻿@using MvcWebPage.MLAVID
+@{
+    var Grid1 = Html.JqxGrid<IT_PEDIDOS_AUTResult>("Grid1");
+    var cbEstatus = Html.JqxDropDownList("cbEstatus");
+}
+
+<input type="button" value="Buscar" id="BuscarPedidos" />
+
+<script>
+
+    $("#BuscarPedidos").jqxButton({ width: 70, height: 30, template: "primary" });
+
+    $("#BuscarPedidos").click(function (e) {
+
+        //codProv
+        //nomProv
+        
+        GetPedidosAutorizados();
+
+
+
+    });
+
+
+    function GetPedidosAutorizados() {
+
+        $('#jqxLoader').jqxLoader('open');
+
+        var fecha1 = $('#Fecha1').jqxDateTimeInput('getDate');
+        var fecha2 = $('#Fecha2').jqxDateTimeInput('getDate');
+        var proveedor = $("#txProveedor").val();
+
+        var index = @(cbEstatus.SelectedIndex());
+        var estatus = @(cbEstatus.GetItem("index"));
+        
+
+        getData2('@Url.Action("GetPedidosAutorizados2", "AutorizarPedidos")',
+            { sucursal: sucursal, fecha1: fecha1, fecha2: fecha2, proveedor: proveedor, estatus: estatus.value },
+            function (respuesta) {
+
+                respuesta = JSON.parse(respuesta);
+
+                $('#jqxLoader').jqxLoader('close');
+                if (respuesta.code == -1) {
+
+                    return;
+                }
+
+                @(Grid1.SetSource("respuesta.rs"))
+                
+                //***************************************************
+                if (!isEmpty(_Grid1)){
+                    var rowsCount = respuesta.rs.length;
+
+                    for (var i = 0; i < rowsCount; i++) {
+                        var value = $('#Grid1').jqxGrid('getcellvalue', i, "ID");
+                        if (value == _Grid1.ID) {
+                            $('#Grid1').jqxGrid('selectrow', i);
+                            break;
+                        };
+                    };
+                }
+
+                //***************************************************
+
+
+            });
+    }
+
+</script>

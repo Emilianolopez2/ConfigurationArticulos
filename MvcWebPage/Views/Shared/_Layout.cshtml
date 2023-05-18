@@ -1,0 +1,275 @@
+﻿@using System.Web.Mvc
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - La Vid Argentina</title>
+
+    
+    <link rel="stylesheet" href="~/lib/jqwidgets/jqwidgets/styles/jqx.base.css" />
+    <link rel="stylesheet" href="~/lib/jqwidgets/jqwidgets/styles/jqx.energyblue.css" type="text/css" />
+    <link rel="stylesheet" href="~/lib/jqwidgets/jqwidgets/styles/jqx.metrodark.css" type="text/css" />
+    <link rel="stylesheet" href="~/lib/jqwidgets/jqwidgets/styles/jqx.arctic.css" type="text/css" />
+    <link rel="stylesheet" href="~/lib/jqwidgets/jqwidgets/styles/custom1.css" type="text/css" />
+    
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MvcWebPage.styles.css" asp-append-version="true" />
+    
+
+    <style>
+        @Html.RenderResources("style")
+
+        .jqx-loader {
+            z-index: 9999;
+        }
+
+        .jqx-loader-modal {
+            z-index: 9998;
+        }
+
+
+        .jqx-btn1 {
+            color: #ffffff !important;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) !important;
+            background-color: #d151be !important;
+            border-left-color: #d151be !important;
+            border-right-color: #d151be !important;
+            border-top-color: #d151be !important;
+            border-bottom-color: #d151be !important;
+        }
+
+        .jqx-grid-content {
+            z-index: 1000;
+        }
+
+        .jqx-grid-cell > div {
+            white-space: normal !important;
+        }
+
+        .swal2-container {
+            /*background-color: red !important;*/
+            z-index: 2000 !important;
+        }
+    </style>
+    
+    @await RenderSectionAsync("Style", required: false)
+    
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/numeral.js/numeral.min.js"></script>
+
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/App.js" asp-append-version="true"></script>
+
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
+
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxmenu.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxbuttons.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxinput.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxnumberinput.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxgrid.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxgrid.selection.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxlistbox.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxdropdownlist.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxdatetimeinput.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxcalendar.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxtooltip.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/globalization/globalize.culture.es-ES.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxcombobox.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxgrid.columnsresize.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxgrid.sort.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxgrid.filter.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxgrid.grouping.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxgrid.pager.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxgrid.edit.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxfileupload.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxwindow.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxtextarea.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxcheckbox.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxtabs.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxradiobutton.js"></script>
+    <script type="text/javascript" src="~/lib/jqwidgets/jqwidgets/jqxloader.js"></script>
+
+
+
+
+    <script>
+        var ruteLogin="@Html.GetLogin()";
+        $.jqx.theme = 'arctic';
+    
+    </script>
+    
+
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logo.png" height="60"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    
+                <ul class="navbar-nav flex-grow-1">
+                    @*                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Inventarios Fisicos
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" asp-area="" asp-controller="InventariosFisicos" asp-action="InventariosFisicosMensuales">Inventarios Fisicos Mensuales</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="InventariosFisicos" asp-action="InventariosFisicosSemanales">Inventarios Fisicos Semanales</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                
+                            </ul>
+                        </li>*@
+                        
+                    @if (User.IsInRole("CUENTAS DE USUARIO"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Acceso" asp-action="CuentasUsuario">Cuentas De Usuario</a>
+                        </li>
+                    }
+
+
+                    @if (User.IsInRole("SUCURSAL") || User.IsInRole("PROVEEDOR"))
+                    {
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Inventarios Fisicos
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                               
+                                <li>
+                                    <a class="dropdown-item" asp-area="" asp-controller="InventariosFisicosMensuales" asp-action="InventariosFisicosMensuales">Inventarios Fisicos Mensuales</a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Articulos
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li class="">
+                                    <a class="dropdown-item" asp-area="" asp-controller="ConfiguracionArticulos" asp-action="ConfiguracionArticulos">Configuración de Articulos</a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Pedidos
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li class="">
+                                    <a class="dropdown-item" asp-area="" asp-controller="GenerarPedidos" asp-action="GenerarPedidos">Generar Pedidos</a>
+                                </li>
+
+
+                                <li class="">
+                                    <a class="dropdown-item" asp-area="" asp-controller="PedidosAutorizados" asp-action="PedidosAutorizados">Pedidos Autorizados</a>
+                                </li>
+
+                                <li class="">
+                                    <a class="dropdown-item" asp-area="" asp-controller="AutorizarPedidos" asp-action="AutorizarPedidos">Autorizar Pedidos</a>
+                                </li>
+
+                                <li class="">
+                                    <a class="dropdown-item" asp-area="" asp-controller="Pedidos" asp-action="Pedidos">Pedidos</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+
+
+
+
+
+                        <!--
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Proveedores" asp-action="Pagina1">Pagina 1</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Proveedores" asp-action="Pagina2">Pagina 2</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Proveedores" asp-action="Pagina3">Pagina 3</a>
+                        </li>-->
+                    }
+                    @if (User.IsInRole("Supervisor"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Ventas">Ventas</a>
+                        </li>
+                    }
+
+                    @if (User.IsInRole("Supervisor"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Compras">Compras</a>
+                        </li>
+                    }
+
+                    @if (User.IsInRole("Administrador") || User.IsInRole("Empleado"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Clientes">Clientes</a>
+                        </li>
+                    }
+
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Acceso" asp-action="CerrarSession">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+@await RenderSectionAsync("ScriptHeader", required: false)
+
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
+
+<script>
+        @Html.RenderResources("script")
+        //$(".mWin").css('z-index', 999);
+</script>
+
+<link rel="stylesheet" href="~/lib/sweetalert2/sweetalert2.css" />
+<script type="text/javascript" src="~/lib/sweetalert2/sweetalert2.all.min.js"></script>
+
+@await RenderSectionAsync("ScriptFooter", required: false)
+
+
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2023 - La Vid Argentina
+    </div>
+</footer>
+
+
+
+</body>
+</html>

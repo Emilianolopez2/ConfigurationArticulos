@@ -1,0 +1,54 @@
+﻿@using MvcWebPage.MLAVID
+
+@{
+    var Grid1 = Html.JqxGrid<IT_PEDIDOSResult>("Grid1");
+    var cbSucursales = Html.JqxDropDownList("cbSucursales");
+
+    cbSucursales.Width("203")
+        .PromptText("------------------------------------")
+        .DropDownHeight("203")
+        .DisplayMember("NOMBREALMACEN")
+        .ValueMember("CODALMACEN")
+        .Create();
+
+}
+
+<script>
+
+    if (sucursal == "") {
+
+        $("#cbSucursales").bind('select',
+            function (event) {
+                if (event.args && event.args.item) {
+                    
+                    $("#lbSucursal").html(event.args.item.label.toLowerCase());
+                    
+                    sucursal = event.args.item.value;
+
+
+                }
+
+            });
+
+
+        getData2('@Url.Action("GetSucursales", "AutorizarPedidos")',
+            {todos: true},
+            function (respuesta) {
+                respuesta = JSON.parse(respuesta);
+
+
+                if (respuesta.code == 0) {
+                    // alert("ok");
+
+
+                    @(cbSucursales.SelectedIndex("0")
+                        .Source("respuesta.rs")
+                        .GetScript())
+                }
+
+            });
+    } else {
+        //GetDepartamentos();
+    }
+
+</script>

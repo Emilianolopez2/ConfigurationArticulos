@@ -1,0 +1,269 @@
+﻿@{
+    ViewData["Title"] = "Inventarios Fisicos Semanales";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Inventarios Fisicos Semanales</h4>
+<div id="bnts">
+    
+
+</div>
+
+<input type="button" value="Button" id='btnBuscar' />
+<input type="button" value="Button" id='btnBuscar2' />
+
+
+
+@{
+    var Grid1 = Html.JqxGrid<Usuario>("Grid1");
+
+    Grid1.Width("600")
+    .Editable(true)
+    .EditMode("dblclick")
+        .Sortable(true)
+    .Columns(column =>
+        {
+            column.Add(p => p.User)
+                .Text("Usuario")
+                .Editable(false)
+                .Width("200");
+
+
+            column.Add(p => p.Roles)
+                .Text("Roles")
+                .Editable(false)
+                .Width("200");
+
+            column.Add(p => p.Password)
+                .Validation("valida1")
+                .Text("Password")
+                .Width("200");
+
+            column.Add(p => "PDF2")
+                .ColumnType("button")
+                .CellsRenderer("function() {return \"--\";}")
+                .Text("PDF Prov")
+                .ButtonClick("g1")
+            .Width("70");
+        }).Create();
+
+
+
+
+}
+
+
+<div id="jqxLoader">
+</div>
+
+
+<div id="eventWindow">
+    <div>
+        <img width="14" height="14" src="~/images/help.png" alt="" />
+        Mensaje del sistema</div>
+    <div style="padding: 10px;">
+        <table cellpadding="0" cellspacing="0" style="height: 100%; width: 100%;">
+            <tr>
+                <td style="padding-bottom: 8px;">
+                    Please click "OK", "Cancel" or the close button to close the modal window. The dialog result will be displayed in the events log. 
+
+                </td>
+            </tr>
+            <tr>
+                <td align="right" style="height: 30px;">
+                    <input type="button" id="ok" value="OK" style="margin-right: 1px" />
+                    <input type="button" id="cancel" value="Cancel" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+
+@section Scripts{
+    <script>
+        
+        var dta=new Array();
+        
+
+        for (var i = 0; i < 11; i++) {
+            var inputToAdd = $("<input/>", { type: "button", id: "btn_" + i, value: "Abarrotes - " + i });
+
+            inputToAdd.jqxButton({ width: 120, height: 30, template: "primary" });
+            inputToAdd.css('margin-right', '3px');
+            inputToAdd.css('margin-bottom', '3px');
+
+            $("#bnts").append(inputToAdd);
+
+            dta["btn_" + i]="Data" + i;
+
+            inputToAdd.click(function (e) {
+                var id=e.currentTarget.id;
+
+
+                
+
+                //alert(dta[id]);
+            });
+        }
+
+
+
+        
+
+
+        var g1 = function (row) {
+            
+                alert(0);
+        
+        
+        
+        };
+
+        //$("#jqxLoader").jqxLoader({ isModal: true, width: 100, height: 60, imagePosition: 'top' });
+        //$('#jqxLoader').jqxLoader('open');
+        //$('#jqxLoader').jqxLoader('close');
+
+        $('#eventWindow').jqxWindow({
+            //position: { x: offset.left + 50, y: offset.top + 50 },
+            minHeight: 150, 
+            minWidth: 400,
+            autoOpen:false,
+            resizable: false, 
+            isModal: true, 
+            modalOpacity: 0.5,
+            okButton: $('#ok'), cancelButton: $('#cancel'),
+            initContent: function () {
+                //$('#tab').jqxTabs({ height: '100%', width: '100%' });
+
+                $('#ok').jqxButton({ width: '65px' });
+                $('#cancel').jqxButton({ width: '65px' });
+                $('#ok').focus();
+
+                //$('#eventWindow').jqxWindow('focus');
+            }
+        });
+
+
+
+
+        
+
+
+        var valida1 = function (cell, value) {
+            //console.log(cell);
+
+
+            /*
+            if (value >= 50) {
+                return { result: false, message: "La cantidad no puede ser mayor o igual a 50" };
+            }
+            */
+
+            return true;
+        }
+
+
+        $("#Grid1").on('bindingcomplete', function (event) {
+            $("#Grid1").jqxGrid("autoresizecolumns");
+            $("#Grid1").jqxGrid('setcolumnproperty', 'PDF2', 'width', 70);
+            
+            /*
+            var colDefs = $("#Grid1").jqxGrid('columns').records;
+
+            
+            $.each(colDefs,
+                function(index, value) {
+
+                    if (value.datafield != "_checkboxcolumn") {
+                        $("#Grid1").jqxGrid('setcolumnproperty',
+                            value.datafield,
+                            'width',
+                            value.width);
+                    }
+
+                });*/
+
+        });
+
+
+        $("#btnBuscar").jqxButton({ width: 120, height: 30, template: "primary" });
+        $("#btnBuscar2").jqxButton({ width: 120, height: 30, template: "primary" });
+
+
+
+        $("#btnBuscar2").click(function () {
+            $('#eventWindow').off('close');
+            $('#eventWindow').on('close', function (event) {
+
+
+                if (event.args.dialogResult.OK) {
+                    alert("SI 2");
+
+                } else if (event.args.dialogResult.Cancel) {
+                    //alert("NO 2");
+
+                } else {
+                    //alert("3");
+
+                }
+
+            });
+
+
+            $('#eventWindow').jqxWindow('open');
+            $('#eventWindow').jqxWindow({ position: 'center' });
+        
+        });
+        
+        
+
+
+        $("#btnBuscar").click(function () {
+
+            /*
+            $('#eventWindow').off('close');
+            $('#eventWindow').on('close', function (event) {
+
+
+                if (event.args.dialogResult.OK) {
+                    alert("1");
+
+                } else if (event.args.dialogResult.Cancel) {
+                    //alert("2");
+
+                } else {
+                    //alert("3");
+
+                }
+
+            });
+
+
+            $('#eventWindow').jqxWindow('open');
+            $('#eventWindow').jqxWindow({position: 'center'});
+            */
+
+            getData2('@Url.Action("GetCuentas", "Home")',
+                {},
+                function (respuesta) {
+                    console.log(respuesta.rs);
+
+
+        @(Grid1.SetSource("respuesta.rs"))
+
+
+                                        //(Html.EndLoading())
+
+            });
+        });
+
+
+
+    
+    
+    
+    
+    </script>
+}

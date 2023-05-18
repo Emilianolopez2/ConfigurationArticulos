@@ -1,0 +1,91 @@
+﻿@using MvcWebPage.MLAVID
+
+@{
+    var Grid11 = Html.JqxGrid<IT_INV_MENSUALES_CAB>("Grid11");
+    var Grid10 = Html.JqxGrid<IT_SELECT_MODResult>("Grid10");
+
+    Grid10.Width("100%")
+        .Editable(true)
+        .EnableBrowserSelection(true)
+        .Ready("Grid10Ready")
+        .Rendered("Grid10Rendered")
+        //.SelectionMode("singlecell")
+        .EditMode("dblclick")
+        .Sortable(true)
+        .ShowSortMenuItems(true)
+        .Columns(column =>
+        {
+            column.Add(p => p.CODARTICULO)
+                .Text("CODARTICULO")
+                .Editable(false)
+                .Visible(false)
+                .Width("170");
+
+            column.Add(p => p.REFERENCIA)
+                .Text("Artículo")
+                .Editable(false)
+                .Width("170");
+
+
+            column.Add(p => p.DESCRIPCION)
+                .Text("Descripcion")
+                .Editable(false)
+                .Width("650");
+
+
+            column.Add(p => p.UNIDADMEDIDA)
+                .Text("Unidad")
+                .CellsAlign("center")
+                .Editable(false)
+                .Width("130");
+
+            column.Add(p => p.EXISTENCIA_ACTUAL)
+                .CellClassName("'cellC'")
+                .Validation("valida1")
+                .CellsAlign("center")
+                .Text("Existencias")
+                .Editable(true)
+                .Width("100");
+        }).Create();
+
+}
+
+
+<script>
+
+
+    var valida1 = function (cell, value) {
+        
+        s_Grid10.localdata[cell.row].EXISTENCIA_ACTUAL = value;
+        a_Grid10.dataBind();
+
+        return true;
+
+    }
+
+
+    $('#Grid10').on('cellvaluechanged', event => {
+        var args = event.args;
+        //var datafield = args.datafield;
+        var rowindex = args.rowindex;
+        //var newvalue = args.newvalue;
+        //var oldvalue = args.oldvalue;
+
+        if (isEmpty(args.newvalue)) {
+            s_Grid10.localdata[rowindex].EXISTENCIA_ACTUAL = null;
+            //a_Grid10.dataBind();
+            //$("#Grid1").jqxGrid("autoresizecolumns");
+        }
+    });
+
+
+    var Grid10Ready = function () {
+
+    }
+
+    var Grid10Rendered = function () {
+        //$("#Grid10").jqxGrid("autoresizecolumns");
+
+        //$("#Grid10").jqxGrid('setcolumnproperty', 'EX', 'width', 60);
+    }
+</script>

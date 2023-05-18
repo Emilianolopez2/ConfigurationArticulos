@@ -1,0 +1,44 @@
+﻿@using MvcWebPage.MLAVID
+
+<input type="button" value="Autorizar" id="btnAutorizar" />
+
+<script>
+
+    $("#btnAutorizar").jqxButton({ width: 75, height: 30, template: "success" });
+
+    $("#btnAutorizar").click(function (e) {
+        if (isEmpty(s_Grid2.localdata)) {
+            MsgBoxOK("No hay articulos para autorizar.", 3);
+            return;
+        }
+        //********************************************************************/
+
+        MsgBoxOKCancel("Quieres autorizar el pedido?", 4, function () {
+
+            getData2('@Url.Action("AutorizarPedido", "AutorizarPedidos")',
+                { pedido_aut: _Grid1, pedido_det: s_Grid2.localdata },
+                function (respuesta) {
+                    respuesta = JSON.parse(respuesta);
+
+
+                    if (respuesta.code == 0) {
+                        // alert("ok");
+
+                        $(".Show1").css('display', '');
+                        $(".Show2").css('display', 'none');
+                        
+                        GetPedidosAutorizados();
+                        
+                        MsgBoxOK2("El pedido se actualizo correctamente.", 5);
+
+                    }
+
+                });
+
+        });
+
+    });
+    
+    
+    
+</script>

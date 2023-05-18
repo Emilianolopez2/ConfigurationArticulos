@@ -1,0 +1,44 @@
+﻿@using MvcWebPage.MLAVID
+
+@{
+    var Grid2 = Html.JqxGrid<IT_PEDIDOS_CAB2Result>("Grid2");
+}
+
+<script>
+    function GetPedidos() {
+
+
+
+        $('#jqxLoader').jqxLoader('open');
+
+        getData2('@Url.Action("GetPedidos", "GenerarPedidos")',
+            { sucursal: sucursal2 },
+            function (respuesta) {
+
+                respuesta = JSON.parse(respuesta);
+
+                //console.log(respuesta.rs);
+                $('#jqxLoader').jqxLoader('close');
+                if (respuesta.code == -1) {
+
+                    return;
+                }
+                
+                @(Grid2.SetSource("respuesta.rs"))
+                
+                
+                /*
+                $("#Grid2").jqxGrid("autoresizecolumns");
+                
+                $("#Grid2").jqxGrid('setcolumnproperty', 'Editar', 'width', 60);
+                $("#Grid2").jqxGrid('setcolumnproperty', 'Enviar', 'width', 60);
+                $("#Grid2").jqxGrid('setcolumnproperty', 'Anular', 'width', 60);
+                */
+
+
+                //$(".btnGrid2").jqxButton({});
+
+            });
+    }
+
+</script>

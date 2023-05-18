@@ -1,0 +1,21 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "jqwidgets@16.0.0",
+      "destination": "wwwroot/lib/jqwidgets/"
+    },
+
+    {
+      "library": "bootstrap@5.2.3",
+      "destination": "wwwroot/lib/bootstrap/"
+    }
+  ,
+{
+  "provider": "cdnjs",
+  "library": "jquery@1.12.4",
+  "destination": "wwwroot/lib/jquery/"
+}
+]
+}

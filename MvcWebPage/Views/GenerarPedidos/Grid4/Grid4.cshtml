@@ -1,0 +1,91 @@
+﻿@using MvcWebPage.MLAVID
+
+@{
+    var Grid1 = Html.JqxGrid<IT_PEDIDOSResult>("Grid1");
+    var Grid4 = Html.JqxGrid<IT_PEDIDOSResult>("Grid4");
+
+    Grid4.Width("100%")
+        .Height("350")
+        .EnableBrowserSelection(true)
+        .Sortable(true)
+        .Ready("Grid4Ready")
+        .Rendered("Grid4Rendered")
+        .ShowSortMenuItems(false)
+        .Columns(column =>
+        {
+
+            column.Add(p => p.CODARTICULO)
+                .Visible(false);
+
+            column.Add(p => p.CODFORMATO)
+                .Visible(false);
+
+            column.Add(p => p.REFERENCIA)
+                .Text("Articulo")
+                .Width("170");
+                
+            column.Add(p => p.DESCRIPCION)
+                .Text("Descripción")
+                .Width("140");
+
+            column.Add(p => p.UNIDADCOMPRA)
+                .CellsAlign("center")
+                .Text("Unidad Compra")
+                .Width("140");
+
+            column.Add(p => p.EXISTENCIA_ACTUAL)
+                .CellsAlign("center")
+                .Text("Existencia Actual")
+                .Width("140");
+
+            column.Add(p => p.SUGERIDO)
+                .CellsAlign("center")
+                .Text("Sugerido")
+                .Width("140");
+
+            column.Add(p => p.CANTIDAD_PEDIDA)
+                .CellsAlign("center")
+                .Text("Cantidad Pedida")
+                .Width("140");
+
+            column.Add(p => p.MULTIPLOPEDIR)
+                .CellsAlign("center")
+                .Text("Múltiplo Pedir")
+                .Width("140");
+
+
+            column.Add(p => p.CANTIDAD)
+                .CellsAlign("center")
+                .Text("Cantidad")
+                .Width("140");
+
+        }).Create();
+
+}
+
+
+<script>
+
+
+    //********************************************************************/
+    
+    var Grid4Ready = function(){
+        
+
+    }
+
+    var Grid4Rendered = function(){
+        $("#Grid4").jqxGrid("autoresizecolumns");
+
+
+
+    }
+    
+    
+    //***************************************************************************************/
+    
+    //***************************************************************************************/
+
+
+
+</script>

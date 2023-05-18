@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "jqwidgets@16.0.0",
+      "destination": "wwwroot/lib/jqwidgets/"
+    },
+    {
+      "library": "bootstrap@5.2.3",
+      "destination": "wwwroot/lib/bootstrap/"
+    },
+    {
+      "library": "jquery@1.12.4",
+      "destination": "wwwroot/lib/jquery/"
+    },
+    {
+      "library": "numeral.js@2.0.6",
+      "destination": "wwwroot/lib/numeral.js/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "sweetalert2@11.7.5",
+      "destination": "wwwroot/lib/sweetalert2/"
+    }
+  ]
+}

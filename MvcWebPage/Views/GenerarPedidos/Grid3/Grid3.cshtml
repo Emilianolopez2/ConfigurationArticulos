@@ -1,0 +1,113 @@
+﻿@using MvcWebPage.MLAVID
+
+@{
+    var Grid4 = Html.JqxGrid<IT_PEDIDOSResult>("Grid4");
+    var Grid3 = Html.JqxGrid<IT_PEDIDOS_CAB2Result>("Grid3");
+
+    Grid3.Width("100%")
+        .Height("350")
+        .EnableBrowserSelection(true)
+        .Sortable(true)
+        .Ready("Grid3Ready")
+        .Rendered("Grid3Rendered")
+        .ShowSortMenuItems(false)
+        .Columns(column =>
+        {
+            column.Add(p => p.ESTATUS)
+                .Visible(false);
+
+            column.Add(p => p.ID)
+                .Visible(false);
+
+            column.Add(p => p.CODALMACEN)
+                .Visible(false);
+
+            column.Add(p => p.NUMDPTO)
+                .Visible(false);
+
+
+            column.Add(p => p.FECHA)
+                .Type("date")
+                .CellsAlign("center")
+                .CellsFormat("dd/MM/yyyy")
+                .Text("Emisión")
+                .Width("170");
+
+            column.Add(p => p.SUCURSAL)
+                .Visible(false);
+
+            column.Add(p => p.DEPARTAMENTO)
+                .Text("Departamento")
+                .Width("140");
+
+
+
+                /*
+            column.Add(p => p.DETALLE)
+                .Text("Detalle")
+                .Width("140");*/
+
+        }).Create();
+
+}
+
+
+<script>
+
+
+    //********************************************************************/
+    
+    var Grid3Ready = function(){
+        
+
+    }
+
+    var Grid3Rendered = function(){
+        $("#Grid3").jqxGrid("autoresizecolumns");
+
+
+
+    }
+    
+    
+    //***************************************************************************************/
+
+
+    $("#Grid3").on('rowselect',
+        function (event) {
+            var rowindex = event.args.rowindex;
+            
+            //alert(s_Grid3.localdata[rowindex].ID);
+            
+            var data = s_Grid3.localdata[rowindex];
+            $("#vSucursal").html(data.SUCURSAL);
+            
+            
+//******************************************************/
+            $('#jqxLoader').jqxLoader('open');
+            getData2('@Url.Action("GetDptoData", "GenerarPedidos")',
+                { numdpto: data.NUMDPTO, sucursal: data.CODALMACEN, fecha: data.FECHA, excluir: true },
+                function (respuesta) {
+                    $('#jqxLoader').jqxLoader('close');
+
+                    respuesta = JSON.parse(respuesta);
+
+
+                    @(Grid4.SetSource("respuesta.rs"))
+
+
+                });
+
+//******************************************************/
+        });
+
+    $("#Grid3").bind('rowunselect',
+        function (event) {
+            var rowindex = event.args.rowindex;
+        });
+    
+    //***************************************************************************************/
+
+
+
+</script>

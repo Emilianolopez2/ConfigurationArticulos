@@ -1,0 +1,31 @@
+﻿<input type="button" value="Regresar" id="btnRegresar" />
+
+<script>
+
+    $('#btnRegresar').jqxButton({ width: '80px', template: "primary" });
+
+    
+    $('#btnRegresar').click(function(){
+        _Grid11 = null;
+
+        $('.Show5').css('display', 'none');
+        $('.Show6').css('display', '');
+
+        $(".Show3_2").css('display', '');
+        $(".Show4_2").css('display', 'none');
+
+        //********************************* */
+        for (const value of btns.values()) {
+
+            value.jqxButton({ template: "primary", theme: "", disabled: false });
+        }
+
+        $("#eFecha").html(tmp_fecha);
+        
+        //GetDepartamentoColor();
+
+        //********************************* */
+    });
+
+
+</script>

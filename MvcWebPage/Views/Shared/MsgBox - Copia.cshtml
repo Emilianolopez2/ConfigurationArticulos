@@ -1,0 +1,284 @@
+﻿@using MvcWebPage.MLAVID
+<div id="MsgBox">
+    <div>
+        <!--<img width="14" height="14" src="~/images/help.png" alt="" />-->
+        Mensaje del sistema
+    </div>
+
+    <table id="WinH1" cellpadding="0" cellspacing="0" style="width: 100%;  margin: 10px;">
+        <tr>
+            <td style="width: 10px; padding-right: 20px; padding-left: 20px;">
+                <img class="WinIcon WinIcon1" style="display: none;" src="~/images/message-box1.png" height="50" />
+                <img class="WinIcon WinIcon2" style="display: none;margin-left: 3px;" src="~/images/message-box2.png" height="55" />
+                <img class="WinIcon WinIcon3" style="display: none;margin-left: 5px;" src="~/images/message-box3.png" height="55" />
+                <img class="WinIcon WinIcon4" style="display: none;" src="~/images/message-box4.png" height="69" />
+            </td>
+            <td style="padding-bottom: 8px; line-height: 20px; white-space: normal;" id="txMsgBox" align="center">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right" style="height: 30px;">
+                <input type="button" id="ok1" value="OK" style="margin-right: 1px" />
+                <input type="button" id="cancel1" value="Cancelar" style="margin-right: 1px" />
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+
+
+
+<script>
+
+    //function WinIcon(icon){
+        
+    //    $('.WIcon').css("display", "none");
+    //    $('.WIcon' + icon).css("display", "");
+    //}
+
+    //$('#MsgBox').jqxWindow({
+    //    //position: { x: offset.left + 50, y: offset.top + 50 },
+    //    minHeight: 150,
+    //    height:200,
+    //    minWidth: 500,
+    //    autoOpen: false,
+    //    resizable: false,
+    //    isModal: true,
+    //    modalOpacity: 0.5,
+    //    okButton: $('#ok1'),
+    //    //cancelButton: $('#cancel'),
+    //    initContent: function () {
+    //        //$('#tab').jqxTabs({ height: '100%', width: '100%' });
+
+    //        $('#ok1').jqxButton({ width: '65px' });
+    //        //$('#cancel').jqxButton({ width: '65px' });
+    //        //$('#ok1').focus();
+
+    //        //$('#eventWindow').jqxWindow('focus');
+    //    }
+    //});
+
+
+    $('#MsgBox').jqxWindow({
+        //position: { x: offset.left + 50, y: offset.top + 50 },
+
+        autoOpen: false,
+        resizable: false,
+        isModal: true,
+        modalOpacity: 0.5,
+        okButton: $('#ok1'),
+        cancelButton: $('#cancel1'),
+        initContent: function () {
+            //$('#tab').jqxTabs({ height: '100%', width: '100%' });
+
+            $('#ok1').jqxButton({ width: '65px' });
+            $('#cancel1').jqxButton({ width: '80px' });
+            //$('#ok1').focus();
+
+            //$('#eventWindow').jqxWindow('focus');
+        }
+    });
+
+
+    function MsgBoxOK(msg, icon, fnc1) {
+
+
+            //$('#cancel1').css('display', '');
+            $('#cancel1').css('display', 'none');
+
+
+        $('#MsgBox').off('open');
+        $('#MsgBox').on('open', function (event) {
+
+        });
+
+
+        $('#MsgBox').off('close');
+        $('#MsgBox').on('close', function (event) {
+            if (fnc1) {
+                fnc1();
+            }
+
+        });
+
+        $('#txMsgBox').html(msg);
+        $('#MsgBox').jqxWindow('open');
+
+        $('.WinIcon').css('display', 'none');
+        $('.WinIcon' + icon).css('display', '');
+        
+        
+        $('#MsgBox').jqxWindow({ width: 450, height: 100 });
+        var newHeight = $('#WinH1').height() + 100; //.position().top + 100;
+        var newWidth = $('#WinH1').width() + 100;
+
+        if (newWidth > 600){
+            newWidth=600;
+        }
+
+        if (newHeight < 200) {
+            newHeight = 200;
+        }
+
+        if (newHeight > 260) {
+            newWidth = 600;
+            var newHeight = $('#WinH1').height() + 100;
+        }
+
+        $('#MsgBox').jqxWindow({ width: newWidth, height: newHeight });
+        $('#MsgBox').jqxWindow({ position: 'center'});
+
+
+    }
+
+
+    function MsgBoxOKCancel(msg, icon, fnc1, fnc2) {
+
+
+        $('#cancel1').css('display', '');
+        //$('#cancel1').css('display', 'none');
+
+
+        $('#MsgBox').off('open');
+        $('#MsgBox').on('open', function (event) {
+
+        });
+
+
+        $('#MsgBox').off('close');
+        $('#MsgBox').on('close', function (event) {
+            if (event.args.dialogResult.OK) {
+                if (fnc1) {
+                    fnc1();
+                }
+
+            } else if (event.args.dialogResult.Cancel) {
+
+                if (fnc2) {
+                    fnc2();
+                }
+            } else {
+                if (fnc2) {
+                    fnc2();
+                }
+            }
+
+        });
+
+        $('#txMsgBox').html(msg);
+        $('#MsgBox').jqxWindow('open');
+
+        $('.WinIcon').css('display', 'none');
+        $('.WinIcon' + icon).css('display', '');
+        
+        
+        $('#MsgBox').jqxWindow({ width: 450, height: 100 });
+        var newHeight = $('#WinH1').height() + 100; //.position().top + 100;
+        var newWidth = $('#WinH1').width() + 100;
+
+        if (newWidth > 600) {
+            newWidth = 600;
+        }
+
+        if (newHeight < 200) {
+            newHeight = 200;
+        }
+
+        if (newHeight > 260) {
+            newWidth = 600;
+            var newHeight = $('#WinH1').height() + 100;
+        }
+
+        $('#MsgBox').jqxWindow({ width: newWidth, height: newHeight });
+        $('#MsgBox').jqxWindow({ position: 'center' });
+
+
+    }
+
+
+
+    //function MsgBox(msg, icon, fnc1, fnc2, fnc3) {
+
+    //    if (fnc2) {
+    //        $('#cancel1').css('display', '');
+    //    } else {
+
+    //        $('#cancel1').css('display', 'none');
+    //    }
+
+    //    $('#MsgBox').off('open');
+    //    $('#MsgBox').on('open', function (event) {
+    //        flag = 1;
+    //    });
+
+
+    //    $('#MsgBox').off('close');
+    //    $('#MsgBox').on('close', function (event) {
+    //        flag = 0;
+
+    //        if (event.type === 'close') {
+                
+    //            if (event.args.dialogResult.OK) {
+    //                if (fnc1 && fnc2) {
+    //                    fnc1();
+    //                }
+
+    //                if (fnc1 && fnc2 == null) {
+    //                    fnc1();
+    //                }
+
+    //                if (fnc1 == null && fnc2) {
+    //                    fnc2();
+    //                }
+
+    //                if (fnc3) {
+    //                    fnc3();
+    //                }
+
+    //            } else if (event.args.dialogResult.Cancel) {
+
+
+    //                if (fnc1 && fnc2) {
+    //                    fnc2();
+    //                }
+    //            } else {
+    //                if (fnc3) {
+    //                    fnc3();
+    //                }
+    //            }
+    //        }
+
+    //    });
+
+    //    $('#txMsgBox').html(msg);
+    //    $('#MsgBox').jqxWindow('open');
+
+    //    $('.WinIcon').css('display', 'none');
+    //    $('.WinIcon' + icon).css('display', '');
+
+    //    $('#MsgBox').jqxWindow({ width: 450, height: 100 });
+    //    var newHeight = $('#WinH1').height() + 100; //.position().top + 100;
+
+    //    if (newHeight < 200) {
+    //        newHeight = 200;
+    //    }
+
+    //    if (newHeight > 260) {
+    //        $('#MsgBox').jqxWindow({ width: 600 });
+    //        var newHeight = $('#WinH1').height() + 100;
+    //    }
+
+    //    $('#MsgBox').jqxWindow({ height: newHeight });
+    //    $('#MsgBox').jqxWindow({ position: 'center' });
+
+
+    //}
+
+    $(document).keydown(function (event) {
+        
+        if (flag == 1) {
+            //$('#ok1').click();
+        };
+    });
+</script>

@@ -1,0 +1,383 @@
+﻿@using MvcWebPage.MLAVID
+
+@{
+    ViewData["Title"] = "Generar Pedidos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var usuario = (string)ViewData["usuario"];
+    var fecha = (string)ViewData["fecha"];
+    var sucursal = (string)ViewData["sucursal"];
+    var lbSucursal = (string)ViewData["lbSucursal"];
+
+    var cbSucursales = Html.JqxDropDownList("cbSucursales");
+
+    var Grid1 = Html.JqxGrid<IT_PEDIDOSResult>("Grid1");
+    
+}
+
+
+<h4>Generar Pedidos: <span id="lbSucursal" style="text-transform: capitalize;"></span></h4>
+
+
+
+
+<div id="bnts" style="" align="center">
+
+</div>
+
+<!---------------------------------------------------------------------------------------------------------------->
+<div style="border-bottom: 1px solid silver; margin-top: 5px; margin-bottom: 4px;"></div>
+<table style="width: 100%;">
+    <tr>
+        <td style="padding-right: 5px; font-weight: bold; width: 70px; height: 32px;" align="right">
+            Usuario:
+        </td>
+        <td style="width: 10px; white-space: nowrap;">
+            @usuario
+        </td>
+        <td style="width: 60px; padding-right: 5px; padding-left: 50px; font-weight: bold;" align="right">
+            Fecha:
+        </td>
+        <td id="eFecha" style="width: 70px;" align="left">
+            @fecha
+        </td>
+        
+        
+        
+        @if (sucursal == "")
+        {
+            <td class="Show4 Show4_2" style="width: 60px; padding-right: 5px; padding-left: 50px; font-weight: bold;" align="right">
+                Sucursal:
+            </td>
+            <td class="Show4 Show4_2" id="eSucursal" style="width: 70px; white-space: nowrap;" align="left">
+            
+            </td>
+
+
+            <td class="Show3 Show3_2" style="width: 60px; padding-right: 5px; padding-left: 50px; font-weight: bold;" align="right">
+                Sucursal:
+            </td>
+            <td class="Show3 Show3_2" style="width: 70px;" align="left">
+                @Html.Partial("cbSucursales")
+            </td>
+        }
+        <td></td>
+        <td style="width: 60px; padding-right: 5px; padding-left: 50px; font-weight: bold;" align="right">
+            
+            <table style="" class="Show2" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td align="right">
+                        
+                        @Html.Partial("EnviarTodo")
+                    </td>
+                </tr>
+    
+            </table>
+
+            <table style="" class="Show1" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td align="right" class="Show4" style="">
+                        <input type="button" value="Regresar" id="btnCancelarEdicion"/>
+                    </td>
+                     <td align="right" class="Show3">
+                        <input type="button" value="Regresar" id="btnPedidos"/>
+                    </td>
+                    <td style="padding-left: 3px;" align="right">
+                        @Html.Partial("GuardarPedidos")
+                    </td>
+                </tr>
+    
+            </table>
+        </td>
+        
+
+
+    </tr>
+</table>
+<div style="border-bottom: 1px solid silver; margin-top: 5px; margin-bottom: 10px;"></div>
+<!---------------------------------------------------------------------------------------------------------------->
+<div style="" class="Show1">
+    @Html.Partial("Grid1/Grid1")
+</div>
+
+<div style="" class="Show2">
+    @Html.Partial("Grid2/Grid2")
+</div>
+
+<!---------------------------------------------------------------------------------------------------------------->
+@Html.Partial("MsgBox")
+@Html.Partial("VistaPrevia1")
+@Html.Partial("JqxLoader")
+
+<!---------------------------------------------------------------------------------------------------------------->
+@section ScriptHeader
+{
+    <script>
+        //---------------------------------------------
+        var validacionErr = false;
+        var flag = 0;
+
+        var sucursal = "@sucursal";
+        var tmp_sucursal = "";
+        var sucursal2 = "@sucursal";
+
+        var tmp_lbSucursal="";
+
+        var lbSucursal = "@lbSucursal";
+        var numdpto = "";
+        var tmp_numdpto = "";
+
+        var tmp_fecha = "";
+        var fechaPedido = "";
+        
+        var editar = false;
+
+        var dta = new Map();
+        var btns = new Map();
+        
+        var execDep = false;
+        
+        //---------------------------------------------
+
+        @Html.GetScript(@Html.Partial("GetDepartamentoColor"))
+        @Html.GetScript(@Html.Partial("GetDepartamentos"))
+        @Html.GetScript(@Html.Partial("GetPedidos"))
+        //---------------------------------------------
+        
+
+    </script>
+}
+
+
+@section ScriptFooter{
+    <script>
+        //---------------------------------------------
+        if (lbSucursal!=""){
+            $("#lbSucursal").html(lbSucursal.toLowerCase());
+        }
+
+        if (sucursal!=""){
+            GetDepartamentos();
+        }
+
+        GetPedidos();
+
+        $(".Show1").css('display', 'none');
+        $(".Show4").css('display', 'none');
+
+
+        //s_Grid1.localdata = JSON.parse(s_Grid1.localdata);
+
+        
+        /*****************************************************/
+        
+        
+        $("#btnPedidos").jqxButton({ width: 100, height: 30, template: "primary" });
+        $("#btnPedidos").click(function (e) {
+
+            $(".Show2").css('display', '');
+            $(".Show1").css('display', 'none');
+
+
+            $(".Show3_2").css('display', '');
+            $(".Show4_2").css('display', 'none');
+
+        });
+        
+
+
+        $("#btnCancelarEdicion").jqxButton({ width: 100, height: 30, template: "primary" });
+        $("#btnCancelarEdicion").click(function (e) {
+
+                editar = false;
+
+                sucursal = tmp_sucursal;
+                numdpto = tmp_numdpto;
+
+                $(".Show2").css('display', '');
+                $(".Show1").css('display', 'none');
+
+
+                $(".Show3").css('display', '');
+                $(".Show4").css('display', 'none');
+
+                for (const value of btns.values()) {
+                    value.jqxButton({ disabled: false });
+                }
+
+                $("#eFecha").html(tmp_fecha);
+                tmp_fecha = "";
+                fechaPedido = null;
+                
+                GetDepartamentoColor();
+
+        });
+
+
+        /*****************************************************/
+
+    </script>
+}
+
+@section Style{
+    <style type="text/css">
+
+        .cellC > div {
+            margin-left: 3px !important;
+            margin-right: 2px !important;
+            margin-top: 4px !important;
+            margin-bottom: 0px !important;
+
+            border: 1px solid gray;
+            height: 19px !important;
+        }
+
+        .jqx-grid-column-header
+        {
+            font-weight: 600;
+        }
+
+        .jqx-grid-column-header > div > div
+        {
+            text-align: center !important;
+        }
+
+        .cVisible .jqx-button {
+            display: none;
+        }
+
+
+        .GridMP {
+            /*color: red;*/
+            white-space: normal !important;
+            line-height: 17px !important;
+            padding-top: 1px !important;
+        }
+
+
+
+        /**********************************************/
+        .btnGrid_1 {
+            background: #3175B0;
+            color: white;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            border: 1px outset black;
+        }
+
+        .btnGrid_1:hover {
+            background: #245681;
+            color: white;
+        }
+
+        .btnGrid_1:active {
+            background-color: #3175B0;
+        }
+        /**********************************************/
+        .btnGrid_2 {
+            background: #58B358;
+            color:white; 
+            width:100%; 
+            height:100%; 
+            border-radius: 5px; 
+            border: 1px outset black;
+        }
+
+        .btnGrid_2:hover {
+            background: #3f803f;
+            color: white;
+        }
+
+        .btnGrid_2:active {
+            background-color: #58B358;
+        }
+        /**********************************************/
+        .btnGrid_3 {
+            background: #D64E4A;
+            color:white; 
+            width:100%; 
+            height:100%; 
+            border-radius: 5px; 
+            border: 1px outset black;
+        }
+
+        .btnGrid_3:hover {
+            background: #9d3936;
+            color: white;
+        }
+
+        .btnGrid_3:active {
+            background-color: #D64E4A;
+        }
+
+        /*********************************************************************/
+        .cellYellow
+        {
+            background-color: rgba(255, 255, 0, 0.52) !important;
+            color: black !important;
+            /*font-style: italic;*/
+        }
+
+        .cellYellow.jqx-grid-cell-selected
+        {
+            background-color: #dde043 !important;
+            color: black !important;
+            /*background-image: linear-gradient(to bottom, #f4f734, #feffdc) !important;*/
+        }
+
+        .jqx-grid-cell-hover + .cellYellow {
+            background-color: #f4f734 !important;
+            /*background-image: linear-gradient(to bottom, #f4f734, #feffdc) !important;*/
+        }
+
+        /*********************************************************************/
+        .cellRed
+        {
+            background-color: rgba(255, 0, 0, 0.52) !important;
+            color: black !important;
+            /*font-style: italic;*/
+        }
+
+        .cellRed.jqx-grid-cell-selected {
+            background-color: #e04343 !important;
+            color: white !important;
+            /*background-image: linear-gradient(to bottom, #f4f734, #feffdc) !important;*/
+        }
+
+        .jqx-grid-cell-hover + .cellRed {
+            background-color: #f73434 !important;
+            color: white !important;
+            /*background-image: linear-gradient(to bottom, #f4f734, #feffdc) !important;*/
+        }
+
+        /*********************************************************************/
+
+        .cellRed + .cellC > div {
+            border: 1px white solid !important;
+        }
+
+        .jqx-grid-cell-hover + .cellRed + .cellC > div {
+            border: 1px white solid !important;
+        }
+
+
+        .cellYellow.jqx-grid-cell-selected + .cellC > div {
+            border: 1px gray solid !important;
+        }
+
+        .jqx-grid-cell-hover + .cellYellow + .cellC > div {
+            border: 1px gray solid !important;
+        }
+
+
+        .jqx-grid-cell-selected + .cellC > div {
+            border: 1px white solid !important;
+        }
+
+        .jqx-grid-cell-hover + .cellC > div {
+            border: 1px white solid !important;
+        }
+
+    </style>
+}
