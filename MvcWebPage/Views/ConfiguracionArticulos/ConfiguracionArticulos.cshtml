@@ -164,10 +164,10 @@
         </div>
     </div>
 </div>
-<p></p>
+
 <!---------------------------------------------------------------------------------->
 <div class="card" style="margin-top: 5px; background-color:white;border: 1px solid gray">
- <div class="card-body">
+    <div class="card-body">
 <table class="tDatos2" style="width: 100%; margin-top: 1px; ">
     <tr>
         <td style="font-weight:500; padding-bottom: 5px;" class="h5" align="center">
@@ -190,14 +190,14 @@
                         <input type="text" id="cPROVEEDOR_A" class="form-control" style="width: 100%;" />
                     </td>
                     <td style="width: 250px;">
-                        <label for="cPORCENTAJE_A" style="font-weight:700;">Porcentaje:</label>
-                        <input type="number" id="cPORCENTAJE_A" class="form-control" />
+                        <label for="cPORCENTAJE_A"  style="font-weight:700;">Porcentaje:</label>
+                                <input type="number" id="cPORCENTAJE_A" placeholder="%" class="form-control" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 250px; padding-right: 20px; padding-top: 5px;">
                         <label for="cPRECIO_A" style="font-weight:700;">Precio:</label>
-                        <input type="number" id="cPRECIO_A" class="form-control" />
+                                <input type="number" id="cPRECIO_A" placeholder="$" class="form-control" />
                     </td>
                     <td style="width: 250px; padding-top: 5px;">
                         <label for="cCODIGO_A" style="font-weight:700;">Codigo Articulo:</label>
@@ -217,18 +217,18 @@
                     </td>
                     <td style="width: 250px;">
                         <label for="cPORCENTAJE_B" style="font-weight:700;">Porcentaje:</label>
-                        <input type="number" id="cPORCENTAJE_B" class="form-control" disabled style="width: 100%;" />
+                        <input type="number" id="cPORCENTAJE_B" placeholder="%" class="form-control" disabled style="width: 100%;" />
                     </td>
                 </tr>
 
                 <tr>
                     <td style="width: 250px; padding-right: 20px; padding-top: 5px;">
                         <label for="cPRECIO_B" style="font-weight:700;">Precio:</label>
-                        <input type="number" id="cPRECIO_B" class="form-control" />
+                                <input type="number" id="cPRECIO_B" placeholder="$" class="form-control" />
                     </td>
                     <td style="width: 250px; padding-top: 5px;">
                         <label for="cCODIGO_B" style="font-weight:700;">Codigo Articulo:</label>
-                        <input type="text" id="cCODIGO_B" class="form-control" />
+                        <input type="text" id="cCODIGO_B"  class="form-control" />
                     </td>
                 </tr>
             </table>
@@ -236,11 +236,11 @@
         </td>
     </tr>
 </table>
-
+<div class="col-12" style="display:flex;justify-content:center;flex-flow:row nowrap;align-items:center;">
+    <button class="btn btn-success btn-sm" style="background-color:#53aa56 " onclick="editArticle()"> Actualizar datos generales</button>
+</div>
 <p></p>
-        <div class="col-12" style="display:flex;justify-content:center;flex-flow:row nowrap;align-items:center;">
-            <button class="btn btn-success btn-sm" style="background-color:#53aa56 " onclick="editArticle()"> Actualizar datos generales</button>
-        </div>
+
 @*<table class="table">
     <thead>
         <tr>
