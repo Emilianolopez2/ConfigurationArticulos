@@ -1,0 +1,35 @@
+[33mcommit 74aa272287bc5fa78a8216ed4da288c3a0a1bdd3[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Genaro <gmartinez@evolutionclub.com.mx>
+Date:   Wed May 24 22:56:55 2023 -0600
+
+    fix:Bug Insert and Update IT_ARTICULOS_PROVEEDOR
+
+[33mcommit 1ec183b5b9aa022fe63ec9db1c4c3075a53cfdeb[m
+Author: Genaro <gmartinez@evolutionclub.com.mx>
+Date:   Wed May 24 22:23:26 2023 -0600
+
+    feat:Find and add CODARTICULO on IT_ARTICULO_PROVEEDORES Model to save or update
+
+[33mcommit 3a1b65550ec85d87f055680359ce1461ca26ec88[m
+Author: Genaro <gmartinez@evolutionclub.com.mx>
+Date:   Wed May 24 21:12:38 2023 -0600
+
+    New Commit
+
+[33mcommit d8c7ffefc86daec571ce6e0b87023a6df4feb518[m
+Author: Genaro <gmartinez@evolutionclub.com.mx>
+Date:   Wed May 24 21:02:21 2023 -0600
+
+    feat:Change Name
+
+[33mcommit 739cc65dd6a17b63b76de29c9542b8227bc2a892[m
+Author: Genaro <gmartinez@evolutionclub.com.mx>
+Date:   Wed May 24 21:01:19 2023 -0600
+
+    feat:Consume CSV file
+
+[33mcommit 2cb9c476b649575a32b06bc3a548e085c3be56c7[m
+Author: Emilianolopez2 <emilianoarozquetalopez@hotmail.com>
+Date:   Thu May 18 12:06:12 2023 -0600
+
+    Primer Commit

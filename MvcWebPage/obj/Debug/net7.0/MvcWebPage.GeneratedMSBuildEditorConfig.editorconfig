@@ -9,341 +9,341 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MvcWebPage
 build_property.RootNamespace = MvcWebPage
-build_property.ProjectDir = C:\Users\genar\OneDrive\Escritorio\Nueva carpeta (2)\MvcWebPage\MvcWebPage\
+build_property.ProjectDir = C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\genar\OneDrive\Escritorio\Nueva carpeta (2)\MvcWebPage\MvcWebPage
+build_property.MSBuildProjectDirectory = C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Acceso/CuentasUsuario.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Acceso/CuentasUsuario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvXEN1ZW50YXNVc3VhcmlvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Acceso/Index.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Acceso/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/AutorizarPedidos/Autorizar.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/AutorizarPedidos/Autorizar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JpemFyUGVkaWRvc1xBdXRvcml6YXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/AutorizarPedidos/AutorizarPedidos.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/AutorizarPedidos/AutorizarPedidos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JpemFyUGVkaWRvc1xBdXRvcml6YXJQZWRpZG9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/AutorizarPedidos/btnFiltro.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/AutorizarPedidos/btnFiltro.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JpemFyUGVkaWRvc1xidG5GaWx0cm8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/AutorizarPedidos/BuscarPedidos.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/AutorizarPedidos/BuscarPedidos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JpemFyUGVkaWRvc1xCdXNjYXJQZWRpZG9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/AutorizarPedidos/cbEstatus.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/AutorizarPedidos/cbEstatus.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JpemFyUGVkaWRvc1xjYkVzdGF0dXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/AutorizarPedidos/cbSucursales.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/AutorizarPedidos/cbSucursales.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JpemFyUGVkaWRvc1xjYlN1Y3Vyc2FsZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/AutorizarPedidos/Filtro1.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/AutorizarPedidos/Filtro1.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JpemFyUGVkaWRvc1xGaWx0cm8xLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/AutorizarPedidos/Grid1/Grid1.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/AutorizarPedidos/Grid1/Grid1.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JpemFyUGVkaWRvc1xHcmlkMVxHcmlkMS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/AutorizarPedidos/Grid2/Grid2.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/AutorizarPedidos/Grid2/Grid2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JpemFyUGVkaWRvc1xHcmlkMlxHcmlkMi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/AutorizarPedidos/Rechazar.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/AutorizarPedidos/Rechazar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JpemFyUGVkaWRvc1xSZWNoYXphci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/AutorizarPedidos/Regresar.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/AutorizarPedidos/Regresar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JpemFyUGVkaWRvc1xSZWdyZXNhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/ConfiguracionArticulos/btnFiltro2.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/ConfiguracionArticulos/btnFiltro2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZmlndXJhY2lvbkFydGljdWxvc1xidG5GaWx0cm8yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/ConfiguracionArticulos/cbReferencia.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/ConfiguracionArticulos/cbReferencia.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZmlndXJhY2lvbkFydGljdWxvc1xjYlJlZmVyZW5jaWEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/ConfiguracionArticulos/cbSucursales.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/ConfiguracionArticulos/cbSucursales.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZmlndXJhY2lvbkFydGljdWxvc1xjYlN1Y3Vyc2FsZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/ConfiguracionArticulos/ConfiguracionArticulos.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/ConfiguracionArticulos/ConfiguracionArticulos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZmlndXJhY2lvbkFydGljdWxvc1xDb25maWd1cmFjaW9uQXJ0aWN1bG9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/ConfiguracionArticulos/Edit.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/ConfiguracionArticulos/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZmlndXJhY2lvbkFydGljdWxvc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/ConfiguracionArticulos/Upload1.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/ConfiguracionArticulos/Upload1.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZmlndXJhY2lvbkFydGljdWxvc1xVcGxvYWQxLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/GenerarPedidos/cbSucursales.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/GenerarPedidos/cbSucursales.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VuZXJhclBlZGlkb3NcY2JTdWN1cnNhbGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/GenerarPedidos/EnviarTodo.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/GenerarPedidos/EnviarTodo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VuZXJhclBlZGlkb3NcRW52aWFyVG9kby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/GenerarPedidos/GenerarPedidos.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/GenerarPedidos/GenerarPedidos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VuZXJhclBlZGlkb3NcR2VuZXJhclBlZGlkb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/GenerarPedidos/GetDepartamentoColor.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/GenerarPedidos/GetDepartamentoColor.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VuZXJhclBlZGlkb3NcR2V0RGVwYXJ0YW1lbnRvQ29sb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/GenerarPedidos/GetDepartamentos.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/GenerarPedidos/GetDepartamentos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VuZXJhclBlZGlkb3NcR2V0RGVwYXJ0YW1lbnRvcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/GenerarPedidos/GetPedidos.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/GenerarPedidos/GetPedidos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VuZXJhclBlZGlkb3NcR2V0UGVkaWRvcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/GenerarPedidos/Grid1/Grid1.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/GenerarPedidos/Grid1/Grid1.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VuZXJhclBlZGlkb3NcR3JpZDFcR3JpZDEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/GenerarPedidos/Grid2/Grid2.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/GenerarPedidos/Grid2/Grid2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VuZXJhclBlZGlkb3NcR3JpZDJcR3JpZDIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/GenerarPedidos/Grid3/Grid3.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/GenerarPedidos/Grid3/Grid3.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VuZXJhclBlZGlkb3NcR3JpZDNcR3JpZDMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/GenerarPedidos/Grid4/Grid4.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/GenerarPedidos/Grid4/Grid4.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VuZXJhclBlZGlkb3NcR3JpZDRcR3JpZDQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/GenerarPedidos/GuardarPedidos.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/GenerarPedidos/GuardarPedidos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VuZXJhclBlZGlkb3NcR3VhcmRhclBlZGlkb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/GenerarPedidos/VistaPrevia1.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/GenerarPedidos/VistaPrevia1.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VuZXJhclBlZGlkb3NcVmlzdGFQcmV2aWExLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Home/Clientes.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Home/Clientes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDbGllbnRlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Home/Compras.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Home/Compras.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb21wcmFzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Home/Index.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Home/Privacy.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Home/Ventas.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Home/Ventas.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxWZW50YXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/InventariosFisicosMensuales/cbSucursales.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/InventariosFisicosMensuales/cbSucursales.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb3NGaXNpY29zTWVuc3VhbGVzXGNiU3VjdXJzYWxlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/InventariosFisicosMensuales/EnviarTodo.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/InventariosFisicosMensuales/EnviarTodo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb3NGaXNpY29zTWVuc3VhbGVzXEVudmlhclRvZG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/InventariosFisicosMensuales/GetDepartamentoColor.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/InventariosFisicosMensuales/GetDepartamentoColor.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb3NGaXNpY29zTWVuc3VhbGVzXEdldERlcGFydGFtZW50b0NvbG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/InventariosFisicosMensuales/GetDepartamentos.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/InventariosFisicosMensuales/GetDepartamentos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb3NGaXNpY29zTWVuc3VhbGVzXEdldERlcGFydGFtZW50b3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/InventariosFisicosMensuales/GetInventarios.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/InventariosFisicosMensuales/GetInventarios.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb3NGaXNpY29zTWVuc3VhbGVzXEdldEludmVudGFyaW9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/InventariosFisicosMensuales/GetPedidos.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/InventariosFisicosMensuales/GetPedidos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb3NGaXNpY29zTWVuc3VhbGVzXEdldFBlZGlkb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/InventariosFisicosMensuales/GetSeleccionarArticulos.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/InventariosFisicosMensuales/GetSeleccionarArticulos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb3NGaXNpY29zTWVuc3VhbGVzXEdldFNlbGVjY2lvbmFyQXJ0aWN1bG9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/InventariosFisicosMensuales/Grid10/Grid10.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/InventariosFisicosMensuales/Grid10/Grid10.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb3NGaXNpY29zTWVuc3VhbGVzXEdyaWQxMFxHcmlkMTAuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/InventariosFisicosMensuales/Grid11/Grid11.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/InventariosFisicosMensuales/Grid11/Grid11.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb3NGaXNpY29zTWVuc3VhbGVzXEdyaWQxMVxHcmlkMTEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/InventariosFisicosMensuales/GuardarInventarios.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/InventariosFisicosMensuales/GuardarInventarios.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb3NGaXNpY29zTWVuc3VhbGVzXEd1YXJkYXJJbnZlbnRhcmlvcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/InventariosFisicosMensuales/InventariosFisicosMensuales.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/InventariosFisicosMensuales/InventariosFisicosMensuales.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb3NGaXNpY29zTWVuc3VhbGVzXEludmVudGFyaW9zRmlzaWNvc01lbnN1YWxlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/InventariosFisicosMensuales/Regresar.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/InventariosFisicosMensuales/Regresar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb3NGaXNpY29zTWVuc3VhbGVzXFJlZ3Jlc2FyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/InventariosFisicosMensuales/VistaPrevia1.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/InventariosFisicosMensuales/VistaPrevia1.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb3NGaXNpY29zTWVuc3VhbGVzXFZpc3RhUHJldmlhMS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/InventariosFisicosMensuales/_Scripts.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/InventariosFisicosMensuales/_Scripts.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb3NGaXNpY29zTWVuc3VhbGVzXF9TY3JpcHRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/InventariosFisicos/InventariosFisicosMensuales.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/InventariosFisicos/InventariosFisicosMensuales.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb3NGaXNpY29zXEludmVudGFyaW9zRmlzaWNvc01lbnN1YWxlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/InventariosFisicos/InventariosFisicosSemanales.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/InventariosFisicos/InventariosFisicosSemanales.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb3NGaXNpY29zXEludmVudGFyaW9zRmlzaWNvc1NlbWFuYWxlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/PedidosAutorizados/btnFiltro.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/PedidosAutorizados/btnFiltro.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc0F1dG9yaXphZG9zXGJ0bkZpbHRyby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/PedidosAutorizados/BuscarPedidos.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/PedidosAutorizados/BuscarPedidos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc0F1dG9yaXphZG9zXEJ1c2NhclBlZGlkb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/PedidosAutorizados/cbSucursales.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/PedidosAutorizados/cbSucursales.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc0F1dG9yaXphZG9zXGNiU3VjdXJzYWxlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/PedidosAutorizados/Filtro1.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/PedidosAutorizados/Filtro1.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc0F1dG9yaXphZG9zXEZpbHRybzEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/PedidosAutorizados/Grid1/Grid1.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/PedidosAutorizados/Grid1/Grid1.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc0F1dG9yaXphZG9zXEdyaWQxXEdyaWQxLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/PedidosAutorizados/Grid2/Grid2.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/PedidosAutorizados/Grid2/Grid2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc0F1dG9yaXphZG9zXEdyaWQyXEdyaWQyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/PedidosAutorizados/Imprimir.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/PedidosAutorizados/Imprimir.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc0F1dG9yaXphZG9zXEltcHJpbWlyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/PedidosAutorizados/PedidosAutorizados.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/PedidosAutorizados/PedidosAutorizados.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc0F1dG9yaXphZG9zXFBlZGlkb3NBdXRvcml6YWRvcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/PedidosAutorizados/Regresar.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/PedidosAutorizados/Regresar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc0F1dG9yaXphZG9zXFJlZ3Jlc2FyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Pedidos/btnFiltro.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Pedidos/btnFiltro.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc1xidG5GaWx0cm8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Pedidos/BuscarPedidos.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Pedidos/BuscarPedidos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc1xCdXNjYXJQZWRpZG9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Pedidos/cbSucursales.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Pedidos/cbSucursales.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc1xjYlN1Y3Vyc2FsZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Pedidos/Filtro1.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Pedidos/Filtro1.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc1xGaWx0cm8xLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Pedidos/GetPedidosAutorizados.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Pedidos/GetPedidosAutorizados.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc1xHZXRQZWRpZG9zQXV0b3JpemFkb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Pedidos/Grid1/Grid1.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Pedidos/Grid1/Grid1.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc1xHcmlkMVxHcmlkMS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Pedidos/Grid2/Grid2.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Pedidos/Grid2/Grid2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc1xHcmlkMlxHcmlkMi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Pedidos/Pedidos.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Pedidos/Pedidos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc1xQZWRpZG9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Pedidos/Regresar.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Pedidos/Regresar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc1xSZWdyZXNhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Proveedores/Index.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Proveedores/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Proveedores/Pagina1.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Proveedores/Pagina1.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yZXNcUGFnaW5hMS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Proveedores/Pagina2.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Proveedores/Pagina2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yZXNcUGFnaW5hMi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Proveedores/Pagina3.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Proveedores/Pagina3.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yZXNcUGFnaW5hMy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Shared/Error.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Shared/JqxLoader.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Shared/JqxLoader.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEpxeExvYWRlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Shared/MsgBox - Copia.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Shared/MsgBox - Copia.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE1zZ0JveCAtIENvcGlhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Shared/MsgBox.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Shared/MsgBox.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE1zZ0JveC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Shared/_ColumnRenderer1.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Shared/_ColumnRenderer1.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Db2x1bW5SZW5kZXJlcjEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/_ViewImports.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/_ViewStart.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/genar/OneDrive/Escritorio/Nueva carpeta (2)/MvcWebPage/MvcWebPage/Views/Shared/_Layout.cshtml]
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-kgbcevn7f3
