@@ -23,5 +23,5 @@ public partial class IT_PEDIDOS_NUMPEDIDOS_CAB
 
     public int? ID_ORDEN { get; set; }
 
-    public virtual ICollection<IT_PEDIDOS_NUMPEDIDOS_LIN> IT_PEDIDOS_NUMPEDIDOS_LIN { get; } = new List<IT_PEDIDOS_NUMPEDIDOS_LIN>();
+    public virtual ICollection<IT_PEDIDOS_NUMPEDIDOS_LIN> IT_PEDIDOS_NUMPEDIDOS_LIN { get; set; } = new List<IT_PEDIDOS_NUMPEDIDOS_LIN>();
 }

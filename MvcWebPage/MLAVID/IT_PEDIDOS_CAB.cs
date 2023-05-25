@@ -23,5 +23,5 @@ public partial class IT_PEDIDOS_CAB
 
     public int? CODVENDEDOR { get; set; }
 
-    public virtual ICollection<IT_PEDIDOS_LIN> IT_PEDIDOS_LIN { get; } = new List<IT_PEDIDOS_LIN>();
+    public virtual ICollection<IT_PEDIDOS_LIN> IT_PEDIDOS_LIN { get; set; } = new List<IT_PEDIDOS_LIN>();
 }

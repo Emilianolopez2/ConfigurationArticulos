@@ -220,54 +220,76 @@ namespace MvcWebPage.Controllers
             try
             {
                 MLAVIDContext db = new MLAVID_DB();
-            string extension = Path.GetExtension(xmlFile.FileName);
-            if (extension != ".csv")
+                string extension = Path.GetExtension(xmlFile.FileName);
+                int codArt = 0;
+                bool flag = false;
+                ARTICULOS artTemp = null;
+                FORMATOSARTICULOS fArtTemp = null;
+                if (extension != ".csv")
                 return Json(new { status = "FAIl", message = "El archivo debe ser CSV" });
-            using (var reader = new StreamReader(xmlFile.OpenReadStream()))
-            {
-                var a1 = reader.ReadLine();
-                while (!reader.EndOfStream)
+                using (var reader = new StreamReader(xmlFile.OpenReadStream()))
                 {
-                    string[] row = reader.ReadLine().Split('|');
-                    IT_ARTICULOS_PROVEEDOR it = new IT_ARTICULOS_PROVEEDOR()
+                    var a1 = reader.ReadLine();
+                    
+                    while (!reader.EndOfStream)
                     {
-                        REFERENCIA = row[0],
-                        DESCRIPCION = row[1],
-                        DOSIS = Double.Parse(row[2]),
-                        UNIDADM = row[3],
-                        UNIDADMD = row[4],
-                        CODALMACEN = row[5],
-                        PROVEEDOR_A = row[6],
-                        PORCENTAJE_A = Double.Parse(row[7]),
-                        PRECIO_A = Double.Parse(row[8]),
-                        CODIGO_A = row[9],
-                        PROVEEDOR_B = row[10],
-                        PORCENTAJE_B = Double.Parse(row[11]),
-                        PRECIO_B = Double.Parse(row[12]),
-                        CODIGO_B = row[13],
-                        PROVEEDOR_C = row[14],
-                        PORCENTAJE_C = Double.Parse(row[15]),
-                        PRECIO_C = Double.Parse(row[16]),
-                        CODIGO_C = row[17],
-                        LEADTIME = Double.Parse(row[18]),
-                        STOCK_SEGURIDAD = Double.Parse(row[19]),
-                        STOCK_MAXIMO = Double.Parse(row[20]),
-                        FRECUENCIA = Double.Parse(row[21])
-                    };
+                        string[] row = reader.ReadLine().Split('|');
+                        fArtTemp = db.FORMATOSARTICULOS.FirstOrDefault(x => x.CODBARRAS == row[0]);
+                        if(fArtTemp != null)
+                            codArt = artTemp.CODARTICULO;
+                        if (codArt > 0)
+                            flag = true;
+                        if (!flag)
+                        {
+                            artTemp = db.ARTICULOS.FirstOrDefault(x => x.REFPROVEEDOR == row[0]);
+                            if (artTemp != null)
+                                codArt = artTemp.CODARTICULO;
+                            if (codArt > 0)
+                                flag = true;
+                        }
+                        if (flag)
+                        {
+                            IT_ARTICULOS_PROVEEDOR it = new IT_ARTICULOS_PROVEEDOR()
+                            {
+                                REFERENCIA = row[0],
+                                CODARTICULO = codArt,
+                                DESCRIPCION = row[1],
+                                DOSIS = Double.Parse(row[2]),
+                                UNIDADM = row[3],
+                                UNIDADMD = row[4],
+                                CODALMACEN = row[5],
+                                PROVEEDOR_A = row[6],
+                                PORCENTAJE_A = Double.Parse(row[7]),
+                                PRECIO_A = Double.Parse(row[8]),
+                                CODIGO_A = row[9],
+                                PROVEEDOR_B = row[10],
+                                PORCENTAJE_B = Double.Parse(row[11]),
+                                PRECIO_B = Double.Parse(row[12]),
+                                CODIGO_B = row[13],
+                                PROVEEDOR_C = row[14],
+                                PORCENTAJE_C = Double.Parse(row[15]),
+                                PRECIO_C = Double.Parse(row[16]),
+                                CODIGO_C = row[17],
+                                LEADTIME = Double.Parse(row[18]),
+                                STOCK_SEGURIDAD = Double.Parse(row[19]),
+                                STOCK_MAXIMO = Double.Parse(row[20]),
+                                FRECUENCIA = Double.Parse(row[21])
+                            };
 
-                    var it_articulo = db.IT_ARTICULOS_PROVEEDOR.FirstOrDefault(x => x.REFERENCIA == it.REFERENCIA && x.CODALMACEN == it.CODALMACEN);
-                    if (it_articulo != null)
-                    {//se va a actualizar
-                        db.Entry(it_articulo).CurrentValues.SetValues(it);
-                        db.Entry(it_articulo).State = EntityState.Modified;
+                            var it_articulo = db.IT_ARTICULOS_PROVEEDOR.FirstOrDefault(x => x.REFERENCIA == it.REFERENCIA && x.CODALMACEN == it.CODALMACEN);
+                            if (it_articulo != null)
+                            {//se va a actualizar
+                                db.Entry(it_articulo).CurrentValues.SetValues(it);
+                                db.Entry(it_articulo).State = EntityState.Modified;
+                            }
+                            else // se crea uno nuevo
+                            {
+                                db.IT_ARTICULOS_PROVEEDOR.Add(it);
+                            }
+                            db.SaveChanges();
+                        }
                     }
-                    else // se crea uno nuevo
-                    {
-                        db.IT_ARTICULOS_PROVEEDOR.Add(it);
-                    }
-                    db.SaveChanges();
                 }
-            }
 
                 //return Json(new { status = "OK", message = "Datos cargados con éxito" });
             }

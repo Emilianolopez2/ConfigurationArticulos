@@ -20,7 +20,7 @@
 @*<h4>Los campos marcados con (<span class="text-danger">*</span>) son campos editables</h4>*@
 
 <!---------------------------------------------------------------------------------------------------------------->
-<div class ="card" style="border-bottom:0.5px solid gray; margin-top: 0.5px; margin-bottom: 4px;"> </div>
+<div class="card" style="border-bottom:0.5px solid gray; margin-top: 0.5px; margin-bottom: 4px;"> </div>
 <table style="width: 90%;">
     <tr>
         <td style="padding-right: 5px; font-weight: bold; width: 70px; height: 32px;" align="right">
@@ -35,13 +35,13 @@
         <td id="eFecha" style="width: 70px;" align="left">
             @fecha
         </td>
-            <td class="" style="width: 60px; padding-right: 5px; padding-left: 50px; font-weight: bold;" align="right">
-                Sucursal:
-            </td>
-            <td class="" style="width: 70px;" align="left">
-                @Html.Partial("cbSucursales")
-            </td>
-        
+        <td class="" style="width: 60px; padding-right: 5px; padding-left: 50px; font-weight: bold;" align="right">
+            Sucursal:
+        </td>
+        <td class="" style="width: 70px;" align="left">
+            @Html.Partial("cbSucursales")
+        </td>
+
         <td></td>
         <td style="width: 50px; padding-left: 0px; font-weight: bold;" align="right">
             <table cellpadding="0" cellspacing="0">
@@ -50,7 +50,7 @@
                         <div id='optArt'>Por Artículo</div>
                     </td>
                     <td>
-                        <div  id='optRef'>Por Referencia</div>
+                        <div id='optRef'>Por Referencia</div>
                     </td>
                 </tr>
             </table>
@@ -58,7 +58,7 @@
     </tr>
 </table>
 
- 
+
 
 <div style="border-bottom: 1px solid gray ; margin-top: 1px; margin-bottom: 20px;"></div>
 <!---------------------------------------------------------------------------------------------------------------->
@@ -76,17 +76,17 @@
         </td>
         <td></td>
     </tr>
-    
+
     <tr>
         <td>
-          <input type="text" autocomplete="off" id="txArticulos" @*onclick="mostrarAlertaSweetAlert1()"*@ style="padding-left: 10px !important;" />
+            <input type="text" autocomplete="off" id="txArticulos" @*onclick="mostrarAlertaSweetAlert1()"*@ style="padding-left: 10px !important;" />
         </td>
         <td></td>
         <td>
             @Html.Partial("cbReferencia")
         </td>
         <td style="padding-left: 100px;">
-           
+
             @*<input type="button" class="" value="Cargar Datos" id="cargarDatos" />*@
 
         </td>
@@ -108,7 +108,7 @@
 
     <tr>
         <td>
-         <input type="text" id="txReferencia" autocomplete="off" onclick="mostrarAlertaSweetAlert2()" style="padding-left: 10px !important;" />
+            <input type="text" id="txReferencia" autocomplete="off" onclick="mostrarAlertaSweetAlert2()" style="padding-left: 10px !important;" />
         </td>
         <td></td>
         <td>
@@ -123,13 +123,12 @@
 <!---------------------------------------------------------------------------------------->
 
 
-    <div class="card" style="margin-top: 5px; background-color:white;border: 1px solid gray">
+<div class="card" style="margin-top: 5px; background-color:white;border: 1px solid gray">
     <div class="card-body">
         <div class="container">
             <center><label style="font-weight:700;" class="h5">DATOS GENERALES</label></center>
             <div id="" class="tDatos row" style="display:flex; flex-flow:row wrap; justify-content:flex-start; align-items:center; ">
                 <div class="col-lg-12" style="display:flex; flex-flow:row wrap; justify-content:center; align-items:center; ">
-                   
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <label for="cDOSIS" style="font-weight:700;">Dosis:</label>
@@ -168,16 +167,16 @@
 <table class="tDatos2" style="width: 100%; margin-top: 1px; ">
     <tr>
         <td style="font-weight:500; padding-bottom: 5px;" class="h5" align="center">
-            
+
             PROVEEDOR A
         </td>
-        
+
         <td style="font-weight:500; padding-bottom: 5px;" class="h5" align="center">
-            
+
             PROVEEDOR B
         </td>
     </tr>
-    
+
     <tr>
         <td style="font-weight:700;" valign="top">
             <table style="margin: auto;">
@@ -203,8 +202,8 @@
                 </tr>
             </table>
         </td>
-        
-        
+
+
         <td style="font-weight:700;" valign="top">
             <table style="margin: auto;">
                 <tr>
@@ -217,7 +216,7 @@
                         <input type="number" id="cPORCENTAJE_B" class="form-control" disabled style="width: 100%;" />
                     </td>
                 </tr>
-                
+
                 <tr>
                     <td style="width: 250px; padding-right: 20px; padding-top: 5px;">
                         <label for="cPRECIO_B" style="font-weight:700;">Precio:</label>
@@ -234,7 +233,7 @@
     </tr>
 </table>
 <div class="col-12" style="display:flex;justify-content:center;flex-flow:row nowrap;align-items:center;">
-    <button class="btn btn-success btn-sm" style="background-color:#53aa56 "onclick="editArticle()"> Actualizar datos generales</button>
+    <button class="btn btn-success btn-sm" style="background-color:#53aa56 " onclick="editArticle()"> Actualizar datos generales</button>
 </div>
 <p></p>
 <div class="col-12" style="display:flex;justify-content:center;flex-flow:row nowrap;align-items:center;">
@@ -277,26 +276,25 @@
 </tbody>
 *@
 <!---------------------------------------------------------------------------------->
-
 <!-- Modal -->
 <div class="modal fade" id="res3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="res3">Articulos</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="res3">Articulos</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 
@@ -307,7 +305,7 @@
 @Html.Partial("JqxLoader")
 <!---------------------------------------------------------------------------------------------------------------->
 @section ScriptHeader
-{
+    {
     <script>
         //---------------------------------------------
 
@@ -319,7 +317,7 @@
 
         var lbSucursal = "@lbSucursal";
         var fecha = "@fecha";
-        
+
         //---------------------------------------------
 
     </script>
@@ -330,28 +328,28 @@
 
 
 @section ScriptFooter{
-     <script>
+    <script>
 
-         //Upload1();
+        //Upload1();
 
 
-            var articulo = "";
-            var descripcion = "";
-            $('.Show2').css('display', 'none');
+        var articulo = "";
+        var descripcion = "";
+        $('.Show2').css('display', 'none');
 
 
         $("#txArticulos").val('');
         $("#txReferencia").val('');
 
-        $('#cPORCENTAJE_A').jqxNumberInput({ max: 1, min:0, decimalDigits: 1, digits:1, spinButtons: true, width: 200 });
+        $('#cPORCENTAJE_A').jqxNumberInput({ max: 1, min: 0, decimalDigits: 1, digits: 1, spinButtons: true, width: 200 });
 
         $('#cPORCENTAJE_A').on('valueChanged', function (event) {
             var value = event.args.value;
 
             var dif = numeral((1 - value)).format('0.0');
 
-            if (value==0 || value == 1){
-                    dif = 0;
+            if (value == 0 || value == 1) {
+                dif = 0;
             }
 
             $('#cPORCENTAJE_B').val(dif);
@@ -359,7 +357,7 @@
         });
 
         //Edit
-        function editArticle(){
+        function editArticle() {
 
             var index = @(cbReferencia.SelectedIndex());
             var ref = @(cbReferencia.GetItem("index"));
@@ -374,7 +372,7 @@
 
             var Rfc1 = $("#cPROVEEDOR_A").val();
             var Rfc2 = $("#cPROVEEDOR_B").val();
-            var uni =  $("#cUNIDADM").val();
+            var uni = $("#cUNIDADM").val();
             var uni2 = $("#cUNIDADMD").val();
             var lead = $("#cLEADTIME").val();
             var stock = $("#cSTOCK_MAXIMO").val();
@@ -390,54 +388,54 @@
             let dosis = document.querySelector('#cDOSIS').value
             let obj = {
                 "REFERENCIA": referencia,
-                "CODALMACEN":sucursal,
+                "CODALMACEN": sucursal,
                 "DOSIS": parseFloat(dosis),
-             
+
                 "UNIDADM": uni,
-                "UNIDADMD":uni2,
+                "UNIDADMD": uni2,
                 "LEADTIME": lead,
-                "STOCK_MAXIMO":stock,
-                "STOCK_SEGURIDAD":stock2,
-                "FRECUENCIA":frec,
+                "STOCK_MAXIMO": stock,
+                "STOCK_SEGURIDAD": stock2,
+                "FRECUENCIA": frec,
 
                 "PROVEEDOR_A": Rfc1,
-                "PORCENTAJE_A":porc,
+                "PORCENTAJE_A": porc,
                 "PRECIO_A": precio,
-                "CODIGO_A":codi,
+                "CODIGO_A": codi,
 
                 "PROVEEDOR_B": Rfc2,
-                "PORCENTAJE_B":porc2,
+                "PORCENTAJE_B": porc2,
                 "PRECIO_B": precio2,
-                "CODIGO_B":codi2,
+                "CODIGO_B": codi2,
             }
-            fetch('@Url.Action("updateArticulo","ConfiguracionArticulos")',{
-                method:'POST',
+            fetch('@Url.Action("updateArticulo","ConfiguracionArticulos")', {
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body:JSON.stringify(obj)
+                body: JSON.stringify(obj)
             })
-            .then(res=>res.json())
-            .then(result=>{
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Articulo configurado y Guardado Correctamente',
-                    text: result.message,
-                    allowOutsideClick: true,
-                    showConfirmButton: false,
-                    timer: 1200
+                .then(res => res.json())
+                .then(result => {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Articulo configurado y Guardado Correctamente',
+                        text: result.message,
+                        allowOutsideClick: true,
+                        showConfirmButton: false,
+                        timer: 1200
+                    })
                 })
-            })
-            .catch(error=>{
+                .catch(error => {
 
-                console.log(error)
-            })
+                    console.log(error)
+                })
         }
 
 
-      
+
         //********************************************************************************* */
-        function GetDatosGenerales(){
+        function GetDatosGenerales() {
 
             getData2('@Url.Action("GetDatosgenerales", "ConfiguracionArticulos")',
                 { referencia: referencia, sucursal: sucursal },
@@ -479,14 +477,14 @@
         $("#txArticulos").jqxInput({ placeHolder: " Articulo:", height: 30, width: '100%' });
 
 
-        $("#txArticulos").on('select',function(event){
+        $("#txArticulos").on('select', function (event) {
             if (event.args) {
                 var item = event.args.item;
                 if (item) {
                     //alert(item.value);
                     //********************************************************** */
-                    
-                    
+
+
 
                     getData2('@Url.Action("GetReferencias", "ConfiguracionArticulos")',
                         { referencia: item.value, sucursal: sucursal },
@@ -501,54 +499,54 @@
                             }
 
 
-                            @(cbReferencia.SelectedIndex("0")
-                                .Source("respuesta.rs")
-                                .GetScript())
+        @(cbReferencia.SelectedIndex("0")
+                .Source("respuesta.rs")
+                .GetScript())
 
-                        });
+                                });
                     //********************************************************** */
                 }
             }
-        
+
         });
 
         //********************************************************** */
-        
-        
-        $("#txArticulos").on('input',function(event){
+
+
+        $("#txArticulos").on('input', function (event) {
             if ($(this).val() === '') {
-                @(cbReferencia.SelectedIndex("0")
-                    .Source("[]")
-                    .GetScript())
-                    
-                referencia="";
-                
+        @(cbReferencia.SelectedIndex("0")
+                .Source("[]")
+                .GetScript())
+
+                    referencia="";
+
                 $('.tDatos input').val('');
                 $('.tDatos2 input').val('');
                 $('#cPORCENTAJE_A').val('');
             }
         });
-        
+
 
         //********************************************************** */
         getData2('@Url.Action("GetArticulos", "ConfiguracionArticulos")',
-        {},
-        function (respuesta) {
+            {},
+            function (respuesta) {
 
-            respuesta = JSON.parse(respuesta);
+                respuesta = JSON.parse(respuesta);
 
 
-            if (respuesta.code == -1) {
+                if (respuesta.code == -1) {
 
-                return;
-            }
+                    return;
+                }
 
-            $("#txArticulos").jqxInput({ source: respuesta.rs });
+                $("#txArticulos").jqxInput({ source: respuesta.rs });
 
-        });
+            });
         //********************************************************** */
 
-      
+
 
 
         //********************************************************** */
@@ -556,7 +554,7 @@
         //$("#cargarDatos2").jqxButton({ width: 100, height: 30, template: "primary" });
         //$("#cargarDatos2").click(function () {
 
-        
+
         //});
 
         //********************************************************** */
@@ -564,7 +562,7 @@
         $("#txReferencia").jqxInput({ placeHolder: " Referencia:", height: 30, width: '100%' });
 
         //********************************************************** */
-        
+
 
         $("#txReferencia").on('select', function (event) {
             if (event.args) {
@@ -577,7 +575,7 @@
                 if (item) {
                     //********************************************************** */
 
-                    referencia=item.value;
+                    referencia = item.value;
 
                     getData2('@Url.Action("GetArtDescripcion", "ConfiguracionArticulos")',
                         { referencia: item.value, sucursal: sucursal },
@@ -592,7 +590,7 @@
                             }
 
                             $("#lArticulo").html(respuesta.rs);
-                            
+
                         });
 
                     GetDatosGenerales();
@@ -606,9 +604,9 @@
         //********************************************************** */
         $("#txReferencia").on('input', function (event) {
             if ($(this).val() === '') {
-                
 
-                referencia="";
+
+                referencia = "";
                 $('#lArticulo').html('');
                 $('.tDatos input').val('');
                 $('.tDatos2 input').val('');
@@ -625,22 +623,22 @@
         $("#optArt").bind('change', function (event) {
             var checked = event.args.checked;
 
-            if (checked){
+            if (checked) {
                 $('.Show1').css('display', '');
                 $('.Show2').css('display', 'none');
 
                 $("#txArticulos").val('');
-              
-                @(cbReferencia.SelectedIndex("0")
-                    .Source("[]")
-                    .GetScript())
 
-                referencia="";
+        @(cbReferencia.SelectedIndex("0")
+                .Source("[]")
+                .GetScript())
+
+                    referencia="";
                 $('.tDatos input').val('');
                 $('.tDatos2 input').val('');
                 $('#cPORCENTAJE_A').val('');
             }
-            
+
         });
         $("#optRef").bind('change', function (event) {
             var checked = event.args.checked;
@@ -651,112 +649,112 @@
 
                 $("#txReferencia").val('');
                 $("#lArticulo").html('');
-                
-                referencia="";
+
+                referencia = "";
                 $('.tDatos input').val('');
                 $('.tDatos2 input').val('');
                 $('#cPORCENTAJE_A').val('');
             }
         });
-        
+
 
         //********************************************************** */
 
 
-                function mostrarAlertaSweetAlert2() {
-                Swal.fire({
+        function mostrarAlertaSweetAlert2() {
+            Swal.fire({
                 title: '¿Deseas buscar por Referencia?'
-                   /* text: '¿Deseas buscar por referencia?'*/,
-                    showDenyButton: true,
-                    allowOutsideClick: false,
-                    //showCancelButton: true,
-                    confirmButtonText: 'Si',
-                        //cancelButtonText: 'No'
-                        onClose: function GetReferencia() {
-                           
-                            console.log('SweetAlert cerrado');
-                        }
-                    //denyButtonText: `Actualizar`,
-                }).then((result) => {
-                     //Read more about isConfirmed, isDenied below 
-                    if (result.isConfirmed) {
-                       
-                        var resultado;
-                    
-                        //var p1 = document.getElementById('').value;
-                        //Swal.fire('', '','success')
+                           /* text: '¿Deseas buscar por referencia?'*/,
+                showDenyButton: true,
+                allowOutsideClick: false,
+                //showCancelButton: true,
+                confirmButtonText: 'Si',
+                //cancelButtonText: 'No'
+                onClose: function GetReferencia() {
+
+                    console.log('SweetAlert cerrado');
+                }
+                //denyButtonText: `Actualizar`,
+            }).then((result) => {
+                //Read more about isConfirmed, isDenied below
+                if (result.isConfirmed) {
+
+                    var resultado;
+
+                    //var p1 = document.getElementById('').value;
+                    //Swal.fire('', '','success')
 
 
-                        //$('.show15').css('display', 'true');
+                    //$('.show15').css('display', 'true');
 
-                    } else if (result.isDenied) {
-                        Swal.fire('Tienes que elegir tu tipo de busqueda','*REFERENCIA O *ARTICULO')
-                        
-                    }
-                })
+                } else if (result.isDenied) {
+                    Swal.fire('Tienes que elegir tu tipo de busqueda', '*REFERENCIA O *ARTICULO')
 
-                    //$('.show15').css('display', '');
+                }
+            })
 
-                    ////referencia = p3;
+            //$('.show15').css('display', '');
 
-                    //document.getElementById('GetDatosgenerales').innerHTML = referencia;
+            ////referencia = p3;
 
-                //return v;
-            };
+            //document.getElementById('GetDatosgenerales').innerHTML = referencia;
 
-                function mostrarAlertaSweetAlert1() {
-                    Swal.fire({
-                        title: '¿Deseas buscar por Articulo?',
-                        //text: '¿Deseas buscar por Articulo?',
-                        showDenyButton: true,
-                        allowOutsideClick: false,
-                        //showCancelButton: true,
-                        confirmButtonText: 'Si',
-                        //cancelButtonText: 'No'
-                        onClose: function GetArticulos() {
+            //return v;
+        };
 
-                            console.log('SweetAlert cerrado');
-                        }
-                        //denyButtonText: `Actualizar`,
-                    }).then((result) => {
-                        /* Read more about isConfirmed, isDenied below */
-                        if (result.isConfirmed) {
+        function mostrarAlertaSweetAlert1() {
+            Swal.fire({
+                title: '¿Deseas buscar por Articulo?',
+                //text: '¿Deseas buscar por Articulo?',
+                showDenyButton: true,
+                allowOutsideClick: false,
+                //showCancelButton: true,
+                confirmButtonText: 'Si',
+                //cancelButtonText: 'No'
+                onClose: function GetArticulos() {
 
-                            var resultado;
+                    console.log('SweetAlert cerrado');
+                }
+                //denyButtonText: `Actualizar`,
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
 
-                            //var p1 = document.getElementById('').value;
-                            //Swal.fire('', '', 'success')
+                    var resultado;
 
-
-                            //$('.show15').css('display', 'true');
-
-                        } else if (result.isDenied) {
-                            Swal.fire('Tienes que elegir tu tipo de busqueda', '*REFERENCIA O *ARTICULO')
-
-                        }
-                    })
-
-                    //$('.show15').css('display', '');
-
-                    ////referencia = p3;
-
-                    //document.getElementById('GetDatosgenerales').innerHTML = referencia;
-
-                    //return v;
-                };
+                    //var p1 = document.getElementById('').value;
+                    //Swal.fire('', '', 'success')
 
 
-        </script>
+                    //$('.show15').css('display', 'true');
+
+                } else if (result.isDenied) {
+                    Swal.fire('Tienes que elegir tu tipo de busqueda', '*REFERENCIA O *ARTICULO')
+
+                }
+            })
+
+            //$('.show15').css('display', '');
+
+            ////referencia = p3;
+
+            //document.getElementById('GetDatosgenerales').innerHTML = referencia;
+
+            //return v;
+        };
+
+
+    </script>
 }
 @section Style
-{
+    {
     <style>
 
         .jqx-numberinput input {
             font-size: 15px !important;
             text-align: center !important;
             color: black;
-          /*  text-decoration: underline*/
+            /*  text-decoration: underline*/
         }
 
         .dLabel {
@@ -764,7 +762,7 @@
             border: solid 1px #c7c7c7;
             border-radius: 3px;
             height: 27px;
-            background-color:white ;
+            background-color: white;
             padding-top: 2px;
             width: 100% !important;
         }
@@ -789,7 +787,7 @@
             border: 1px solid gray;
             font-family: Calibri;
             font-size: 18px;
-            color:black;
+            color: black;
             height: 36px;
             height: 36px;
             text-align: center;
@@ -811,7 +809,7 @@
             border: 0.5px solid gray;
             font-family: 'calibri';
             font-size: 18px;
-            color:black;
+            color: black;
         }
 
     </style>

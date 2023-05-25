@@ -81,7 +81,7 @@ public partial class PEDCOMPRACAB
 
     public string REGIMFACT { get; set; }
 
-    public virtual ICollection<PEDCOMPRALIN> PEDCOMPRALIN { get; } = new List<PEDCOMPRALIN>();
+    public virtual ICollection<PEDCOMPRALIN> PEDCOMPRALIN { get; set; } = new List<PEDCOMPRALIN>();
 
-    public virtual ICollection<PEDCOMPRATOT> PEDCOMPRATOT { get; } = new List<PEDCOMPRATOT>();
+    public virtual ICollection<PEDCOMPRATOT> PEDCOMPRATOT { get; set; } = new List<PEDCOMPRATOT>();
 }

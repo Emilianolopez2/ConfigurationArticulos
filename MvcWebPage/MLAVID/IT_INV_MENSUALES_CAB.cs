@@ -29,5 +29,5 @@ public partial class IT_INV_MENSUALES_CAB
 
     public string _REFERENCIA { get; set; }
 
-    public virtual ICollection<IT_INV_MENSUALES_LIN> IT_INV_MENSUALES_LIN { get; } = new List<IT_INV_MENSUALES_LIN>();
+    public virtual ICollection<IT_INV_MENSUALES_LIN> IT_INV_MENSUALES_LIN { get; set; } = new List<IT_INV_MENSUALES_LIN>();
 }

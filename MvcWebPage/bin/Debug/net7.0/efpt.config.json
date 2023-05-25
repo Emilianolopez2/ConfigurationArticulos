@@ -27,6 +27,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[FORMATOSARTICULOS]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[IMPUESTOS]",
          "ObjectType": 0
       },
@@ -147,7 +151,7 @@
          "ObjectType": 1
       }
    ],
-   "UiHint": "DESKTOP-909HMSI\\SQLEXPRESS.MLAVID",
+   "UiHint": "desktop-fm0imet\\mssqlserver01.MLAVID.dbo",
    "UncountableWords": null,
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": true,

@@ -2,7 +2,6 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace MvcWebPage.MLAVID;
 
@@ -21,8 +20,7 @@ public partial class IT_ARTICULOS_PROVEEDOR
     public string UNIDADMD { get; set; }
 
     public string CODALMACEN { get; set; }
-    [Required]
-    [StringLength(20)]
+
     public string PROVEEDOR_A { get; set; }
 
     public double? PORCENTAJE_A { get; set; }
@@ -40,6 +38,7 @@ public partial class IT_ARTICULOS_PROVEEDOR
     public string CODIGO_B { get; set; }
 
     public string PROVEEDOR_C { get; set; }
+
     public double? PORCENTAJE_C { get; set; }
 
     public double? PRECIO_C { get; set; }

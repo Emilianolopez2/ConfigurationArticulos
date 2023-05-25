@@ -19,6 +19,8 @@ public partial class MLAVIDContext : DbContext
 
     public virtual DbSet<DEPARTAMENTO> DEPARTAMENTO { get; set; }
 
+    public virtual DbSet<FORMATOSARTICULOS> FORMATOSARTICULOS { get; set; }
+
     public virtual DbSet<IMPUESTOS> IMPUESTOS { get; set; }
 
     public virtual DbSet<IT_ARTICULOS_PROVEEDOR> IT_ARTICULOS_PROVEEDOR { get; set; }
@@ -57,8 +59,6 @@ public partial class MLAVIDContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.UseCollation("Modern_Spanish_CI_AS");
-
         modelBuilder.Entity<ALMACEN>(entity =>
         {
             entity.HasKey(e => e.CODALMACEN).HasName("ALMACEN_PK");
@@ -343,6 +343,25 @@ public partial class MLAVIDContext : DbContext
                 .IsRowVersion()
                 .IsConcurrencyToken();
             entity.Property(e => e.VISIBLEWEB).HasMaxLength(1);
+        });
+
+        modelBuilder.Entity<FORMATOSARTICULOS>(entity =>
+        {
+            entity.HasKey(e => new { e.CODARTICULO, e.CODFORMATO }).HasName("FORMATOSARTICULOS_PK");
+
+            entity.ToTable(tb =>
+                {
+                    tb.HasTrigger("FORMATOSARTICULOS_DELETE_HPC");
+                    tb.HasTrigger("FORMATOSART_CHANGEFECHA_D");
+                    tb.HasTrigger("FORMATOSART_CHANGEFECHA_I");
+                    tb.HasTrigger("FORMATOSART_CHANGEFECHA_U");
+                });
+
+            entity.Property(e => e.CODBARRAS).HasMaxLength(50);
+            entity.Property(e => e.COMPRA).HasMaxLength(1);
+            entity.Property(e => e.VENTA).HasMaxLength(1);
+            entity.Property(e => e.VISIBLEENCOMPRA).HasMaxLength(1);
+            entity.Property(e => e.VISIBLEENVENTA).HasMaxLength(1);
         });
 
         modelBuilder.Entity<IMPUESTOS>(entity =>
