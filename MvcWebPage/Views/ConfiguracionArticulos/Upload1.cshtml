@@ -1,0 +1,199 @@
+﻿@using MvcWebPage.MLAVID
+
+<div id="Upload1">
+    <div style="" id="title1">
+        Importar Archivo CSV    </div>
+
+    <div style="padding: 10px;">
+        <form method="post" action="@Url.Action("Excel", "ConfiguracionArticulos")" enctype="multipart/form-data" id="uploadForm">
+            <table cellpadding="0" cellspacing="0" style="width: 100%; height: 100%;">
+                <tr>
+                    <td style="" valign="top">
+                        <input type="hidden" id="gridCab1" name="gridCab1" />
+                        <table style="width: 100%;">
+                            <tr>
+                                <td>
+                                    <input type="file" id="xmlFileInput" name="XmlFile" class="form-control-file" style="display: none;" required oninvalid="requireXML('Por favor, seleccione un archivo csv.')" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+                                    <input type="button" value="( Archivo CSV) Examinar..." onclick="$('#xmlFileInput').click();" id="btnXmlFileInput"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="padding-top: 3px;">
+                                    <input type="text" id="xmlFileLabel" style="text-align: center;" readonly="readonly"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="padding-left: 1px; padding-right: 1px;">
+                                    <div style="border: 1px solid silver; height: 15px;">
+                                        <div class="progress" style="display: none;">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" style="height: 30px; padding-top: 10px;">
+                        <input type="button" id="cerrar_upload1" value="Cerrar" style="margin-right: 1px" />
+                        <input type="submit" id="importar_upload1" value="Importar" style="margin-right: 1px"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+</div>
+
+<script>
+
+    $('#Upload1').jqxWindow({
+        //position: { x: offset.left + 50, y: offset.top + 50 },
+        minHeight: 180,
+        minWidth: 450,
+        autoOpen: false,
+        keyboardCloseKey:'',
+        showCloseButton: false,
+        resizable: false,
+        isModal: true,
+        modalOpacity: 0.5,
+        //okButton: $('#importar_upload1'),
+        cancelButton: $('#cerrar_upload1'),
+        initContent: function () {
+            //$('#tab').jqxTabs({ height: '100%', width: '100%' });
+
+            $('#importar_upload1').jqxButton({ width: '100px', template: "success" });
+            $('#cerrar_upload1').jqxButton({ width: '80px', template: "primary" });
+
+            //$('#cancel').jqxButton({ width: '65px' });
+            //$('#ok1').focus();
+
+            //$('#eventWindow').jqxWindow('focus');
+        }
+    });
+    
+    
+    
+    //$('#Upload1 .jqx-window-close-button').off();
+    //$('#Upload1 .jqx-window-close-button').css('display','none');
+
+    //********************************************************************/
+    $('#uploadForm').ajaxForm({
+        beforeSend: function () {
+            var progressBar = $('.progress-bar');
+            progressBar.css('width', '0%');
+            $('.progress').show();
+
+            $('#importar_upload1').jqxButton({ disabled: true });
+            $('#cerrar_upload1').jqxButton({ disabled: true });
+
+            $('#jqxLoader').jqxLoader('open');
+        },
+        uploadProgress: function (event, position, total, percentComplete) {
+            var progressBar = $('.progress-bar');
+            progressBar.css('width', percentComplete + '%');
+            
+        },
+        success: function (result) {
+            // Handle success response
+        },
+        error: function (xhr, status, error) {
+            // Handle error response
+        },
+        complete: function (xhr, status) {
+            var rs = JSON.parse(xhr.responseJSON);
+
+            $('#jqxLoader').jqxLoader('close');
+
+            $('#importar_upload1').jqxButton({ disabled: false });
+            $('#cerrar_upload1').jqxButton({ disabled: false });
+
+            var progressBar = $('.progress-bar');
+            progressBar.css('width', '100%');
+            $('.progress').fadeOut(500, function () {
+                progressBar.css('width', '0%');
+            });
+
+            if (rs.code == 0) {
+                MsgBoxOK(rs.msg, 5);
+
+                $("#xmlFileInput").val(null);
+                $("#pdfFileInput").val(null);
+
+                $("#pdfFileLabel").val('');
+                $("#xmlFileLabel").val('');
+            } else {
+                MsgBoxOK(rs.msg, 2);
+            }
+        }
+    });
+
+    
+
+   
+    //********************************************************************/
+
+    function requireXML(msg) {
+
+        MsgBoxOK2(msg, 1);
+    }
+
+
+    //$("#cReset").click(function () {
+    //    $("#xmlFileInput").val(null);
+    //});
+
+
+
+    $("#btnXmlFileInput").jqxButton({ width: '100%', height: 30 });
+    
+    $("#xmlFileLabel").jqxInput({ height: 30, width: '100%' });
+
+    $('#xmlFileInput').on('change', function () {
+        var fileInput = $('#xmlFileInput');
+
+        var fileName = fileInput.val();
+        if (fileName.split('.').pop().toLowerCase() !== 'csv') {
+            MsgBoxOK('Por favor, seleccione un archivo csv valido.', 1);
+            fileInput.val('');
+        } else {
+
+            fileName = fileName.split('\\').pop();
+            
+            $("#xmlFileLabel").val(fileName);
+        }
+    });
+
+
+    //********************************************************************/
+    $("#importar_upload1").click(function (e) {
+
+        //********************************************************************/
+
+        //********************************************************************/
+    });
+
+
+    function Upload1(){
+        
+        //$('#gridCab1').val(JSON.stringify(data));
+
+        //var w1 = $(window).width();
+        //var h1 = $(window).height() - 100;
+
+        //$('#Upload1').jqxWindow({ width: w1 });
+        //$('#title2').css('padding-left', (w1 / 2) - 110 + 'px');
+        $('#title1').css('font-weight', 'bold');
+
+        $('#Upload1').jqxWindow('open');
+        $('#Upload1').jqxWindow({ position: 'center' });
+    
+    }
+
+
+</script>

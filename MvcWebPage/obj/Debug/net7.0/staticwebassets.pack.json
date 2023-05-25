@@ -613,6 +613,18 @@
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
+      "Id": "C:\\Users\\Arozqueta\\Desktop\\Nueva carpeta (3)\\MvcWebPage 11-05-2023\\MvcWebPage 11-05-2023\\MvcWebPage\\MvcWebPage\\wwwroot\\lib\\jquery.form\\jquery.form.js",
+      "PackagePath": "staticwebassets\\lib\\jquery.form\\jquery.form.js"
+    },
+    {
+      "Id": "C:\\Users\\Arozqueta\\Desktop\\Nueva carpeta (3)\\MvcWebPage 11-05-2023\\MvcWebPage 11-05-2023\\MvcWebPage\\MvcWebPage\\wwwroot\\lib\\jquery.form\\jquery.form.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery.form\\jquery.form.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Arozqueta\\Desktop\\Nueva carpeta (3)\\MvcWebPage 11-05-2023\\MvcWebPage 11-05-2023\\MvcWebPage\\MvcWebPage\\wwwroot\\lib\\jquery.form\\jquery.form.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\jquery.form\\jquery.form.min.js.map"
+    },
+    {
       "Id": "C:\\Users\\Arozqueta\\Desktop\\Nueva carpeta (3)\\MvcWebPage 11-05-2023\\MvcWebPage 11-05-2023\\MvcWebPage\\MvcWebPage\\wwwroot\\lib\\jquery\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\jquery.js"
     },

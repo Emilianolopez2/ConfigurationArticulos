@@ -33,9 +33,9 @@ namespace MvcWebPage.Controllers
         {
             try
             {
-                var rs = DepartamentoService.GetDptoData(req);
+                //var rs = DepartamentoService.GetDptoData(req);
 
-                return new { code = 0, rs }.RSon();
+                return new { code = 0, rs="[]" }.RSon();
             }
             catch (Exception e)
             {
@@ -97,9 +97,9 @@ namespace MvcWebPage.Controllers
         {
             try
             {
-                var rs = DepartamentoService.GetDepartamentos(req);
+                //var rs = DepartamentoService.GetDepartamentos(req);
 
-                return new { code = 0, rs }.RSon();
+                return new { code = 0, rs ="[]"}.RSon();
             }
             catch (Exception e)
             {

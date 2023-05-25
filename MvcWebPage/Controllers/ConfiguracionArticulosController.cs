@@ -39,8 +39,8 @@ namespace MvcWebPage.Controllers
 
             return View("ConfiguracionArticulos");
         }
-
-
+      
+     
         [HttpPost]
         public IActionResult GetArticulos()
         {
@@ -214,6 +214,71 @@ namespace MvcWebPage.Controllers
             }
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Excel(IFormFile xmlFile)
+        {
+            try
+            {
+                MLAVIDContext db = new MLAVID_DB();
+            string extension = Path.GetExtension(xmlFile.FileName);
+            if (extension != ".csv")
+                return Json(new { status = "FAIl", message = "El archivo debe ser CSV" });
+            using (var reader = new StreamReader(xmlFile.OpenReadStream()))
+            {
+                var a1 = reader.ReadLine();
+                while (!reader.EndOfStream)
+                {
+                    string[] row = reader.ReadLine().Split('|');
+                    IT_ARTICULOS_PROVEEDOR it = new IT_ARTICULOS_PROVEEDOR()
+                    {
+                        REFERENCIA = row[0],
+                        DESCRIPCION = row[1],
+                        DOSIS = Double.Parse(row[2]),
+                        UNIDADM = row[3],
+                        UNIDADMD = row[4],
+                        CODALMACEN = row[5],
+                        PROVEEDOR_A = row[6],
+                        PORCENTAJE_A = Double.Parse(row[7]),
+                        PRECIO_A = Double.Parse(row[8]),
+                        CODIGO_A = row[9],
+                        PROVEEDOR_B = row[10],
+                        PORCENTAJE_B = Double.Parse(row[11]),
+                        PRECIO_B = Double.Parse(row[12]),
+                        CODIGO_B = row[13],
+                        PROVEEDOR_C = row[14],
+                        PORCENTAJE_C = Double.Parse(row[15]),
+                        PRECIO_C = Double.Parse(row[16]),
+                        CODIGO_C = row[17],
+                        LEADTIME = Double.Parse(row[18]),
+                        STOCK_SEGURIDAD = Double.Parse(row[19]),
+                        STOCK_MAXIMO = Double.Parse(row[20]),
+                        FRECUENCIA = Double.Parse(row[21])
+                    };
+
+                    var it_articulo = db.IT_ARTICULOS_PROVEEDOR.FirstOrDefault(x => x.REFERENCIA == it.REFERENCIA && x.CODALMACEN == it.CODALMACEN);
+                    if (it_articulo != null)
+                    {//se va a actualizar
+                        db.Entry(it_articulo).CurrentValues.SetValues(it);
+                        db.Entry(it_articulo).State = EntityState.Modified;
+                    }
+                    else // se crea uno nuevo
+                    {
+                        db.IT_ARTICULOS_PROVEEDOR.Add(it);
+                    }
+                    db.SaveChanges();
+                }
+            }
+
+                //return Json(new { status = "OK", message = "Datos cargados con éxito" });
+            }
+            catch (Exception e)
+            {
+                return new { code = -1, msg = e.Message }.RSon();
+            }
+
+            return new { code = 0, msg = "Archivos procesados correctamente." }.RSon();
+        }
+
 
         [HttpPost]
         public IActionResult GetSucursales([FromBody] Request req)
@@ -254,7 +319,7 @@ namespace MvcWebPage.Controllers
                 var art = db.ARTICULOS.FirstOrDefault(f =>
                     f.DESCRIPCION.ToLower().Trim() == req.referencia.ToLower().Trim());
 
-                if (art != null)
+                if (req != null)
                 {
                     var rs = db.IT_ARTICULOS_PROVEEDOR.Where(w => w.CODARTICULO == art.CODARTICULO && w.CODALMACEN == req.sucursal)
                         .GroupBy(g=>g.REFERENCIA)
@@ -321,57 +386,7 @@ namespace MvcWebPage.Controllers
             db.SaveChanges();
             return Json(new {res="OK",message="El Articulo " + it_articulo.DESCRIPCION + " ha sido actualizado corectamente"});
         }
-
-
-
-        ///EDITAAAR//
-        //public async Task<IActionResult>Editar(int? id)
-        //{
-        //    if (id == null || _context.IT_ARTICULOS_PROVEEDOR == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var IT_ARTICULOS_PROVEEDOR = await _context.IT_ARTICULOS_PROVEEDOR.FindAsync(id);
-        //    if (IT_ARTICULOS_PROVEEDOR == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return View(IT_ARTICULOS_PROVEEDOR);
-        //}
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Editar(string id, [Bind("REFERENCIA,CODARTICULO,")] IT_ARTICULOS_PROVEEDOR iT_ARTICULOS_PROVEEDOR)
-        //{
-        //    if (id != iT_ARTICULOS_PROVEEDOR.REFERENCIA)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-        //            _context.Update(iT_ARTICULOS_PROVEEDOR);
-        //            await _context.SaveChangesAsync();
-        //        }
-        //        catch (DbUpdateConcurrencyException)
-        //        {
-        //            if (!iT_ARTICULOS_PROVEEDORExists(iT_ARTICULOS_PROVEEDOR.REFERENCIA)) 
-        //            {
-        //                return NotFound();
-        //            }
-        //            else
-        //            {
-        //                throw;
-        //            }
-        //        }
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    return View(iT_ARTICULOS_PROVEEDOR);
-        //}
-
-
+        
         [HttpPost]
         public IActionResult GetArtDescripcion([FromBody] Request3 req)
         {

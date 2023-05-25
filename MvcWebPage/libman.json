@@ -19,9 +19,12 @@
       "destination": "wwwroot/lib/numeral.js/"
     },
     {
-      "provider": "cdnjs",
       "library": "sweetalert2@11.7.5",
       "destination": "wwwroot/lib/sweetalert2/"
+    },
+    {
+      "library": "jquery.form@4.3.0",
+      "destination": "wwwroot/lib/jquery.form/"
     }
   ]
 }

@@ -52,41 +52,41 @@ namespace MvcWebPage
             dbSet.RemoveRange(dbSet);
         }
 
-        //public static TKey MaxID<TSource, TKey>(this IEnumerable<TSource> collection, Func<TSource, TKey> keySelector) 
-        //{
+        public static TKey MaxID<TSource, TKey>(this IEnumerable<TSource> collection, Func<TSource, TKey> keySelector)
+        {
 
-        //    /*
-        //    if (collection != null && collection.Count > 0)
-        //    {
-        //        return collection
-        //            .OrderBy(x => keySelector(x))
-        //            .ToList();
-        //    }*/
-
-
-
-        //    var maxId = collection.Select(keySelector).DefaultIfEmpty().Max();
-
-        //    Type t = typeof(TKey);
-        //    t = Nullable.GetUnderlyingType(t) ?? t;
-
-        //    if (maxId == null)
-        //    {
-        //        return (TKey)Convert.ChangeType(1, t);
-        //    }
+            /*
+            if (collection != null && collection.Count > 0)
+            {
+                return collection
+                    .OrderBy(x => keySelector(x))
+                    .ToList();
+            }*/
 
 
-        //    var inx=(Int64)Convert.ChangeType(maxId, t);
-        //    inx++;
 
-        //    return (TKey)Convert.ChangeType(inx, t);
-        //}
+            var maxId = collection.Select(keySelector).DefaultIfEmpty().Max();
+
+            Type t = typeof(TKey);
+            t = Nullable.GetUnderlyingType(t) ?? t;
+
+            if (maxId == null)
+            {
+                return (TKey)Convert.ChangeType(1, t);
+            }
 
 
-        //public static K MaxOrDefault<T, K>(this IEnumerable<T> enumeration, Func<T, K> selector)
-        //{
-        //    return enumeration.Any() ? enumeration.Max(selector) : default;
-        //}
+            var inx = (Int64)Convert.ChangeType(maxId, t);
+            inx++;
+
+            return (TKey)Convert.ChangeType(inx, t);
+        }
+
+
+        public static K MaxOrDefault<T, K>(this IEnumerable<T> enumeration, Func<T, K> selector)
+        {
+            return enumeration.Any() ? enumeration.Max(selector) : default;
+        }
         public static int MaxID1<T, K>(this IEnumerable<T> enumeration, Func<T, K> selector, bool incremento = true)
         {
             var max = (enumeration.Select(selector).Cast<int?>().Max() ?? 0);
@@ -265,7 +265,7 @@ namespace MvcWebPage
                }
           }
 
-          public static Int32 Int32(this object obj)
+          public static Int32 Int32(this object obj, string v)
           {
               return Convert.ToInt32(obj);
           }

@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Arozqueta\\Desktop\\Nueva carpeta (3)\\MvcWebPage 11-05-2023\\MvcWebPage 11-05-2023\\MvcWebPage\\MvcWebPage\\MvcWebPage.csproj": {}
+    "C:\\Users\\genar\\OneDrive\\Escritorio\\Nueva carpeta (2)\\MvcWebPage\\MvcWebPage\\MvcWebPage.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Arozqueta\\Desktop\\Nueva carpeta (3)\\MvcWebPage 11-05-2023\\MvcWebPage 11-05-2023\\MvcWebPage\\MvcWebPage\\MvcWebPage.csproj": {
+    "C:\\Users\\genar\\OneDrive\\Escritorio\\Nueva carpeta (2)\\MvcWebPage\\MvcWebPage\\MvcWebPage.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Arozqueta\\Desktop\\Nueva carpeta (3)\\MvcWebPage 11-05-2023\\MvcWebPage 11-05-2023\\MvcWebPage\\MvcWebPage\\MvcWebPage.csproj",
+        "projectUniqueName": "C:\\Users\\genar\\OneDrive\\Escritorio\\Nueva carpeta (2)\\MvcWebPage\\MvcWebPage\\MvcWebPage.csproj",
         "projectName": "MvcWebPage",
-        "projectPath": "C:\\Users\\Arozqueta\\Desktop\\Nueva carpeta (3)\\MvcWebPage 11-05-2023\\MvcWebPage 11-05-2023\\MvcWebPage\\MvcWebPage\\MvcWebPage.csproj",
-        "packagesPath": "C:\\Users\\Arozqueta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Arozqueta\\Desktop\\Nueva carpeta (3)\\MvcWebPage 11-05-2023\\MvcWebPage 11-05-2023\\MvcWebPage\\MvcWebPage\\obj\\",
+        "projectPath": "C:\\Users\\genar\\OneDrive\\Escritorio\\Nueva carpeta (2)\\MvcWebPage\\MvcWebPage\\MvcWebPage.csproj",
+        "packagesPath": "C:\\Users\\genar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\genar\\OneDrive\\Escritorio\\Nueva carpeta (2)\\MvcWebPage\\MvcWebPage\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Arozqueta\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\genar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -99,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

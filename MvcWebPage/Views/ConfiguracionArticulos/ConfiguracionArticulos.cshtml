@@ -17,16 +17,12 @@
 
 
 <h4>Configuración Articulos@*, Sucursal: <span id="lbSucursal" style="text-transform: capitalize;"></span>*@</h4>
-
-
-
+@*<h4>Los campos marcados con (<span class="text-danger">*</span>) son campos editables</h4>*@
 
 <!---------------------------------------------------------------------------------------------------------------->
 <div class ="card" style="border-bottom:0.5px solid gray; margin-top: 0.5px; margin-bottom: 4px;"> </div>
 <table style="width: 90%;">
     <tr>
-
-        
         <td style="padding-right: 5px; font-weight: bold; width: 70px; height: 32px;" align="right">
             Usuario:
         </td>
@@ -39,7 +35,6 @@
         <td id="eFecha" style="width: 70px;" align="left">
             @fecha
         </td>
-       
             <td class="" style="width: 60px; padding-right: 5px; padding-left: 50px; font-weight: bold;" align="right">
                 Sucursal:
             </td>
@@ -62,6 +57,9 @@
         </td>
     </tr>
 </table>
+
+ 
+
 <div style="border-bottom: 1px solid gray ; margin-top: 1px; margin-bottom: 20px;"></div>
 <!---------------------------------------------------------------------------------------------------------------->
 
@@ -81,7 +79,7 @@
     
     <tr>
         <td>
-          <input type="text" autocomplete="off" id="txArticulos" @*onclick="mostrarAlertaSweetAlert1()*@" style="padding-left: 10px !important;" />
+          <input type="text" autocomplete="off" id="txArticulos" @*onclick="mostrarAlertaSweetAlert1()"*@ style="padding-left: 10px !important;" />
         </td>
         <td></td>
         <td>
@@ -110,7 +108,7 @@
 
     <tr>
         <td>
-         <input type="text" id="txReferencia" autocomplete="off" @*onclick="mostrarAlertaSweetAlert2()*@" style="padding-left: 10px !important;" />
+         <input type="text" id="txReferencia" autocomplete="off" onclick="mostrarAlertaSweetAlert2()" style="padding-left: 10px !important;" />
         </td>
         <td></td>
         <td>
@@ -120,11 +118,12 @@
         </td>
     </tr>
 </table>
+
 <p></p>
 <!---------------------------------------------------------------------------------------->
 
 
-        <div class="card" style="margin-top: 5px; background-color:white;border: 1px solid gray">
+    <div class="card" style="margin-top: 5px; background-color:white;border: 1px solid gray">
     <div class="card-body">
         <div class="container">
             <center><label style="font-weight:700;" class="h5">DATOS GENERALES</label></center>
@@ -235,12 +234,12 @@
     </tr>
 </table>
 <div class="col-12" style="display:flex;justify-content:center;flex-flow:row nowrap;align-items:center;">
-    <button  class="btn btn-outline-success" style="background-color:#58B358;" onclick="editArticle()"> Actualizar datos generales  </button>
+    <button class="btn btn-success btn-sm" style="background-color:#53aa56 "onclick="editArticle()"> Actualizar datos generales</button>
 </div>
-
-
-
 <p></p>
+<div class="col-12" style="display:flex;justify-content:center;flex-flow:row nowrap;align-items:center;">
+    <button class="btn btn-success btn-sm" style="background-color:#337ab7" onclick="Upload1()">Importar Excel</button>
+</div>
 @*<table class="table">
     <thead>
         <tr>
@@ -303,11 +302,16 @@
 
 @*/////////////////////////////////Section Scripts tra///////////////////////////////////////////////*@
 
+@Html.Partial("Upload1")
+@Html.Partial("MsgBox")
+@Html.Partial("JqxLoader")
 <!---------------------------------------------------------------------------------------------------------------->
 @section ScriptHeader
 {
     <script>
         //---------------------------------------------
+
+
 
         var sucursal = "";
         var referencia = "";
@@ -327,6 +331,10 @@
 
 @section ScriptFooter{
      <script>
+
+         //Upload1();
+
+
             var articulo = "";
             var descripcion = "";
             $('.Show2').css('display', 'none');
@@ -413,7 +421,7 @@
             .then(result=>{
                 Swal.fire({
                     icon: 'success',
-                    title: 'Articulo Guardado Correctamente',
+                    title: 'Articulo configurado y Guardado Correctamente',
                     text: result.message,
                     allowOutsideClick: true,
                     showConfirmButton: false,
@@ -421,9 +429,11 @@
                 })
             })
             .catch(error=>{
+
                 console.log(error)
             })
         }
+
 
       
         //********************************************************************************* */
@@ -586,6 +596,7 @@
                         });
 
                     GetDatosGenerales();
+
                     //********************************************************** */
                 }
             }
@@ -654,8 +665,8 @@
 
                 function mostrarAlertaSweetAlert2() {
                 Swal.fire({
-                    title: 'DATOS GENERALES ARTICULOS',
-                    text: '¿Deseas buscar por referencia?',
+                title: '¿Deseas buscar por Referencia?'
+                   /* text: '¿Deseas buscar por referencia?'*/,
                     showDenyButton: true,
                     allowOutsideClick: false,
                     //showCancelButton: true,
@@ -673,7 +684,7 @@
                         var resultado;
                     
                         //var p1 = document.getElementById('').value;
-                        Swal.fire('', '','success')
+                        //Swal.fire('', '','success')
 
 
                         //$('.show15').css('display', 'true');
@@ -695,8 +706,8 @@
 
                 function mostrarAlertaSweetAlert1() {
                     Swal.fire({
-                        title: 'DATOS GENERALES ARTICULOS',
-                        text: '¿Deseas buscar por Articulo?',
+                        title: '¿Deseas buscar por Articulo?',
+                        //text: '¿Deseas buscar por Articulo?',
                         showDenyButton: true,
                         allowOutsideClick: false,
                         //showCancelButton: true,
@@ -714,7 +725,7 @@
                             var resultado;
 
                             //var p1 = document.getElementById('').value;
-                            Swal.fire('', '', 'success')
+                            //Swal.fire('', '', 'success')
 
 
                             //$('.show15').css('display', 'true');
@@ -733,6 +744,7 @@
 
                     //return v;
                 };
+
 
         </script>
 }

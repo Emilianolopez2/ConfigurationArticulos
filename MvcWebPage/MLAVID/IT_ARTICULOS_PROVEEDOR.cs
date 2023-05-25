@@ -30,8 +30,7 @@ public partial class IT_ARTICULOS_PROVEEDOR
     public double? PRECIO_A { get; set; }
 
     public string CODIGO_A { get; set; }
-    [Required]
-    [StringLength(20)]
+
     public string PROVEEDOR_B { get; set; }
 
     public double? PORCENTAJE_B { get; set; }
