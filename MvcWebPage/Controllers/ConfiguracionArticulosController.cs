@@ -233,10 +233,14 @@ namespace MvcWebPage.Controllers
                     
                     while (!reader.EndOfStream)
                     {
+                        codArt = 0;
+                        fArtTemp = null;
+                        artTemp = null;
+                        flag = false;
                         string[] row = reader.ReadLine().Split('|');
                         fArtTemp = db.FORMATOSARTICULOS.FirstOrDefault(x => x.CODBARRAS == row[0]);
-                        if(fArtTemp != null)
-                            codArt = artTemp.CODARTICULO;
+                        if (fArtTemp != null)
+                            codArt = fArtTemp.CODARTICULO;
                         if (codArt > 0)
                             flag = true;
                         if (!flag)
