@@ -165,9 +165,9 @@
     </div>
 </div>
 <p></p>
-<!---------------------------------------------------------------------------------->
-<div class="card" style="margin-top: 5px; background-color:white;border: 1px solid gray">
-<div class="card-body">
+<!------------------------Titulos de proveedor a y proveedor b --------------------------------------------------------->
+<div class="card" style="margin-top: 5px; background-color:white;border: 1px solid gray"/>
+<div class="card-body"/>
 <table class="tDatos2" style="width: 100%; margin-top: 1px; ">
      <tr>
         <td style="font-weight:500; padding-bottom: 5px;" class="h5" align="center">
@@ -191,13 +191,13 @@
                     </td>
                     <td style="width: 250px;">
                         <label for="cPORCENTAJE_A"  style="font-weight:700;">Porcentaje:</label>
-                                <input type="number" id="cPORCENTAJE_A" placeholder="%" class="form-control" />
+                        <input type="number" id="cPORCENTAJE_A" placeholder="%" class="form-control" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 250px; padding-right: 20px; padding-top: 5px;">
                         <label for="cPRECIO_A" style="font-weight:700;">Precio:</label>
-                                <input type="number" id="cPRECIO_A" placeholder="$" class="form-control" />
+                        <input type="number" id="cPRECIO_A" placeholder="$" class="form-control" />
                     </td>
                     <td style="width: 250px; padding-top: 5px;">
                         <label for="cCODIGO_A" style="font-weight:700;">Codigo Articulo:</label>
@@ -224,7 +224,7 @@
                 <tr>
                     <td style="width: 250px; padding-right: 20px; padding-top: 5px;">
                         <label for="cPRECIO_B" style="font-weight:700;">Precio:</label>
-                                <input type="number" id="cPRECIO_B" placeholder="$" class="form-control" />
+                        <input type="number" id="cPRECIO_B" placeholder="$" class="form-control" />
                     </td>
                     <td style="width: 250px; padding-top: 5px;">
                         <label for="cCODIGO_B" style="font-weight:700;">Codigo Articulo:</label>
@@ -435,7 +435,7 @@
 
 
 
-        //********************************************************************************* */
+        //****************************¡MOSTRAR DATOS GENERALES EN CAMPOS!***************************************************** */
         function GetDatosGenerales() {
 
             getData2('@Url.Action("GetDatosgenerales", "ConfiguracionArticulos")',
@@ -472,7 +472,7 @@
         }
 
 
-        //********************************************************************************* */
+        //**************************************MOSTRAR ARTICULOS 1ER******************************************* */
 
 
         $("#txArticulos").jqxInput({ placeHolder: " Articulo:", height: 30, width: '100%' });

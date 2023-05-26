@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.101.0" />
     <PackageReference Include="ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly" Version="7.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="7.0.4" />
@@ -19,6 +20,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.6" />
+    <PackageReference Include="Z.EntityFramework.Extensions.EFCore" Version="7.22.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,6 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="ElaAdmin-master\.github\ISSUE_TEMPLATE.md" />
     <None Include="Views\InventariosFisicosMensuales\cbSucursales.cshtml" />
     <None Include="Views\InventariosFisicosMensuales\EnviarTodo.cshtml" />
     <None Include="Views\InventariosFisicosMensuales\GetDepartamentoColor.cshtml" />

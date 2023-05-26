@@ -45,6 +45,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.101.0, )"
+            },
             "ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly": {
               "target": "Package",
               "version": "[7.0.1, )"
@@ -78,6 +82,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[7.0.6, )"
+            },
+            "Z.EntityFramework.Extensions.EFCore": {
+              "target": "Package",
+              "version": "[7.22.0, )"
             }
           },
           "imports": [

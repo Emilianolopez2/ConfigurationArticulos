@@ -2,7 +2,8 @@
 
 <div id="Upload1">
     <div style="" id="title1">
-        Importar Archivo CSV    </div>
+        Importar Archivo xlsx
+    </div>
 
     <div style="padding: 10px;">
         <form method="post" action="@Url.Action("Excel", "ConfiguracionArticulos")" enctype="multipart/form-data" id="uploadForm">
@@ -13,8 +14,8 @@
                         <table style="width: 100%;">
                             <tr>
                                 <td>
-                                    <input type="file" id="xmlFileInput" name="XmlFile" class="form-control-file" style="display: none;" required oninvalid="requireXML('Por favor, seleccione un archivo csv.')" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
-                                    <input type="button" value="( Archivo CSV) Examinar..." onclick="$('#xmlFileInput').click();" id="btnXmlFileInput"/>
+                                    <input type="file" id="xmlFileInput" name="XmlFile" class="form-control-file" style="display: none;" required oninvalid="requireXML('Por favor, seleccione un archivo xlsx.')" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+                                    <input type="button" value="( Archivo Excel ) Examinar..." onclick="$('#xmlFileInput').click();" id="btnXmlFileInput"/>
                                 </td>
                             </tr>
 
@@ -158,8 +159,8 @@
         var fileInput = $('#xmlFileInput');
 
         var fileName = fileInput.val();
-        if (fileName.split('.').pop().toLowerCase() !== 'csv') {
-            MsgBoxOK('Por favor, seleccione un archivo csv valido.', 1);
+        if (fileName.split('.').pop().toLowerCase() !== 'xlsx') {
+            MsgBoxOK('Por favor, seleccione un archivo xlsx valido.', 1);
             fileInput.val('');
         } else {
 

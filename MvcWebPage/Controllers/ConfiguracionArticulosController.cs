@@ -7,6 +7,7 @@ using MvcWebPage.Data;
 using MvcWebPage.MLAVID;
 using MvcWebPage.Models;
 using MvcWebPage.Services;
+using MvcWebPage.Xlsx;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MvcWebPage.Controllers
@@ -214,96 +215,242 @@ namespace MvcWebPage.Controllers
             }
         }
 
+
+
+
+
         [HttpPost]
         public async Task<IActionResult> Excel(IFormFile xmlFile)
         {
             try
             {
+
+                var ws = ArchivoExcel.GetExcel(xmlFile).ToList();
+
+
+
                 MLAVIDContext db = new MLAVID_DB();
-                string extension = Path.GetExtension(xmlFile.FileName);
+
+
+                string extension = Path.GetExtension(xmlFile.FileName).ToLower();
+
                 int codArt = 0;
                 bool flag = false;
                 ARTICULOS artTemp = null;
                 FORMATOSARTICULOS fArtTemp = null;
-                if (extension != ".csv")
-                return Json(new { status = "FAIl", message = "El archivo debe ser CSV" });
-                using (var reader = new StreamReader(xmlFile.OpenReadStream()))
-                {
-                    var a1 = reader.ReadLine();
-                    
-                    while (!reader.EndOfStream)
-                    {
-                        codArt = 0;
-                        fArtTemp = null;
-                        artTemp = null;
-                        flag = false;
-                        string[] row = reader.ReadLine().Split('|');
-                        fArtTemp = db.FORMATOSARTICULOS.FirstOrDefault(x => x.CODBARRAS == row[0]);
-                        if (fArtTemp != null)
-                            codArt = fArtTemp.CODARTICULO;
-                        if (codArt > 0)
-                            flag = true;
-                        if (!flag)
-                        {
-                            artTemp = db.ARTICULOS.FirstOrDefault(x => x.REFPROVEEDOR == row[0]);
-                            if (artTemp != null)
-                                codArt = artTemp.CODARTICULO;
-                            if (codArt > 0)
-                                flag = true;
-                        }
-                        if (flag)
-                        {
-                            IT_ARTICULOS_PROVEEDOR it = new IT_ARTICULOS_PROVEEDOR()
-                            {
-                                REFERENCIA = row[0],
-                                CODARTICULO = codArt,
-                                DESCRIPCION = row[1],
-                                DOSIS = Double.Parse(row[2]),
-                                UNIDADM = row[3],
-                                UNIDADMD = row[4],
-                                CODALMACEN = row[5],
-                                PROVEEDOR_A = row[6],
-                                PORCENTAJE_A = Double.Parse(row[7]),
-                                PRECIO_A = Double.Parse(row[8]),
-                                CODIGO_A = row[9],
-                                PROVEEDOR_B = row[10],
-                                PORCENTAJE_B = Double.Parse(row[11]),
-                                PRECIO_B = Double.Parse(row[12]),
-                                CODIGO_B = row[13],
-                                PROVEEDOR_C = row[14],
-                                PORCENTAJE_C = Double.Parse(row[15]),
-                                PRECIO_C = Double.Parse(row[16]),
-                                CODIGO_C = row[17],
-                                LEADTIME = Double.Parse(row[18]),
-                                STOCK_SEGURIDAD = Double.Parse(row[19]),
-                                STOCK_MAXIMO = Double.Parse(row[20]),
-                                FRECUENCIA = Double.Parse(row[21])
-                            };
 
-                            var it_articulo = db.IT_ARTICULOS_PROVEEDOR.FirstOrDefault(x => x.REFERENCIA == it.REFERENCIA && x.CODALMACEN == it.CODALMACEN);
-                            if (it_articulo != null)
-                            {//se va a actualizar
-                                db.Entry(it_articulo).CurrentValues.SetValues(it);
-                                db.Entry(it_articulo).State = EntityState.Modified;
-                            }
-                            else // se crea uno nuevo
-                            {
-                                db.IT_ARTICULOS_PROVEEDOR.Add(it);
-                            }
-                            db.SaveChanges();
-                        }
-                    }
+                if (extension != ".xlsx")
+                {
+                    return new { code = -1, msg = "El archivo debe ser xlsx" }.RSon();
                 }
 
-                //return Json(new { status = "OK", message = "Datos cargados con éxito" });
+
+                var update = new List<IT_ARTICULOS_PROVEEDOR>();
+                var insert = new List<IT_ARTICULOS_PROVEEDOR>();
+
+                foreach (var it2 in ws)
+                {
+
+                    codArt = 0;
+                    fArtTemp = null;
+                    artTemp = null;
+                    flag = false;
+
+                    fArtTemp = db.FORMATOSARTICULOS.FirstOrDefault(x => x.CODBARRAS == it2.REFPROVEEDOR);
+                    if (fArtTemp != null)
+                    {
+                        codArt = fArtTemp.CODARTICULO;
+                    }
+
+                    if (codArt > 0)
+                    {
+                        flag = true;
+                    }
+
+                    if (!flag)
+                    {
+                        artTemp = db.ARTICULOS.FirstOrDefault(x => x.REFPROVEEDOR == it2.REFPROVEEDOR);
+                        if (artTemp != null)
+                        {
+                            codArt = artTemp.CODARTICULO;
+                        }
+
+                        if (codArt > 0)
+                        {
+                            flag = true;
+                        }
+                    }
+
+                    if (flag)
+                    {
+                        var it = new IT_ARTICULOS_PROVEEDOR()
+                        {
+                            REFERENCIA = it2.REFPROVEEDOR,
+                            CODARTICULO = codArt,
+                            DESCRIPCION = it2.DESCRIPCION,
+                            DOSIS = Double.Parse(it2.DOSIS),
+                            UNIDADM = it2.UNIDADM,
+                            UNIDADMD = it2.UNIDADMDES,
+                            CODALMACEN = it2.SUCURSAL,
+                            PROVEEDOR_A = it2.PROVEEDOR_A,
+                            PORCENTAJE_A = Double.Parse(it2.PORCENTAJE_A),
+                            PRECIO_A = Double.Parse(it2.PRECIO_A),
+                            CODIGO_A = it2.CODIGO_A,
+                            PROVEEDOR_B = it2.PROVEEDOR_B,
+                            PORCENTAJE_B = Double.Parse(it2.PORCENTAJE_B),
+                            PRECIO_B = Double.Parse(it2.PRECIO_B),
+                            CODIGO_B = it2.CODIGO_B,
+                            PROVEEDOR_C = it2.PROVEEDOR_C,
+                            PORCENTAJE_C = Double.Parse(it2.PORCENTAJE_C),
+                            PRECIO_C = Double.Parse(it2.PRECIO_C),
+                            CODIGO_C = it2.CODIGO_C,
+                            LEADTIME = Double.Parse(it2.LEADTIME),
+                            STOCK_SEGURIDAD = Double.Parse(it2.STOCK_SEGURIDAD),
+                            STOCK_MAXIMO = Double.Parse(it2.STOCK_MAXIMO),
+                            FRECUENCIA = Double.Parse(it2.FRECUENCIA)
+                        };
+
+                        var it_articulo = db.IT_ARTICULOS_PROVEEDOR.FirstOrDefault(x => x.REFERENCIA == it.REFERENCIA && x.CODALMACEN == it.CODALMACEN);
+                        if (it_articulo != null)
+                        {//se va a actualizar
+                            //db.Entry(it_articulo).CurrentValues.SetValues(it);
+                            //db.Entry(it_articulo).State = EntityState.Modified;
+                            update.Add(it);
+
+                        }
+                        else // se crea uno nuevo
+                        {
+                            //db.IT_ARTICULOS_PROVEEDOR2.Add(it);
+                            insert.Add(it);
+                        }
+                        //db.SaveChanges();
+                    }
+
+                }
+
+
+                db.BulkUpdate(update, options =>
+
+                    options.ColumnPrimaryKeyExpression = op => new
+                    {
+                        op.REFERENCIA,
+                        op.CODALMACEN,
+                    }
+                );
+
+                db.BulkInsert(insert, options =>
+
+                    options.ColumnPrimaryKeyExpression = op => new
+                    {
+                        op.REFERENCIA,
+                        op.CODALMACEN,
+                    });
+
+
             }
             catch (Exception e)
             {
                 return new { code = -1, msg = e.Message }.RSon();
             }
 
-            return new { code = 0, msg = "Archivos procesados correctamente." }.RSon();
+            return new { code = 0, msg = "Archivo procesado correctamente." }.RSon();
         }
+
+
+
+
+
+
+        //[HttpPost]
+        //public async Task<IActionResult> Excel(IFormFile xmlFile)
+        //{
+        //    try
+        //    {
+        //        MLAVIDContext db = new MLAVID_DB();
+        //        string extension = Path.GetExtension(xmlFile.FileName);
+        //        int codArt = 0;
+        //        bool flag = false;
+        //        ARTICULOS artTemp = null;
+        //        FORMATOSARTICULOS fArtTemp = null;
+        //        if (extension != ".csv")
+        //        return Json(new { status = "FAIl", message = "El archivo debe ser CSV" });
+        //        using (var reader = new StreamReader(xmlFile.OpenReadStream()))
+        //        {
+        //            var a1 = reader.ReadLine();
+
+        //            while (!reader.EndOfStream)
+        //            {
+        //                codArt = 0;
+        //                fArtTemp = null;
+        //                artTemp = null;
+        //                flag = false;
+        //                string[] row = reader.ReadLine().Split('|');
+        //                fArtTemp = db.FORMATOSARTICULOS.FirstOrDefault(x => x.CODBARRAS == row[0]);
+        //                if (fArtTemp != null)
+        //                    codArt = fArtTemp.CODARTICULO;
+        //                if (codArt > 0)
+        //                    flag = true;
+        //                if (!flag)
+        //                {
+        //                    artTemp = db.ARTICULOS.FirstOrDefault(x => x.REFPROVEEDOR == row[0]);
+        //                    if (artTemp != null)
+        //                        codArt = artTemp.CODARTICULO;
+        //                    if (codArt > 0)
+        //                        flag = true;
+        //                }
+        //                if (flag)
+        //                {
+        //                    IT_ARTICULOS_PROVEEDOR it = new IT_ARTICULOS_PROVEEDOR()
+        //                    {
+        //                        REFERENCIA = row[0],
+        //                        CODARTICULO = codArt,
+        //                        DESCRIPCION = row[1],
+        //                        DOSIS = Double.Parse(row[2]),
+        //                        UNIDADM = row[3],
+        //                        UNIDADMD = row[4],
+        //                        CODALMACEN = row[5],
+        //                        PROVEEDOR_A = row[6],
+        //                        PORCENTAJE_A = Double.Parse(row[7]),
+        //                        PRECIO_A = Double.Parse(row[8]),
+        //                        CODIGO_A = row[9],
+        //                        PROVEEDOR_B = row[10],
+        //                        PORCENTAJE_B = Double.Parse(row[11]),
+        //                        PRECIO_B = Double.Parse(row[12]),
+        //                        CODIGO_B = row[13],
+        //                        PROVEEDOR_C = row[14],
+        //                        PORCENTAJE_C = Double.Parse(row[15]),
+        //                        PRECIO_C = Double.Parse(row[16]),
+        //                        CODIGO_C = row[17],
+        //                        LEADTIME = Double.Parse(row[18]),
+        //                        STOCK_SEGURIDAD = Double.Parse(row[19]),
+        //                        STOCK_MAXIMO = Double.Parse(row[20]),
+        //                        FRECUENCIA = Double.Parse(row[21])
+        //                    };
+
+        //                    var it_articulo = db.IT_ARTICULOS_PROVEEDOR.FirstOrDefault(x => x.REFERENCIA == it.REFERENCIA && x.CODALMACEN == it.CODALMACEN);
+        //                    if (it_articulo != null)
+        //                    {//se va a actualizar
+        //                        db.Entry(it_articulo).CurrentValues.SetValues(it);
+        //                        db.Entry(it_articulo).State = EntityState.Modified;
+        //                    }
+        //                    else // se crea uno nuevo
+        //                    {
+        //                        db.IT_ARTICULOS_PROVEEDOR.Add(it);
+        //                    }
+        //                    db.SaveChanges();
+        //                }
+        //            }
+        //        }
+
+        //        //return Json(new { status = "OK", message = "Datos cargados con éxito" });
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return new { code = -1, msg = e.Message }.RSon();
+        //    }
+
+        //    return new { code = 0, msg = "Archivos procesados correctamente." }.RSon();
+        //}
 
 
         [HttpPost]

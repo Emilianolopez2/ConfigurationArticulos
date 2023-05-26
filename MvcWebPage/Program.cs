@@ -83,6 +83,17 @@ builder.Services.AddDbContext<MLAVIDContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")));
 
+
+Z.EntityFramework.Extensions.LicenseManager.AddLicense("760;101-ABC", "3881911-28135EB-B035DF8-8E5B08D-AF1C");
+string licenseErrorMessage;
+if (!Z.EntityFramework.Extensions.LicenseManager.ValidateLicense(out licenseErrorMessage))
+{
+    throw new Exception(licenseErrorMessage);
+}
+//var a1 = ($"Z.EntityFramework.Extensions.LicenseManager.IsLicenseAdded(): {Z.EntityFramework.Extensions.LicenseManager.IsLicenseAdded()}");
+//var a2 = ($"Z.EntityFramework.Extensions.LicenseManager.IsTrialMode(): {Z.EntityFramework.Extensions.LicenseManager.IsTrialMode()}");
+//var a3 = ($"Z.EntityFramework.Extensions.LicenseManager.IsTrialExpired(): {Z.EntityFramework.Extensions.LicenseManager.IsTrialExpired()}");
+
 //builder.Services.AddControllersWithViews().AddNewtonsoftJson();
 
 /*

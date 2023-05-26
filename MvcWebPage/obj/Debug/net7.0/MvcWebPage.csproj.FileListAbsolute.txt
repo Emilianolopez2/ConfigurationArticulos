@@ -2024,8 +2024,17 @@ C:\Users\genar\OneDrive\Escritorio\Nueva carpeta (2)\MvcWebPage\MvcWebPage\obj\D
 C:\Users\genar\OneDrive\Escritorio\Nueva carpeta (2)\MvcWebPage\MvcWebPage\obj\Debug\net7.0\MvcWebPage.pdb
 C:\Users\genar\OneDrive\Escritorio\Nueva carpeta (2)\MvcWebPage\MvcWebPage\obj\Debug\net7.0\MvcWebPage.genruntimeconfig.cache
 C:\Users\genar\OneDrive\Escritorio\Nueva carpeta (2)\MvcWebPage\MvcWebPage\obj\Debug\net7.0\ref\MvcWebPage.dll
-C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\appsettings.Development.json
+C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\obj\Debug\net7.0\MvcWebPage.csproj.AssemblyReference.cache
+C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\obj\Debug\net7.0\MvcWebPage.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\obj\Debug\net7.0\MvcWebPage.AssemblyInfoInputs.cache
+C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\obj\Debug\net7.0\MvcWebPage.AssemblyInfo.cs
+C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\obj\Debug\net7.0\MvcWebPage.csproj.CoreCompileInputs.cache
+C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\obj\Debug\net7.0\MvcWebPage.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\obj\Debug\net7.0\MvcWebPage.RazorAssemblyInfo.cache
+C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\obj\Debug\net7.0\MvcWebPage.RazorAssemblyInfo.cs
+C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\obj\Debug\net7.0\EFCoreSqlServerDateOnlyTimeOnly.cs
 C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\web.config
+C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\appsettings.json
 C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\efpt.config.json
 C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\libman.json
@@ -2283,21 +2292,7 @@ C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bi
 C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
-C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\obj\Debug\net7.0\MvcWebPage.csproj.AssemblyReference.cache
-C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\obj\Debug\net7.0\MvcWebPage.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\obj\Debug\net7.0\MvcWebPage.AssemblyInfoInputs.cache
-C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\obj\Debug\net7.0\MvcWebPage.AssemblyInfo.cs
-C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\obj\Debug\net7.0\MvcWebPage.csproj.CoreCompileInputs.cache
-C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\obj\Debug\net7.0\MvcWebPage.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\obj\Debug\net7.0\MvcWebPage.RazorAssemblyInfo.cache
-C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\obj\Debug\net7.0\MvcWebPage.RazorAssemblyInfo.cs
-C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\obj\Debug\net7.0\EFCoreSqlServerDateOnlyTimeOnly.cs
 C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\obj\Debug\net7.0\staticwebassets\msbuild.MvcWebPage.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\obj\Debug\net7.0\staticwebassets\msbuild.build.MvcWebPage.props
 C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.MvcWebPage.props
@@ -2314,3 +2309,15 @@ C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\ob
 C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\obj\Debug\net7.0\MvcWebPage.pdb
 C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\obj\Debug\net7.0\MvcWebPage.genruntimeconfig.cache
 C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\obj\Debug\net7.0\ref\MvcWebPage.dll
+C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\ClosedXML.dll
+C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\DocumentFormat.OpenXml.dll
+C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\ExcelNumberFormat.dll
+C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\Irony.dll
+C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\SixLabors.Fonts.dll
+C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\System.IO.Packaging.dll
+C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\XLParser.dll
+C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\Z.EntityFramework.Extensions.EFCore.dll
+C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
+C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Arozqueta\Documents\MLAVIDPROYECTO\ConfigurationArticulos\MvcWebPage\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
