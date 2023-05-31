@@ -265,10 +265,14 @@
                                 <div class="stat-content">
                                     <div class="text-left dib">
                                         <center><div class="stat-heading">PEDIDOS </div></center>
-                                        <div class="stat-text"><span class="count">Enviados</span></div>
-                                        <div class="stat-text"><span class="count">Autorizados</span></div>
-                                        <div class="stat-text"><span class="count">No autorizados </span></div>
-                                        <div class="stat-text"><span class="count">Pendientes a recibir</span></div>
+                                        <div class="stat-text"><span class="count">Enviados <span id="_enviados"></span></span></div>
+                                        
+
+                                        <div class="stat-text"><span class="count">Autorizados <span id="_autorizados"></span></span></div>
+                                        <div class="stat-text"><span class="count">No autorizados <span id="_noAutorizados"></span></span></div>
+                                        <div class="stat-text"><span class="count">Pendientes a recibir <span id="_pendientesRecibir"></span></span></div>
+                                        <div class="stat-text"><span class="count">Rechazados <span id="_rechazados"></span></span></div>
+                                        <div class="stat-text"><span class="count">EntregaPendiente <span id="_entregaPendiente"></span></span></div>
                                     </div>
                                 </div>
                             </div>
@@ -757,6 +761,43 @@
 
         <!--Local Stuff-->
         <script>
+
+
+            getData2('@Url.Action("getValues", "PEDCOMPRACABs")',
+            { },
+            function (respuesta) {
+                    data = JSON.parse(respuesta);
+
+                    
+
+                    var xAutorizar = data.xAutorizar;
+                    var rechazado = data.rechazado;
+                    var entregaPendiente = data.entregaPendiente;
+                    var enTransito = data.enTransito;
+                    var pendienteRecibir = data.pendienteRecibir;
+
+                    $("#_enviados").html(xAutorizar);
+                    $("#_rechazados").html(rechazado);
+                    $("#_pendientesRecibir").html(pendienteRecibir);
+                    $("#_entregaPendiente").html(entregaPendiente);
+
+
+                    //$("#_noAutorizados").html(pendienteRecibir);
+
+
+                    console.log('xAutorizar:', xAutorizar);
+                    console.log('rechazado:', rechazado);
+                    console.log('entregaPendiente:', entregaPendiente);
+                    console.log('enTransito:', enTransito);
+                    console.log('pendienteRecibir:', pendienteRecibir);
+
+            });
+            
+
+
+
+
+
             jQuery(document).ready(function ($) {
                 "use strict";
 

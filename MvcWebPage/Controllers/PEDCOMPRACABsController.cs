@@ -5,9 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using MvcWebPage.Data;
 using MvcWebPage.MLAVID;
-using NuGet.ProjectModel;
 
 namespace MvcWebPage.Controllers
 {
@@ -20,15 +18,25 @@ namespace MvcWebPage.Controllers
             _context = context;
         }
 
-        public async IActionResult conteo()
+        public IActionResult getValues()
         {
-            var resultado = await ctx.OrderDetails.Include(x => x.IDESTADO)
-                  .GroupBy(x => new { x.IDESTADO.productname, x.IDESTADO.productid })
-                   .Select(x => new { status = x.Key, Total = x.Count() }).TolistAsync();
-            return Json(resultado);
+            var xAutorizar = _context.PEDCOMPRACAB.Count(s => s.IDESTADO == 0);
+            var rechazado = _context.PEDCOMPRACAB.Count(s => s.IDESTADO == 1);
+            var entregaPendiente = _context.PEDCOMPRACAB.Count(s => s.IDESTADO == 2);
+            var enTransito = _context.PEDCOMPRACAB.Count(s => s.IDESTADO == 3);
+            var pendienteRecibir = _context.PEDCOMPRACAB.Count(s => s.IDESTADO == 4);
 
 
+            return new { 
+                xAutorizar = xAutorizar, 
+                rechazado = rechazado,
+                entregaPendiente = entregaPendiente, 
+                enTransito = enTransito, 
+                pendienteRecibir = pendienteRecibir 
+            }.RSon();
         }
+
+
 
         // GET: PEDCOMPRACABs
         public async Task<IActionResult> Index()
