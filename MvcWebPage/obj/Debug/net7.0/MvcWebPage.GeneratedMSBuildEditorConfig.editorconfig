@@ -92,6 +92,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uZmlndXJhY2lvbkFydGljdWxvc1xVcGxvYWQxLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/DASHBORDS/dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcREFTSEJPUkRTXGRhc2hib2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/GenerarPedidos/cbSucursales.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VuZXJhclBlZGlkb3NcY2JTdWN1cnNhbGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -222,6 +226,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/InventariosFisicos/InventariosFisicosSemanales.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb3NGaXNpY29zXEludmVudGFyaW9zRmlzaWNvc1NlbWFuYWxlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/PEDCOMPRACABs/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUEVEQ09NUFJBQ0FCc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/PEDCOMPRACABs/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUEVEQ09NUFJBQ0FCc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/PEDCOMPRACABs/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUEVEQ09NUFJBQ0FCc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/PEDCOMPRACABs/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUEVEQ09NUFJBQ0FCc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/PEDCOMPRACABs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUEVEQ09NUFJBQ0FCc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Arozqueta/Documents/MLAVIDPROYECTO/ConfigurationArticulos/MvcWebPage/Views/PedidosAutorizados/btnFiltro.cshtml]
