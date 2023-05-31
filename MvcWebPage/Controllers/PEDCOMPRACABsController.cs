@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using MvcWebPage.Data;
 using MvcWebPage.MLAVID;
+using NuGet.ProjectModel;
 
 namespace MvcWebPage.Controllers
 {
@@ -16,6 +18,16 @@ namespace MvcWebPage.Controllers
         public PEDCOMPRACABsController(MLAVIDContext context)
         {
             _context = context;
+        }
+
+        public async IActionResult conteo()
+        {
+            var resultado = await ctx.OrderDetails.Include(x => x.IDESTADO)
+                  .GroupBy(x => new { x.IDESTADO.productname, x.IDESTADO.productid })
+                   .Select(x => new { status = x.Key, Total = x.Count() }).TolistAsync();
+            return Json(resultado);
+
+
         }
 
         // GET: PEDCOMPRACABs
